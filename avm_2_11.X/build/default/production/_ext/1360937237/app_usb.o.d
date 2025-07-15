@@ -1,7 +1,6 @@
-build/default/debug/_ext/1171490990/initialization.o: \
- ../src/config/default/initialization.c \
- ../src/config/default/configuration.h ../src/config/default/user.h \
- ../src/config/default/device.h \
+build/default/production/_ext/1360937237/app_usb.o: ../src/app_usb.c \
+ ../src/app_usb.h ../src/config/default/configuration.h \
+ ../src/config/default/user.h ../src/config/default/device.h \
  ../src/packs/ATSAMD51J20A_DFP/samd51j20a.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/core_cm4.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_version.h \
@@ -112,7 +111,6 @@ build/default/debug/_ext/1171490990/initialization.o: \
  ../src/config/default/peripheral/cmcc/plib_cmcc.h \
  ../src/config/default/usb/usb_chapter_9.h \
  ../src/config/default/usb/usb_device.h \
- ../src/config/default/configuration.h \
  ../src/config/default/system/system.h \
  ../src/config/default/system/system_common.h \
  ../src/config/default/system/system_module.h \
@@ -147,6 +145,8 @@ build/default/debug/_ext/1171490990/initialization.o: \
  ../src/config/default/osal/osal_impl_basic.h \
  ../src/config/default/system/debug/sys_debug.h \
  ../src/config/default/system/console/sys_console.h ../src/app.h
+
+../src/app_usb.h:
 
 ../src/config/default/configuration.h:
 
@@ -373,8 +373,6 @@ build/default/debug/_ext/1171490990/initialization.o: \
 ../src/config/default/usb/usb_chapter_9.h:
 
 ../src/config/default/usb/usb_device.h:
-
-../src/config/default/configuration.h:
 
 ../src/config/default/system/system.h:
 

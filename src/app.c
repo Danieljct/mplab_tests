@@ -35,42 +35,7 @@
 // *****************************************************************************
 // *****************************************************************************
 
-// *****************************************************************************
-/* Application Data
-
-  Summary:
-    Holds application data
-
-  Description:
-    This structure holds the application's data.
-
-  Remarks:
-    This structure should be initialized by the APP_Initialize function.
-
-    Application strings and buffers are be defined outside this structure.
-*/
-
 APP_DATA appData;
-
-// *****************************************************************************
-// *****************************************************************************
-// Section: Application Callback Functions
-// *****************************************************************************
-// *****************************************************************************
-
-/* TODO:  Add any necessary callback functions.
-*/
-
-// *****************************************************************************
-// *****************************************************************************
-// Section: Application Local Functions
-// *****************************************************************************
-// *****************************************************************************
-
-
-/* TODO:  Add any necessary local functions.
-*/
-
 
 // *****************************************************************************
 // *****************************************************************************
@@ -90,14 +55,7 @@ void APP_Initialize ( void )
 {
     /* Place the App state machine in its initial state. */
     appData.state = APP_STATE_INIT;
-
-
-
-    /* TODO: Initialize your application's state machine and other
-     * parameters.
-     */
 }
-
 
 /******************************************************************************
   Function:
@@ -109,42 +67,30 @@ void APP_Initialize ( void )
 
 void APP_Tasks ( void )
 {
-
     /* Check the application's current state. */
     switch ( appData.state )
     {
         /* Application's initial state. */
         case APP_STATE_INIT:
         {
-            bool appInitialized = true;
-
-
-            if (appInitialized)
-            {
-
-                appData.state = APP_STATE_SERVICE_TASKS;
-            }
+            appData.state = APP_STATE_SERVICE_TASKS;
             break;
         }
 
         case APP_STATE_SERVICE_TASKS:
         {
-
+            /* This application doesn't do much - just toggles state */
+            /* The actual USB functionality is handled by app_usb.c */
             break;
         }
-
-        /* TODO: implement your application state machine.*/
-
 
         /* The default state should never be executed. */
         default:
         {
-            /* TODO: Handle error in application's state machine. */
             break;
         }
     }
 }
-
 
 /*******************************************************************************
  End of File

@@ -144,7 +144,6 @@ build/default/production/_ext/818654064/drv_usbfsv1.o: \
  ../src/config/default/peripheral/adc/plib_adc1.h \
  ../src/config/default/peripheral/adc/plib_adc_common.h \
  ../src/config/default/system/console/sys_console.h \
- ../src/config/default/system/console/src/sys_console_usb_cdc_definitions.h \
  ../src/config/default/system/int/sys_int.h \
  ../src/config/default/system/cache/sys_cache.h \
  ../src/config/default/osal/osal.h \
@@ -446,8 +445,6 @@ build/default/production/_ext/818654064/drv_usbfsv1.o: \
 ../src/config/default/peripheral/adc/plib_adc_common.h:
 
 ../src/config/default/system/console/sys_console.h:
-
-../src/config/default/system/console/src/sys_console_usb_cdc_definitions.h:
 
 ../src/config/default/system/int/sys_int.h:
 

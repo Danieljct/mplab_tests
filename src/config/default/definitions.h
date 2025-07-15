@@ -62,7 +62,6 @@
 #include "driver/usb/usbfsv1/drv_usbfsv1.h"
 #include "peripheral/adc/plib_adc1.h"
 #include "system/console/sys_console.h"
-#include "system/console/src/sys_console_usb_cdc_definitions.h"
 #include "system/int/sys_int.h"
 #include "system/cache/sys_cache.h"
 #include "osal/osal.h"

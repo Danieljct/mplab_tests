@@ -141,7 +141,6 @@ build/default/debug/_ext/818654064/drv_usbfsv1_device.o: \
  ../src/config/default/system/console/sys_console.h \
  ../src/config/default/driver/driver.h \
  ../src/config/default/system/console/src/sys_console_local.h \
- ../src/config/default/system/console/src/sys_console_usb_cdc_definitions.h \
  ../src/config/default/system/int/sys_int.h \
  ../src/config/default/system/cache/sys_cache.h \
  ../src/config/default/osal/osal.h \
@@ -438,8 +437,6 @@ build/default/debug/_ext/818654064/drv_usbfsv1_device.o: \
 ../src/config/default/driver/driver.h:
 
 ../src/config/default/system/console/src/sys_console_local.h:
-
-../src/config/default/system/console/src/sys_console_usb_cdc_definitions.h:
 
 ../src/config/default/system/int/sys_int.h:
 

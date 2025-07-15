@@ -53,6 +53,7 @@
 #include "configuration.h"
 #include "definitions.h"
 #include "sys_tasks.h"
+#include "app_usb.h"
 
 
 
@@ -73,8 +74,7 @@
 void SYS_Tasks ( void )
 {
     /* Maintain system services */
-    SYS_CONSOLE_Tasks(SYS_CONSOLE_INDEX_0);
-
+    
 
 
     /* Maintain Device Drivers */
@@ -92,6 +92,7 @@ void SYS_Tasks ( void )
     /* Maintain the application's state machine. */
         /* Call Application task APP. */
     APP_Tasks();
+    APP_USB_Tasks();
 
 
 
