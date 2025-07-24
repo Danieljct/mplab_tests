@@ -1,0 +1,2051 @@
+Archive member included to satisfy reference by file (symbol)
+
+c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+                              build/default/debug/_ext/1171490990/startup_xc32.o (__pic32c_data_initialization)
+c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+                              build/default/debug/_ext/818654064/drv_usbfsv1_device.o (memcpy)
+c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+                              build/default/debug/_ext/818654064/drv_usbfsv1_device.o (memset)
+c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+                              build/default/debug/_ext/1171490990/startup_xc32.o (__libc_init_array)
+c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(libc.o)
+                              c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o) (__progname_full)
+c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__environ.o)
+                              c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o) (__environ)
+c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_clear.o)
+                              (__dinit_clear_needed)
+c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_copy.o)
+                              (__dinit_copy_needed)
+
+Microchip PIC32 Memory-Usage Report
+
+ROM Program-Memory Usage
+section                    address  length [bytes]      (dec)  Description
+-------                 ----------  -------------------------  -----------
+.vectors                         0          0x260         608   
+.text                        0x260           0x20          32  App's exec code 
+.text.F_DRV_USBFSV1_DEV      0x280          0x5f4        1524   
+.text.DRV_USBFSV1_DEVIC      0x874          0x40c        1036   
+.text.DRV_USBFSV1_DEVIC      0xc80          0x1c0         448   
+.text.DRV_USBFSV1_DEVIC      0xe40          0x1a4         420   
+.text.DRV_USBFSV1_DEVIC      0xfe4          0x178         376   
+.text.DRV_USBFSV1_DEVIC     0x115c          0x178         376   
+.text.F_USB_DEVICE_Even     0x12d4          0x130         304   
+.text.DRV_USBFSV1_Initi     0x1404          0x12c         300   
+.text.DRV_USBFSV1_DEVIC     0x1530          0x12c         300   
+.text.DRV_USBFSV1_DEVIC     0x165c          0x128         296   
+.text.F_USB_DEVICE_Proc     0x1784          0x124         292   
+.dinit                      0x18a8          0x120         288   
+.text.DRV_USBFSV1_DEVIC     0x19c8          0x10c         268   
+.text.DRV_USBFSV1_Tasks     0x1ad4           0xf0         240   
+.text.F_USB_DEVICE_Cont     0x1bc4           0xf0         240   
+.text.F_USB_DEVICE_Ep0R     0x1cb4           0xe8         232   
+.text.CLOCK_Initialize      0x1d9c           0xdc         220   
+.text.F_USB_DEVICE_Proc     0x1e78           0xda         218   
+.text.DRV_USBFSV1_DEVIC     0x1f52            0x2           2   
+.text.USB_DEVICE_Initia     0x1f54           0xd0         208   
+.text.DRV_USBFSV1_Tasks     0x2024           0xc4         196   
+.text.APP_USBDeviceEven     0x20e8           0xa8         168   
+.text.F_USB_DEVICE_CDC_     0x2190           0xa8         168   
+.text.USBDeviceCDCEvent     0x2238           0xa0         160   
+.text.F_USB_DEVICE_CDC_     0x22d8           0x98         152   
+.text.USB_DEVICE_Tasks      0x2370           0x90         144   
+.text.Reset_Handler         0x2400           0x8c         140   
+.text.F_USB_DEVICE_CDC_     0x248c           0x80         128   
+.text.F_USB_DEVICE_GetS     0x250c           0x7a         122   
+.text.F_USB_DEVICE_Proc     0x2586           0x78         120   
+.text.EVSYS_Initialize      0x25fe            0x2           2   
+.text.NVIC_Initialize       0x2600           0x70         112   
+.text.F_USB_DEVICE_Conf     0x2670           0x6e         110   
+.text.F_USB_DEVICE_Ep0T     0x26de           0x66         102   
+.text.__libc_start_init     0x2744           0x5c          92   
+.text.F_USB_DEVICE_DeIn     0x27a0           0x50          80   
+.text.F_USB_DEVICE_Forw     0x27f0           0x4c          76   
+.text.F_USB_DEVICE_GetF     0x283c           0x4a          74   
+.text.Dummy_App_Func        0x2886            0x2           2   
+.text.SYS_Initialize        0x2888           0x44          68   
+.rodata.fullSpeedConfig     0x28cc           0x44          68   
+.text.USB_DEVICE_Contro     0x2910           0x44          68   
+.text.SYS_INT_SourceDis     0x2954           0x44          68   
+.text.USB_DEVICE_Contro     0x2998           0x42          66   
+.text.__dummy_init_tls      0x29da            0x2           2   
+.text                       0x29dc           0x40          64  App's exec code 
+.text.F_USB_DEVICE_Find     0x2a1c           0x3c          60   
+.text.F_DRV_USBFSV1_DEV     0x2a58           0x38          56   
+.text.F_USB_DEVICE_CDC_     0x2a90           0x38          56   
+.text.USB_DEVICE_Open       0x2ac8           0x38          56   
+.text.__pic32c_data_ini     0x2b00           0x38          56   
+.text.APP_Tasks             0x2b38           0x34          52   
+.text.PORT_Initialize       0x2b6c           0x34          52   
+.rodata.sd001               0x2ba0           0x34          52   
+.rodata.sd002               0x2bd4           0x30          48   
+.text.DRV_USBFSV1_DEVIC     0x2c04           0x2e          46   
+.text.F_USB_DEVICE_Redi     0x2c32           0x2e          46   
+.rodata.usbDevInitData      0x2c60           0x2c          44   
+.rodata.usbMasterDescri     0x2c8c           0x2c          44   
+.text.F_DRV_USBFSV1_DEV     0x2cb8           0x28          40   
+.rodata.drvUSBInit          0x2ce0           0x28          40   
+.text.USB_DEVICE_EventH     0x2d08           0x28          40   
+.text.DRV_USBFSV1_DEVIC     0x2d30           0x26          38   
+.text.USB_DEVICE_Detach     0x2d56           0x26          38   
+.text.USB_DEVICE_Endpoi     0x2d7c           0x26          38   
+.text.__dummy               0x2da2            0x2           2   
+.text.DRV_USBFSV1_Open      0x2da4           0x24          36   
+.text.DRV_USBFSV1_DEVIC     0x2dc8           0x24          36   
+.text.USB_DEVICE_Contro     0x2dec           0x24          36   
+.text.SYS_Tasks             0x2e10           0x20          32   
+.text.F_USB_DEVICE_CDC_     0x2e30           0x20          32   
+.text.USB_DEVICE_Attach     0x2e50           0x20          32   
+.text.USB_DEVICE_Endpoi     0x2e70           0x1e          30   
+.text.USB_DEVICE_IRPCan     0x2e8e           0x1e          30   
+.text.__dinit_copy          0x2eac           0x1e          30   
+.text.USB_DEVICE_CDC_Ev     0x2ecc           0x1c          28   
+.text.memcpy                0x2ee8           0x1c          28   
+.text.F_USB_DEVICE_Clie     0x2f04           0x18          24   
+.text.F_USB_DEVICE_CDC_     0x2f1c           0x14          20   
+.rodata.cdcFunctionDriv     0x2f30           0x14          20   
+.rodata.usbDeviceDescri     0x2f44           0x14          20   
+.text.CDC_Tasks             0x2f58           0x14          20   
+.rodata                     0x2f6c           0x14          20  Read-only const 
+.text.memset                0x2f80           0x14          20   
+.text.DRV_USBFSV1_Close     0x2f94           0x12          18   
+.text.DRV_USBFSV1_DEVIC     0x2fa6           0x12          18   
+.text.DRV_USBFSV1_DEVIC     0x2fb8           0x12          18   
+.text.NVIC_INT_Disable      0x2fca           0x12          18   
+.text.NVIC_INT_Restore      0x2fdc           0x12          18   
+.text.__dinit_clear         0x2fee           0x12          18   
+.text.DRV_USBFSV1_OTHER     0x3000           0x10          16   
+.text.DRV_USBFSV1_SOF_H     0x3010           0x10          16   
+.text.DRV_USBFSV1_TRCPT     0x3020           0x10          16   
+.text.DRV_USBFSV1_TRCPT     0x3030           0x10          16   
+.text.DRV_USBFSV1_Clien     0x3040           0x10          16   
+.text.DRV_USBFSV1_DEVIC     0x3050           0x10          16   
+.text.NVMCTRL_Initializ     0x3060           0x10          16   
+.rodata.funcRegistratio     0x3070           0x10          16   
+.text.DRV_USBFSV1_DEVIC     0x3080            0xe          14   
+.text.main                  0x308e            0xe          14   
+.text.APP_Initialize        0x309c            0xc          12   
+.rodata.cdcInit0            0x30a8            0xc          12   
+.rodata.stringDescripto     0x30b4            0xc          12   
+.text.CDC_Initialize        0x30c0            0xc          12   
+.rodata.gDrvUSBFSV1Devi     0x30cc            0x8           8   
+.rodata.gDrvUSBFSV1Devi     0x30d4            0x4           4   
+.rodata.fullSpeedConfig     0x30d8            0x4           4   
+.rodata.sd000               0x30dc            0x4           4   
+.text.NonMaskableInt_Ha     0x30e0            0x4           4   
+.text.HardFault_Handler     0x30e4            0x4           4   
+.text.DebugMonitor_Hand     0x30e8            0x4           4   
+.text.MemoryManagement_     0x30ec            0x4           4   
+.text.BusFault_Handler      0x30f0            0x4           4   
+.text.UsageFault_Handle     0x30f4            0x4           4   
+.text.Dummy_Handler         0x30f8            0x4           4   
+.text.__dummy_decompres     0x30fc            0x4           4   
+      Total ROM used  :      0x30fe       12542  1.2% of 0x100000
+        --------------------------------------------------------------------------
+         Total Program Memory used  :      0x30fe       12542  1.2% of 0x100000
+        --------------------------------------------------------------------------
+
+
+RAM Data-Memory Usage
+section                    address  length [bytes]      (dec)  Description
+-------                 ----------  -------------------------  -----------
+.bss.gDrvUSBFSV1Obj     0x20000000          0x138         312   
+.bss.usbDeviceInstance  0x20000138           0xf4         244   
+.bss                    0x2000022c           0x50          80  Uninitialized data 
+.bss.gUSBDeviceCDCInsta 0x2000027c           0x44          68   
+.bss.gDrvEP0BufferBank0 0x200002c0           0x40          64   
+.bss.gDrvEP0BufferBank1 0x20000300           0x40          64   
+.bss.gDrvUSBEndpointObj 0x20000340           0x30          48   
+.bss                    0x20000370           0x1c          28  Uninitialized data 
+.bss.cdcData            0x2000038c           0x14          20   
+.bss.gUSBDeviceCDCSeria 0x200003a0            0xa          10   
+.bss.breakDuration      0x200003aa            0x2           2   
+.bss.appData            0x200003ac            0xc          12   
+.bss.sysObj             0x200003b8            0x8           8   
+.bss.controlLineStateDa 0x200003c0            0x4           4   
+.bss                    0x200003c4            0x4           4  Uninitialized data 
+.bss                    0x200003c8            0x4           4  Uninitialized data 
+.bss.gUSBDeviceCdcCommo 0x200003cc            0x2           2   
+.data.gDrvUSBFSV1Device 0x200003d0           0x50          80   
+.data.lineCoding        0x20000420            0x7           7   
+         Total RAM used  :       0x425        1061  0.4% of 0x40000
+        --------------------------------------------------------------------------
+            Total Data Memory used  :       0x425        1061  0.4% of 0x40000
+        --------------------------------------------------------------------------
+
+
+Dynamic Data-Memory Reservation
+section                    address  length [bytes]      (dec)  Description
+-------                 ----------  -------------------------  -----------
+heap                    0x20000428          0x200         512  Reserved for heap 
+stack                   0x20000640        0x3f9b0      260528  Reserved for stack 
+
+        --------------------------------------------------------------------------
+
+Microchip PIC32 Memory-Usage Report By Module
+
+        text        data         bss         dec         hex    basename                   filename
+--------------------------------------------------------------------------------
+        5340          80         176        5596        15dc    drv_usbfsv1_device.o   build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+        2886           0         244        3130         c3a    usb_device.o           build/default/debug/_ext/308758920/usb_device.o
+         870           0         312        1182         49e    drv_usbfsv1.o          build/default/debug/_ext/818654064/drv_usbfsv1.o
+         612           0           0         612         264    interrupts.o           build/default/debug/_ext/1171490990/interrupts.o
+         476           0          80         556         22c    usb_device_cdc.o       build/default/debug/_ext/308758920/usb_device_cdc.o
+         324           0           0         324         144    usb_device_init_data.o build/default/debug/_ext/1171490990/usb_device_init_data.o
+         288           0           0         288         120    data_init              data_init
+         232           0          12         244          f4    app.o                  build/default/debug/_ext/1360937237/app.o
+         192           7          26         225          e1    cdc.o                  build/default/debug/_ext/1360937237/cdc.o
+         220           0           0         220          dc    plib_clock.o           build/default/debug/_ext/1984496892/plib_clock.o
+         148           0           0         148          94    plib_nvic.o            build/default/debug/_ext/1865468468/plib_nvic.o
+         142           0           0         142          8e    startup_xc32.o         build/default/debug/_ext/1171490990/startup_xc32.o
+         128           0           0         128          80    usb_device_cdc_acm.o   build/default/debug/_ext/308758920/usb_device_cdc_acm.o
+         120           0           8         128          80    initialization.o       build/default/debug/_ext/1171490990/initialization.o
+          72           0          28         100          64    crtbegin.o             c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+          94           0           0          94          5e    __libc_start_main.o    libg-musl.a
+          82           0           4          86          56    data_init.o            libpic32c.a
+           0           0          80          80          50    libc.o                 libg-musl.a
+          68           0           0          68          44    sys_int.o              build/default/debug/_ext/1881668453/sys_int.o
+          52           0           0          52          34    plib_port.o            build/default/debug/_ext/1865521619/plib_port.o
+          32           0           0          32          20    tasks.o                build/default/debug/_ext/1171490990/tasks.o
+          30           0           0          30          1e    pic32_data_init_copy.o libpic32c.a
+          28           0           0          28          1c    memcpy.o               libc-size-musl.a
+          24           0           0          24          18    exceptions.o           build/default/debug/_ext/1171490990/exceptions.o
+          20           0           0          20          14    memset.o               libc-size-musl.a
+          18           0           0          18          12    pic32_data_init_clear.olibpic32c.a
+          16           0           0          16          10    plib_nvmctrl.o         build/default/debug/_ext/1593096446/plib_nvmctrl.o
+          16           0           0          16          10    crtn.o                 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtn.o
+          14           0           0          14           e    main.o                 build/default/debug/_ext/1360937237/main.o
+           8           0           0           8           8    crti.o                 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crti.o
+           0           0           4           4           4    __environ.o            libg-musl.a
+           2           0           0           2           2    plib_evsys.o           build/default/debug/_ext/1986646378/plib_evsys.o
+--------------------------------------------------------------------------------
+       12554          87         974       13615        352f    dist/default/debug/serial.debug.elf
+
+
+Discarded input sections
+
+ .text          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crti.o
+ .data          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crti.o
+ .bss           0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crti.o
+ .xc_stack_usage.hdr
+                0x0000000000000000        0xe c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crti.o
+ .xc_stack_usage
+                0x0000000000000000       0x26 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crti.o
+ .data          0x0000000000000000        0x4 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .xc_stack_usage
+                0x0000000000000000       0x3c c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .xc_stack_usage.hdr
+                0x0000000000000000        0xe c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1171490990/libc_syscalls.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1171490990/libc_syscalls.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1171490990/libc_syscalls.o
+ .text._exit    0x0000000000000000        0x4 build/default/debug/_ext/1171490990/libc_syscalls.o
+ .debug_info    0x0000000000000000       0xa4 build/default/debug/_ext/1171490990/libc_syscalls.o
+ .debug_abbrev  0x0000000000000000       0x5a build/default/debug/_ext/1171490990/libc_syscalls.o
+ .debug_aranges
+                0x0000000000000000       0x20 build/default/debug/_ext/1171490990/libc_syscalls.o
+ .debug_ranges  0x0000000000000000       0x10 build/default/debug/_ext/1171490990/libc_syscalls.o
+ .debug_line    0x0000000000000000       0x5c build/default/debug/_ext/1171490990/libc_syscalls.o
+ .debug_str     0x0000000000000000      0x28f build/default/debug/_ext/1171490990/libc_syscalls.o
+ .comment       0x0000000000000000       0x2c build/default/debug/_ext/1171490990/libc_syscalls.o
+ .debug_frame   0x0000000000000000       0x20 build/default/debug/_ext/1171490990/libc_syscalls.o
+ .ARM.attributes
+                0x0000000000000000       0x34 build/default/debug/_ext/1171490990/libc_syscalls.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/818654064/drv_usbfsv1.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/818654064/drv_usbfsv1.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/818654064/drv_usbfsv1.o
+ .text.DRV_USBFSV1_Deinitialize
+                0x0000000000000000       0xd4 build/default/debug/_ext/818654064/drv_usbfsv1.o
+ .text.DRV_USBFSV1_Status
+                0x0000000000000000       0x20 build/default/debug/_ext/818654064/drv_usbfsv1.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1171490990/tasks.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1171490990/tasks.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1171490990/tasks.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+ .text.F_DRV_USBFSV1_DEVICE_EndpointObjectEnable
+                0x0000000000000000       0x12 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_Read
+                0x0000000000000000       0x10 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_SetWriteMode
+                0x0000000000000000       0x14 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_QuadWordWrite
+                0x0000000000000000       0x4c build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_DoubleWordWrite
+                0x0000000000000000       0x40 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_PageBufferWrite
+                0x0000000000000000       0x2c build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_PageBufferCommit
+                0x0000000000000000       0x28 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_PageWrite
+                0x0000000000000000       0x40 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_BlockErase
+                0x0000000000000000       0x1c build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_USER_ROW_RowErase
+                0x0000000000000000       0x30 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_ErrorGet
+                0x0000000000000000       0x20 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_StatusGet
+                0x0000000000000000        0xc build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_IsBusy
+                0x0000000000000000       0x14 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_USER_ROW_PageWrite
+                0x0000000000000000       0x6c build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_RegionLock
+                0x0000000000000000       0x10 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_RegionUnlock
+                0x0000000000000000       0x10 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_RegionLockStatusGet
+                0x0000000000000000        0xc build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_SecurityBitSet
+                0x0000000000000000       0x10 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_SmartEEPROM_IsBusy
+                0x0000000000000000       0x10 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_SmartEEPROMStatusGet
+                0x0000000000000000        0xc build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_SmartEEPROM_IsActiveSectorFull
+                0x0000000000000000       0x10 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_BankSwap
+                0x0000000000000000       0x10 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_SmartEEPROMSectorReallocate
+                0x0000000000000000       0x10 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text.NVMCTRL_SmartEEPROMFlushPageBuffer
+                0x0000000000000000       0x18 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .bss.nvm_error
+                0x0000000000000000        0x2 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1360937237/app.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1360937237/app.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1360937237/app.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1171490990/initialization.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1171490990/initialization.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1171490990/initialization.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1865131932/plib_cmcc.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1865131932/plib_cmcc.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1865131932/plib_cmcc.o
+ .text.CMCC_Disable
+                0x0000000000000000       0x18 build/default/debug/_ext/1865131932/plib_cmcc.o
+ .text.CMCC_EnableICache
+                0x0000000000000000       0x28 build/default/debug/_ext/1865131932/plib_cmcc.o
+ .text.CMCC_DisableICache
+                0x0000000000000000       0x28 build/default/debug/_ext/1865131932/plib_cmcc.o
+ .text.CMCC_EnableDCache
+                0x0000000000000000       0x28 build/default/debug/_ext/1865131932/plib_cmcc.o
+ .text.CMCC_DisableDCache
+                0x0000000000000000       0x28 build/default/debug/_ext/1865131932/plib_cmcc.o
+ .text.CMCC_InvalidateAll
+                0x0000000000000000       0x20 build/default/debug/_ext/1865131932/plib_cmcc.o
+ .debug_info    0x0000000000000000      0x213 build/default/debug/_ext/1865131932/plib_cmcc.o
+ .debug_abbrev  0x0000000000000000       0xa4 build/default/debug/_ext/1865131932/plib_cmcc.o
+ .debug_aranges
+                0x0000000000000000       0x48 build/default/debug/_ext/1865131932/plib_cmcc.o
+ .debug_ranges  0x0000000000000000       0x38 build/default/debug/_ext/1865131932/plib_cmcc.o
+ .debug_line    0x0000000000000000      0x207 build/default/debug/_ext/1865131932/plib_cmcc.o
+ .debug_str     0x0000000000000000      0x394 build/default/debug/_ext/1865131932/plib_cmcc.o
+ .comment       0x0000000000000000       0x2c build/default/debug/_ext/1865131932/plib_cmcc.o
+ .debug_frame   0x0000000000000000       0x70 build/default/debug/_ext/1865131932/plib_cmcc.o
+ .ARM.attributes
+                0x0000000000000000       0x34 build/default/debug/_ext/1865131932/plib_cmcc.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/308758920/usb_device_cdc.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/308758920/usb_device_cdc.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/308758920/usb_device_cdc.o
+ .text.F_USB_DEVICE_CDC_SerialStateSendIRPCallback
+                0x0000000000000000       0x6c build/default/debug/_ext/308758920/usb_device_cdc.o
+ .text.F_USB_DEVICE_CDC_ReadIRPCallback
+                0x0000000000000000       0x6c build/default/debug/_ext/308758920/usb_device_cdc.o
+ .text.F_USB_DEVICE_CDC_WriteIRPCallback
+                0x0000000000000000       0x6c build/default/debug/_ext/308758920/usb_device_cdc.o
+ .text.USB_DEVICE_CDC_Read
+                0x0000000000000000      0x100 build/default/debug/_ext/308758920/usb_device_cdc.o
+ .text.USB_DEVICE_CDC_Write
+                0x0000000000000000      0x120 build/default/debug/_ext/308758920/usb_device_cdc.o
+ .text.USB_DEVICE_CDC_ReadPacketSizeGet
+                0x0000000000000000       0x10 build/default/debug/_ext/308758920/usb_device_cdc.o
+ .text.USB_DEVICE_CDC_WritePacketSizeGet
+                0x0000000000000000       0x10 build/default/debug/_ext/308758920/usb_device_cdc.o
+ .text.USB_DEVICE_CDC_SerialStateNotificationSend
+                0x0000000000000000      0x100 build/default/debug/_ext/308758920/usb_device_cdc.o
+ .bss.gUSBDeviceCDCIRP
+                0x0000000000000000       0x6c build/default/debug/_ext/308758920/usb_device_cdc.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1865521619/plib_port.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1865521619/plib_port.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1865521619/plib_port.o
+ .text.PORT_GroupRead
+                0x0000000000000000        0x4 build/default/debug/_ext/1865521619/plib_port.o
+ .text.PORT_GroupWrite
+                0x0000000000000000        0xc build/default/debug/_ext/1865521619/plib_port.o
+ .text.PORT_GroupLatchRead
+                0x0000000000000000        0x4 build/default/debug/_ext/1865521619/plib_port.o
+ .text.PORT_GroupSet
+                0x0000000000000000        0x4 build/default/debug/_ext/1865521619/plib_port.o
+ .text.PORT_GroupClear
+                0x0000000000000000        0x4 build/default/debug/_ext/1865521619/plib_port.o
+ .text.PORT_GroupToggle
+                0x0000000000000000        0x4 build/default/debug/_ext/1865521619/plib_port.o
+ .text.PORT_GroupInputEnable
+                0x0000000000000000       0x30 build/default/debug/_ext/1865521619/plib_port.o
+ .text.PORT_GroupOutputEnable
+                0x0000000000000000        0x4 build/default/debug/_ext/1865521619/plib_port.o
+ .text.PORT_PinPeripheralFunctionConfig
+                0x0000000000000000       0x4a build/default/debug/_ext/1865521619/plib_port.o
+ .text.PORT_PinGPIOConfig
+                0x0000000000000000       0x20 build/default/debug/_ext/1865521619/plib_port.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1171490990/usb_device_init_data.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1171490990/usb_device_init_data.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1171490990/usb_device_init_data.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1171490990/exceptions.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1171490990/exceptions.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1171490990/exceptions.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1986646378/plib_evsys.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1986646378/plib_evsys.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1986646378/plib_evsys.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1360937237/main.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1360937237/main.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1360937237/main.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1984496892/plib_clock.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1984496892/plib_clock.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1984496892/plib_clock.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1865468468/plib_nvic.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1865468468/plib_nvic.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1865468468/plib_nvic.o
+ .text.NVIC_INT_Enable
+                0x0000000000000000        0x8 build/default/debug/_ext/1865468468/plib_nvic.o
+ .text.NVIC_INT_SourceDisable
+                0x0000000000000000       0x44 build/default/debug/_ext/1865468468/plib_nvic.o
+ .text.NVIC_INT_SourceRestore
+                0x0000000000000000       0x20 build/default/debug/_ext/1865468468/plib_nvic.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/308758920/usb_device.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/308758920/usb_device.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_Status
+                0x0000000000000000       0x20 build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_Deinitialize
+                0x0000000000000000       0x1c build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_EndpointIsEnabled
+                0x0000000000000000       0x1c build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_EndpointStall
+                0x0000000000000000       0x18 build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_EndpointStallClear
+                0x0000000000000000       0x18 build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_EndpointIsStalled
+                0x0000000000000000       0x1c build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_IsSuspended
+                0x0000000000000000       0x14 build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_StateGet
+                0x0000000000000000       0x14 build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_Close
+                0x0000000000000000       0x14 build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_ClientStatusGet
+                0x0000000000000000       0x12 build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_ActiveConfigurationGet
+                0x0000000000000000       0x12 build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_ActiveSpeedGet
+                0x0000000000000000       0x14 build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_PowerStateSet
+                0x0000000000000000       0x14 build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_RemoteWakeupStatusGet
+                0x0000000000000000       0x12 build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_RemoteWakeupStop
+                0x0000000000000000       0x14 build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_RemoteWakeupStart
+                0x0000000000000000       0x14 build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_IRPSubmit
+                0x0000000000000000       0x22 build/default/debug/_ext/308758920/usb_device.o
+ .text.USB_DEVICE_IRPCancel
+                0x0000000000000000       0x1e build/default/debug/_ext/308758920/usb_device.o
+ .text.F_USB_DEVICE_EndpointMutexCreateFunction
+                0x0000000000000000       0x12 build/default/debug/_ext/308758920/usb_device.o
+ .text.F_USB_DEVICE_EndpointMutexDeleteFunction
+                0x0000000000000000        0x8 build/default/debug/_ext/308758920/usb_device.o
+ .text.F_USB_DEVICE_GetStringDescriptorRequestProcessAdvanced
+                0x0000000000000000       0x56 build/default/debug/_ext/308758920/usb_device.o
+ .text.F_USB_DEVICE_Other_Speed_Descriptor_Request
+                0x0000000000000000        0x2 build/default/debug/_ext/308758920/usb_device.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1171490990/startup_xc32.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1171490990/startup_xc32.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1171490990/startup_xc32.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1881668453/sys_int.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1881668453/sys_int.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1881668453/sys_int.o
+ .text.SYS_INT_Enable
+                0x0000000000000000        0x8 build/default/debug/_ext/1881668453/sys_int.o
+ .text.SYS_INT_Disable
+                0x0000000000000000        0x8 build/default/debug/_ext/1881668453/sys_int.o
+ .text.SYS_INT_Restore
+                0x0000000000000000        0x8 build/default/debug/_ext/1881668453/sys_int.o
+ .text.SYS_INT_SourceRestore
+                0x0000000000000000       0x20 build/default/debug/_ext/1881668453/sys_int.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1360937237/cdc.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1360937237/cdc.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1360937237/cdc.o
+ .bss.receiveDataBuffer
+                0x0000000000000000      0x200 build/default/debug/_ext/1360937237/cdc.o
+ .data.switchPrompt
+                0x0000000000000000       0x18 build/default/debug/_ext/1360937237/cdc.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/308758920/usb_device_cdc_acm.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/308758920/usb_device_cdc_acm.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/308758920/usb_device_cdc_acm.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1171490990/interrupts.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1171490990/interrupts.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1171490990/interrupts.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/163028504/xc32_monitor.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/163028504/xc32_monitor.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/163028504/xc32_monitor.o
+ .text.read     0x0000000000000000        0x6 build/default/debug/_ext/163028504/xc32_monitor.o
+ .text.write    0x0000000000000000        0x6 build/default/debug/_ext/163028504/xc32_monitor.o
+ .debug_info    0x0000000000000000       0xf5 build/default/debug/_ext/163028504/xc32_monitor.o
+ .debug_abbrev  0x0000000000000000       0xb2 build/default/debug/_ext/163028504/xc32_monitor.o
+ .debug_loc     0x0000000000000000       0x4a build/default/debug/_ext/163028504/xc32_monitor.o
+ .debug_aranges
+                0x0000000000000000       0x28 build/default/debug/_ext/163028504/xc32_monitor.o
+ .debug_ranges  0x0000000000000000       0x18 build/default/debug/_ext/163028504/xc32_monitor.o
+ .debug_line    0x0000000000000000       0xca build/default/debug/_ext/163028504/xc32_monitor.o
+ .debug_str     0x0000000000000000      0x24b build/default/debug/_ext/163028504/xc32_monitor.o
+ .comment       0x0000000000000000       0x2c build/default/debug/_ext/163028504/xc32_monitor.o
+ .debug_frame   0x0000000000000000       0x30 build/default/debug/_ext/163028504/xc32_monitor.o
+ .ARM.attributes
+                0x0000000000000000       0x34 build/default/debug/_ext/163028504/xc32_monitor.o
+ .text          0x0000000000000000        0x0 build/default/debug/_ext/1014039709/sys_cache.o
+ .data          0x0000000000000000        0x0 build/default/debug/_ext/1014039709/sys_cache.o
+ .bss           0x0000000000000000        0x0 build/default/debug/_ext/1014039709/sys_cache.o
+ .text.SYS_CACHE_EnableCaches
+                0x0000000000000000        0x2 build/default/debug/_ext/1014039709/sys_cache.o
+ .text.SYS_CACHE_DisableCaches
+                0x0000000000000000        0x2 build/default/debug/_ext/1014039709/sys_cache.o
+ .text.SYS_CACHE_EnableICache
+                0x0000000000000000        0x2 build/default/debug/_ext/1014039709/sys_cache.o
+ .text.SYS_CACHE_DisableICache
+                0x0000000000000000        0x2 build/default/debug/_ext/1014039709/sys_cache.o
+ .text.SYS_CACHE_InvalidateICache
+                0x0000000000000000        0x2 build/default/debug/_ext/1014039709/sys_cache.o
+ .text.SYS_CACHE_EnableDCache
+                0x0000000000000000        0x2 build/default/debug/_ext/1014039709/sys_cache.o
+ .text.SYS_CACHE_DisableDCache
+                0x0000000000000000        0x2 build/default/debug/_ext/1014039709/sys_cache.o
+ .text.SYS_CACHE_InvalidateDCache
+                0x0000000000000000        0x2 build/default/debug/_ext/1014039709/sys_cache.o
+ .text.SYS_CACHE_CleanDCache
+                0x0000000000000000        0x2 build/default/debug/_ext/1014039709/sys_cache.o
+ .text.SYS_CACHE_InvalidateDCache_by_Addr
+                0x0000000000000000        0x2 build/default/debug/_ext/1014039709/sys_cache.o
+ .text.SYS_CACHE_CleanDCache_by_Addr
+                0x0000000000000000        0x2 build/default/debug/_ext/1014039709/sys_cache.o
+ .text.SYS_CACHE_CleanInvalidateDCache
+                0x0000000000000000        0x2 build/default/debug/_ext/1014039709/sys_cache.o
+ .text.SYS_CACHE_CleanInvalidateDCache_by_Addr
+                0x0000000000000000        0x2 build/default/debug/_ext/1014039709/sys_cache.o
+ .debug_info    0x0000000000000000      0x214 build/default/debug/_ext/1014039709/sys_cache.o
+ .debug_abbrev  0x0000000000000000       0x89 build/default/debug/_ext/1014039709/sys_cache.o
+ .debug_aranges
+                0x0000000000000000       0x80 build/default/debug/_ext/1014039709/sys_cache.o
+ .debug_ranges  0x0000000000000000       0x70 build/default/debug/_ext/1014039709/sys_cache.o
+ .debug_line    0x0000000000000000      0x191 build/default/debug/_ext/1014039709/sys_cache.o
+ .debug_str     0x0000000000000000      0x40b build/default/debug/_ext/1014039709/sys_cache.o
+ .comment       0x0000000000000000       0x2c build/default/debug/_ext/1014039709/sys_cache.o
+ .debug_frame   0x0000000000000000       0xe0 build/default/debug/_ext/1014039709/sys_cache.o
+ .ARM.attributes
+                0x0000000000000000       0x34 build/default/debug/_ext/1014039709/sys_cache.o
+ .text          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+ .data          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+ .xc_stack_usage
+                0x0000000000000000       0x68 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+ .xc_stack_usage.hdr
+                0x0000000000000000        0xe c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+ .text          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+ .data          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+ .bss           0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+ .xc_stack_usage
+                0x0000000000000000       0x14 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+ .xc_stack_usage.hdr
+                0x0000000000000000        0xe c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+ .text          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+ .data          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+ .bss           0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+ .xc_stack_usage
+                0x0000000000000000       0x14 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+ .xc_stack_usage.hdr
+                0x0000000000000000        0xe c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+ .text          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+ .data          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+ .bss           0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+ .xc_stack_usage
+                0x0000000000000000       0x34 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+ .xc_stack_usage.hdr
+                0x0000000000000000        0xe c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+ .text          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(libc.o)
+ .data          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(libc.o)
+ .xc_stack_usage.hdr
+                0x0000000000000000        0xe c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(libc.o)
+ .text          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__environ.o)
+ .data          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__environ.o)
+ .xc_stack_usage.hdr
+                0x0000000000000000        0xe c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__environ.o)
+ .text          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtend.o
+ .data          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtend.o
+ .bss           0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtend.o
+ .eh_frame      0x0000000000000000        0x4 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtend.o
+ .xc_stack_usage.hdr
+                0x0000000000000000        0xe c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtend.o
+ .comment       0x0000000000000000       0x2c c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtend.o
+ .ARM.attributes
+                0x0000000000000000       0x32 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtend.o
+ .text          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .data          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .bss           0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .xc_stack_usage.hdr
+                0x0000000000000000        0xe c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .text          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_clear.o)
+ .data          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_clear.o)
+ .bss           0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_clear.o)
+ .xc_stack_usage
+                0x0000000000000000       0x1b c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_clear.o)
+ .xc_stack_usage.hdr
+                0x0000000000000000        0xe c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_clear.o)
+ .text          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_copy.o)
+ .data          0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_copy.o)
+ .bss           0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_copy.o)
+ .xc_stack_usage
+                0x0000000000000000       0x1a c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_copy.o)
+ .xc_stack_usage.hdr
+                0x0000000000000000        0xe c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_copy.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+rom              0x0000000000000000 0x0000000000100000 xrl
+ram              0x0000000020000000 0x0000000000040000 xw !r
+tcm              0x0000000003000000 0x0000000000000000 xw
+bkupram          0x0000000047000000 0x0000000000002000
+config_00804000  0x0000000000804000 0x0000000000000004
+config_00804004  0x0000000000804004 0x0000000000000004
+config_00804008  0x0000000000804008 0x0000000000000004
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crti.o
+LOAD c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+LOAD build/default/debug/_ext/1171490990/libc_syscalls.o
+LOAD build/default/debug/_ext/818654064/drv_usbfsv1.o
+LOAD build/default/debug/_ext/1171490990/tasks.o
+LOAD build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+LOAD build/default/debug/_ext/1593096446/plib_nvmctrl.o
+LOAD build/default/debug/_ext/1360937237/app.o
+LOAD build/default/debug/_ext/1171490990/initialization.o
+LOAD build/default/debug/_ext/1865131932/plib_cmcc.o
+LOAD build/default/debug/_ext/308758920/usb_device_cdc.o
+LOAD build/default/debug/_ext/1865521619/plib_port.o
+LOAD build/default/debug/_ext/1171490990/usb_device_init_data.o
+LOAD build/default/debug/_ext/1171490990/exceptions.o
+LOAD build/default/debug/_ext/1986646378/plib_evsys.o
+LOAD build/default/debug/_ext/1360937237/main.o
+LOAD build/default/debug/_ext/1984496892/plib_clock.o
+LOAD build/default/debug/_ext/1865468468/plib_nvic.o
+LOAD build/default/debug/_ext/308758920/usb_device.o
+LOAD build/default/debug/_ext/1171490990/startup_xc32.o
+LOAD build/default/debug/_ext/1881668453/sys_int.o
+LOAD build/default/debug/_ext/1360937237/cdc.o
+LOAD build/default/debug/_ext/308758920/usb_device_cdc_acm.o
+LOAD build/default/debug/_ext/1171490990/interrupts.o
+LOAD build/default/debug/_ext/163028504/xc32_monitor.o
+LOAD build/default/debug/_ext/1014039709/sys_cache.o
+                0x0000000000000001                __MPLAB_BUILD = 0x1
+                0x0000000000100000                __rom_end = (ORIGIN (rom) + LENGTH (rom))
+                0x0000000020040000                __ram_end = (ORIGIN (ram) + LENGTH (ram))
+
+.config_00804000
+ *(.config_00804000)
+
+.config_00804004
+ *(.config_00804004)
+
+.config_00804008
+ *(.config_00804008)
+
+.vectors        0x0000000000000000      0x260
+                0x0000000000000000                . = ALIGN (0x4)
+                0x0000000000000000                _sfixed = .
+ *(.vectors .vectors.* .vectors_default .vectors_default.*)
+ .vectors.exception_table
+                0x0000000000000000      0x260 build/default/debug/_ext/1171490990/interrupts.o
+                0x0000000000000000                exception_table
+ *(.isr_vector)
+ *(.reset*)
+ *(.after_vectors)
+
+.text           0x0000000000000260       0x20
+                0x0000000000000260                . = ALIGN (0x4)
+ *(.glue_7t)
+ .glue_7t       0x0000000000000260        0x0 linker stubs
+ *(.glue_7)
+ .glue_7        0x0000000000000260        0x0 linker stubs
+ *(.gnu.linkonce.r.*)
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x0000000000000260                . = ALIGN (0x4)
+ *(.init)
+ .init          0x0000000000000260        0x4 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x0000000000000260                _init
+ .init          0x0000000000000264        0x8 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtn.o
+                0x000000000000026c                . = ALIGN (0x4)
+                0x000000000000026c                __preinit_array_start = .
+ *(.preinit_array)
+                0x000000000000026c                __preinit_array_end = .
+                0x000000000000026c                . = ALIGN (0x4)
+                0x000000000000026c                __init_array_start = .
+ *(SORT_BY_NAME(.init_array.*))
+ *(.init_array)
+ .init_array    0x000000000000026c        0x4 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x0000000000000270                __init_array_end = .
+                0x0000000000000270                . = ALIGN (0x4)
+ *crtbegin.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *crtend.o(.ctors)
+                0x0000000000000270                . = ALIGN (0x4)
+ *(.fini)
+ .fini          0x0000000000000270        0x4 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x0000000000000270                _fini
+ .fini          0x0000000000000274        0x8 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtn.o
+                0x000000000000027c                . = ALIGN (0x4)
+                0x000000000000027c                __fini_array_start = .
+ *(.fini_array)
+ .fini_array    0x000000000000027c        0x4 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ *(SORT_BY_NAME(.fini_array.*))
+                0x0000000000000280                __fini_array_end = .
+ *crtbegin.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *crtend.o(.dtors)
+                0x0000000000000280                . = ALIGN (0x4)
+                0x0000000000000280                _efixed = .
+                [!provide]                        PROVIDE (__exidx_start = .)
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                [!provide]                        PROVIDE (__exidx_end = .)
+                0x0000000000000280                . = ALIGN (0x4)
+                0x0000000000000280                _etext = .
+
+.bss            0x0000000020000000        0x0
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                __bss_start__ = .
+                0x0000000020000000                _sbss = .
+                0x0000000020000000                _szero = .
+ *(COMMON)
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                __bss_end__ = .
+                0x0000000020000000                _ebss = .
+                0x0000000020000000                _ezero = .
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                _end = .
+                0x000000002003ffff                _ram_end_ = ((ORIGIN (ram) + LENGTH (ram)) - 0x1)
+
+.bkupram_bss
+ *(.bkupram_bss .bkupram_bss.*)
+ *(.pbss .pbss.*)
+                0x0000000000000001                __ICD2RAM = 0x1
+                0x0000000000000001                __MPLAB_DEBUG = 0x1
+                0x0000000000000001                __DEBUG = 0x1
+                0x0000000000000200                _min_heap_size = 0x200
+START GROUP
+LOAD c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a
+LOAD c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a
+LOAD c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\liblmalloc-musl.a
+LOAD c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libm-fast-emfloat.a
+LOAD c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libm-musl.a
+LOAD c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a
+LOAD c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-musl.a
+LOAD c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libm-fast-emfloat.a
+LOAD c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libm-musl.a
+LOAD c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard\libgcc.a
+END GROUP
+LOAD c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtend.o
+LOAD c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtn.o
+OUTPUT(dist/default/debug/serial.debug.elf elf32-littlearm)
+LOAD data_init
+LOAD stack
+
+.ARM.attributes
+                0x0000000000000000       0x34
+ .ARM.attributes
+                0x0000000000000000       0x1e c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crti.o
+ .ARM.attributes
+                0x000000000000001e       0x34 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .ARM.attributes
+                0x0000000000000052       0x34 build/default/debug/_ext/818654064/drv_usbfsv1.o
+ .ARM.attributes
+                0x0000000000000086       0x34 build/default/debug/_ext/1171490990/tasks.o
+ .ARM.attributes
+                0x00000000000000ba       0x34 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+ .ARM.attributes
+                0x00000000000000ee       0x34 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .ARM.attributes
+                0x0000000000000122       0x34 build/default/debug/_ext/1360937237/app.o
+ .ARM.attributes
+                0x0000000000000156       0x34 build/default/debug/_ext/1171490990/initialization.o
+ .ARM.attributes
+                0x000000000000018a       0x34 build/default/debug/_ext/308758920/usb_device_cdc.o
+ .ARM.attributes
+                0x00000000000001be       0x34 build/default/debug/_ext/1865521619/plib_port.o
+ .ARM.attributes
+                0x00000000000001f2       0x39 build/default/debug/_ext/1171490990/usb_device_init_data.o
+ .ARM.attributes
+                0x000000000000022b       0x34 build/default/debug/_ext/1171490990/exceptions.o
+ .ARM.attributes
+                0x000000000000025f       0x34 build/default/debug/_ext/1986646378/plib_evsys.o
+ .ARM.attributes
+                0x0000000000000293       0x34 build/default/debug/_ext/1360937237/main.o
+ .ARM.attributes
+                0x00000000000002c7       0x34 build/default/debug/_ext/1984496892/plib_clock.o
+ .ARM.attributes
+                0x00000000000002fb       0x34 build/default/debug/_ext/1865468468/plib_nvic.o
+ .ARM.attributes
+                0x000000000000032f       0x34 build/default/debug/_ext/308758920/usb_device.o
+ .ARM.attributes
+                0x0000000000000363       0x34 build/default/debug/_ext/1171490990/startup_xc32.o
+ .ARM.attributes
+                0x0000000000000397       0x34 build/default/debug/_ext/1881668453/sys_int.o
+ .ARM.attributes
+                0x00000000000003cb       0x34 build/default/debug/_ext/1360937237/cdc.o
+ .ARM.attributes
+                0x00000000000003ff       0x34 build/default/debug/_ext/308758920/usb_device_cdc_acm.o
+ .ARM.attributes
+                0x0000000000000433       0x34 build/default/debug/_ext/1171490990/interrupts.o
+ .ARM.attributes
+                0x0000000000000467       0x34 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+ .ARM.attributes
+                0x000000000000049b       0x36 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+ .ARM.attributes
+                0x00000000000004d1       0x36 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+ .ARM.attributes
+                0x0000000000000507       0x36 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+ .ARM.attributes
+                0x000000000000053d       0x34 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(libc.o)
+ .ARM.attributes
+                0x0000000000000571       0x34 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__environ.o)
+ .ARM.attributes
+                0x00000000000005a5       0x1e c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .ARM.attributes
+                0x00000000000005c3       0x34 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_clear.o)
+ .ARM.attributes
+                0x00000000000005f7       0x34 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_copy.o)
+
+.comment        0x0000000000000000       0x2b
+ .comment       0x0000000000000000       0x2b c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                                         0x2c (size before relaxing)
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/818654064/drv_usbfsv1.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/1171490990/tasks.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/1360937237/app.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/1171490990/initialization.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/308758920/usb_device_cdc.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/1865521619/plib_port.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/1171490990/usb_device_init_data.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/1171490990/exceptions.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/1986646378/plib_evsys.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/1360937237/main.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/1984496892/plib_clock.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/1865468468/plib_nvic.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/308758920/usb_device.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/1171490990/startup_xc32.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/1881668453/sys_int.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/1360937237/cdc.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/308758920/usb_device_cdc_acm.o
+ .comment       0x000000000000002b       0x2c build/default/debug/_ext/1171490990/interrupts.o
+ .comment       0x000000000000002b       0x2c c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+ .comment       0x000000000000002b       0x2c c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+ .comment       0x000000000000002b       0x2c c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+ .comment       0x000000000000002b       0x2c c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+ .comment       0x000000000000002b       0x2c c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(libc.o)
+ .comment       0x000000000000002b       0x2c c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__environ.o)
+ .comment       0x000000000000002b       0x2c c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_clear.o)
+ .comment       0x000000000000002b       0x2c c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_copy.o)
+
+.debug_info     0x0000000000000000    0x14b36
+ .debug_info    0x0000000000000000     0x2377 build/default/debug/_ext/818654064/drv_usbfsv1.o
+ .debug_info    0x0000000000002377      0x160 build/default/debug/_ext/1171490990/tasks.o
+ .debug_info    0x00000000000024d7     0x3d6f build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+ .debug_info    0x0000000000006246      0x8e5 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .debug_info    0x0000000000006b2b      0x753 build/default/debug/_ext/1360937237/app.o
+ .debug_info    0x000000000000727e     0x144c build/default/debug/_ext/1171490990/initialization.o
+ .debug_info    0x00000000000086ca     0x211f build/default/debug/_ext/308758920/usb_device_cdc.o
+ .debug_info    0x000000000000a7e9      0x6f8 build/default/debug/_ext/1865521619/plib_port.o
+ .debug_info    0x000000000000aee1     0x17dc build/default/debug/_ext/1171490990/usb_device_init_data.o
+ .debug_info    0x000000000000c6bd      0x116 build/default/debug/_ext/1171490990/exceptions.o
+ .debug_info    0x000000000000c7d3       0x9b build/default/debug/_ext/1986646378/plib_evsys.o
+ .debug_info    0x000000000000c86e       0xe4 build/default/debug/_ext/1360937237/main.o
+ .debug_info    0x000000000000c952      0x639 build/default/debug/_ext/1984496892/plib_clock.o
+ .debug_info    0x000000000000cf8b      0xcb0 build/default/debug/_ext/1865468468/plib_nvic.o
+ .debug_info    0x000000000000dc3b     0x3c17 build/default/debug/_ext/308758920/usb_device.o
+ .debug_info    0x0000000000011852      0x55b build/default/debug/_ext/1171490990/startup_xc32.o
+ .debug_info    0x0000000000011dad      0x7fb build/default/debug/_ext/1881668453/sys_int.o
+ .debug_info    0x00000000000125a8      0x79a build/default/debug/_ext/1360937237/cdc.o
+ .debug_info    0x0000000000012d42      0x982 build/default/debug/_ext/308758920/usb_device_cdc_acm.o
+ .debug_info    0x00000000000136c4      0xbd5 build/default/debug/_ext/1171490990/interrupts.o
+ .debug_info    0x0000000000014299       0x68 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+ .debug_info    0x0000000000014301       0xf3 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+ .debug_info    0x00000000000143f4       0xbb c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+ .debug_info    0x00000000000144af      0x2fb c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+ .debug_info    0x00000000000147aa      0x276 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(libc.o)
+ .debug_info    0x0000000000014a20       0x97 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__environ.o)
+ .debug_info    0x0000000000014ab7       0x3f c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_clear.o)
+ .debug_info    0x0000000000014af6       0x40 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_copy.o)
+
+.debug_abbrev   0x0000000000000000     0x2f6d
+ .debug_abbrev  0x0000000000000000      0x3f9 build/default/debug/_ext/818654064/drv_usbfsv1.o
+ .debug_abbrev  0x00000000000003f9       0xbd build/default/debug/_ext/1171490990/tasks.o
+ .debug_abbrev  0x00000000000004b6      0x55a build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+ .debug_abbrev  0x0000000000000a10      0x23c build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .debug_abbrev  0x0000000000000c4c      0x1f8 build/default/debug/_ext/1360937237/app.o
+ .debug_abbrev  0x0000000000000e44      0x24b build/default/debug/_ext/1171490990/initialization.o
+ .debug_abbrev  0x000000000000108f      0x47f build/default/debug/_ext/308758920/usb_device_cdc.o
+ .debug_abbrev  0x000000000000150e      0x206 build/default/debug/_ext/1865521619/plib_port.o
+ .debug_abbrev  0x0000000000001714      0x215 build/default/debug/_ext/1171490990/usb_device_init_data.o
+ .debug_abbrev  0x0000000000001929       0x49 build/default/debug/_ext/1171490990/exceptions.o
+ .debug_abbrev  0x0000000000001972       0x46 build/default/debug/_ext/1986646378/plib_evsys.o
+ .debug_abbrev  0x00000000000019b8       0x82 build/default/debug/_ext/1360937237/main.o
+ .debug_abbrev  0x0000000000001a3a      0x10b build/default/debug/_ext/1984496892/plib_clock.o
+ .debug_abbrev  0x0000000000001b45      0x258 build/default/debug/_ext/1865468468/plib_nvic.o
+ .debug_abbrev  0x0000000000001d9d      0x409 build/default/debug/_ext/308758920/usb_device.o
+ .debug_abbrev  0x00000000000021a6      0x1e3 build/default/debug/_ext/1171490990/startup_xc32.o
+ .debug_abbrev  0x0000000000002389      0x25c build/default/debug/_ext/1881668453/sys_int.o
+ .debug_abbrev  0x00000000000025e5      0x21d build/default/debug/_ext/1360937237/cdc.o
+ .debug_abbrev  0x0000000000002802      0x20d build/default/debug/_ext/308758920/usb_device_cdc_acm.o
+ .debug_abbrev  0x0000000000002a0f       0xf8 build/default/debug/_ext/1171490990/interrupts.o
+ .debug_abbrev  0x0000000000002b07       0x44 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+ .debug_abbrev  0x0000000000002b4b       0xbb c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+ .debug_abbrev  0x0000000000002c06       0xa2 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+ .debug_abbrev  0x0000000000002ca8      0x133 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+ .debug_abbrev  0x0000000000002ddb       0xd4 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(libc.o)
+ .debug_abbrev  0x0000000000002eaf       0x62 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__environ.o)
+ .debug_abbrev  0x0000000000002f11       0x2e c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_clear.o)
+ .debug_abbrev  0x0000000000002f3f       0x2e c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_copy.o)
+
+.debug_loc      0x0000000000000000     0xa043
+ .debug_loc     0x0000000000000000      0x866 build/default/debug/_ext/818654064/drv_usbfsv1.o
+ .debug_loc     0x0000000000000866       0x20 build/default/debug/_ext/1171490990/tasks.o
+ .debug_loc     0x0000000000000886     0x38f8 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+ .debug_loc     0x000000000000417e      0x83e build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .debug_loc     0x00000000000049bc      0x1f2 build/default/debug/_ext/1360937237/app.o
+ .debug_loc     0x0000000000004bae       0x45 build/default/debug/_ext/1171490990/initialization.o
+ .debug_loc     0x0000000000004bf3     0x17a3 build/default/debug/_ext/308758920/usb_device_cdc.o
+ .debug_loc     0x0000000000006396      0x23d build/default/debug/_ext/1865521619/plib_port.o
+ .debug_loc     0x00000000000065d3       0x20 build/default/debug/_ext/1360937237/main.o
+ .debug_loc     0x00000000000065f3      0x26b build/default/debug/_ext/1865468468/plib_nvic.o
+ .debug_loc     0x000000000000685e     0x2ed1 build/default/debug/_ext/308758920/usb_device.o
+ .debug_loc     0x000000000000972f       0x4a build/default/debug/_ext/1171490990/startup_xc32.o
+ .debug_loc     0x0000000000009779      0x182 build/default/debug/_ext/1881668453/sys_int.o
+ .debug_loc     0x00000000000098fb      0x2e1 build/default/debug/_ext/1360937237/cdc.o
+ .debug_loc     0x0000000000009bdc      0x266 build/default/debug/_ext/308758920/usb_device_cdc_acm.o
+ .debug_loc     0x0000000000009e42       0x14 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+ .debug_loc     0x0000000000009e56      0x10b c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+ .debug_loc     0x0000000000009f61       0x7d c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+ .debug_loc     0x0000000000009fde       0x51 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+ .debug_loc     0x000000000000a02f       0x14 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_copy.o)
+
+.debug_aranges  0x0000000000000000      0x7f8
+ .debug_aranges
+                0x0000000000000000       0x78 build/default/debug/_ext/818654064/drv_usbfsv1.o
+ .debug_aranges
+                0x0000000000000078       0x20 build/default/debug/_ext/1171490990/tasks.o
+ .debug_aranges
+                0x0000000000000098       0xb8 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+ .debug_aranges
+                0x0000000000000150       0xd8 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .debug_aranges
+                0x0000000000000228       0x30 build/default/debug/_ext/1360937237/app.o
+ .debug_aranges
+                0x0000000000000258       0x20 build/default/debug/_ext/1171490990/initialization.o
+ .debug_aranges
+                0x0000000000000278       0x88 build/default/debug/_ext/308758920/usb_device_cdc.o
+ .debug_aranges
+                0x0000000000000300       0x70 build/default/debug/_ext/1865521619/plib_port.o
+ .debug_aranges
+                0x0000000000000370       0x18 build/default/debug/_ext/1171490990/usb_device_init_data.o
+ .debug_aranges
+                0x0000000000000388       0x48 build/default/debug/_ext/1171490990/exceptions.o
+ .debug_aranges
+                0x00000000000003d0       0x20 build/default/debug/_ext/1986646378/plib_evsys.o
+ .debug_aranges
+                0x00000000000003f0       0x20 build/default/debug/_ext/1360937237/main.o
+ .debug_aranges
+                0x0000000000000410       0x20 build/default/debug/_ext/1984496892/plib_clock.o
+ .debug_aranges
+                0x0000000000000430       0x48 build/default/debug/_ext/1865468468/plib_nvic.o
+ .debug_aranges
+                0x0000000000000478      0x1a0 build/default/debug/_ext/308758920/usb_device.o
+ .debug_aranges
+                0x0000000000000618       0x28 build/default/debug/_ext/1171490990/startup_xc32.o
+ .debug_aranges
+                0x0000000000000640       0x40 build/default/debug/_ext/1881668453/sys_int.o
+ .debug_aranges
+                0x0000000000000680       0x30 build/default/debug/_ext/1360937237/cdc.o
+ .debug_aranges
+                0x00000000000006b0       0x20 build/default/debug/_ext/308758920/usb_device_cdc_acm.o
+ .debug_aranges
+                0x00000000000006d0       0x20 build/default/debug/_ext/1171490990/interrupts.o
+ .debug_aranges
+                0x00000000000006f0       0x30 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+ .debug_aranges
+                0x0000000000000720       0x20 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+ .debug_aranges
+                0x0000000000000740       0x20 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+ .debug_aranges
+                0x0000000000000760       0x28 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+ .debug_aranges
+                0x0000000000000788       0x18 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(libc.o)
+ .debug_aranges
+                0x00000000000007a0       0x18 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__environ.o)
+ .debug_aranges
+                0x00000000000007b8       0x20 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_clear.o)
+ .debug_aranges
+                0x00000000000007d8       0x20 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_copy.o)
+
+.debug_ranges   0x0000000000000000      0x758
+ .debug_ranges  0x0000000000000000       0x68 build/default/debug/_ext/818654064/drv_usbfsv1.o
+ .debug_ranges  0x0000000000000068       0x10 build/default/debug/_ext/1171490990/tasks.o
+ .debug_ranges  0x0000000000000078      0x170 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+ .debug_ranges  0x00000000000001e8       0xc8 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .debug_ranges  0x00000000000002b0       0x20 build/default/debug/_ext/1360937237/app.o
+ .debug_ranges  0x00000000000002d0       0x10 build/default/debug/_ext/1171490990/initialization.o
+ .debug_ranges  0x00000000000002e0       0xc0 build/default/debug/_ext/308758920/usb_device_cdc.o
+ .debug_ranges  0x00000000000003a0       0x60 build/default/debug/_ext/1865521619/plib_port.o
+ .debug_ranges  0x0000000000000400       0x38 build/default/debug/_ext/1171490990/exceptions.o
+ .debug_ranges  0x0000000000000438       0x10 build/default/debug/_ext/1986646378/plib_evsys.o
+ .debug_ranges  0x0000000000000448       0x10 build/default/debug/_ext/1360937237/main.o
+ .debug_ranges  0x0000000000000458       0x10 build/default/debug/_ext/1984496892/plib_clock.o
+ .debug_ranges  0x0000000000000468       0x38 build/default/debug/_ext/1865468468/plib_nvic.o
+ .debug_ranges  0x00000000000004a0      0x190 build/default/debug/_ext/308758920/usb_device.o
+ .debug_ranges  0x0000000000000630       0x18 build/default/debug/_ext/1171490990/startup_xc32.o
+ .debug_ranges  0x0000000000000648       0x30 build/default/debug/_ext/1881668453/sys_int.o
+ .debug_ranges  0x0000000000000678       0x20 build/default/debug/_ext/1360937237/cdc.o
+ .debug_ranges  0x0000000000000698       0x10 build/default/debug/_ext/308758920/usb_device_cdc_acm.o
+ .debug_ranges  0x00000000000006a8       0x10 build/default/debug/_ext/1171490990/interrupts.o
+ .debug_ranges  0x00000000000006b8       0x20 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+ .debug_ranges  0x00000000000006d8       0x10 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+ .debug_ranges  0x00000000000006e8       0x10 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+ .debug_ranges  0x00000000000006f8       0x40 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+ .debug_ranges  0x0000000000000738       0x10 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_clear.o)
+ .debug_ranges  0x0000000000000748       0x10 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_copy.o)
+
+.debug_line     0x0000000000000000     0x7c45
+ .debug_line    0x0000000000000000      0x932 build/default/debug/_ext/818654064/drv_usbfsv1.o
+ .debug_line    0x0000000000000932      0x167 build/default/debug/_ext/1171490990/tasks.o
+ .debug_line    0x0000000000000a99     0x2251 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+ .debug_line    0x0000000000002cea      0x5b9 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .debug_line    0x00000000000032a3      0x261 build/default/debug/_ext/1360937237/app.o
+ .debug_line    0x0000000000003504      0x38a build/default/debug/_ext/1171490990/initialization.o
+ .debug_line    0x000000000000388e      0xcf9 build/default/debug/_ext/308758920/usb_device_cdc.o
+ .debug_line    0x0000000000004587      0x2d5 build/default/debug/_ext/1865521619/plib_port.o
+ .debug_line    0x000000000000485c      0x27b build/default/debug/_ext/1171490990/usb_device_init_data.o
+ .debug_line    0x0000000000004ad7       0xcd build/default/debug/_ext/1171490990/exceptions.o
+ .debug_line    0x0000000000004ba4       0x66 build/default/debug/_ext/1986646378/plib_evsys.o
+ .debug_line    0x0000000000004c0a       0x6d build/default/debug/_ext/1360937237/main.o
+ .debug_line    0x0000000000004c77      0x257 build/default/debug/_ext/1984496892/plib_clock.o
+ .debug_line    0x0000000000004ece      0x472 build/default/debug/_ext/1865468468/plib_nvic.o
+ .debug_line    0x0000000000005340     0x1838 build/default/debug/_ext/308758920/usb_device.o
+ .debug_line    0x0000000000006b78      0x248 build/default/debug/_ext/1171490990/startup_xc32.o
+ .debug_line    0x0000000000006dc0      0x2bf build/default/debug/_ext/1881668453/sys_int.o
+ .debug_line    0x000000000000707f      0x1f6 build/default/debug/_ext/1360937237/cdc.o
+ .debug_line    0x0000000000007275      0x1d7 build/default/debug/_ext/308758920/usb_device_cdc_acm.o
+ .debug_line    0x000000000000744c      0x113 build/default/debug/_ext/1171490990/interrupts.o
+ .debug_line    0x000000000000755f       0xa7 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+ .debug_line    0x0000000000007606       0xf9 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+ .debug_line    0x00000000000076ff       0xe3 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+ .debug_line    0x00000000000077e2      0x1c7 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+ .debug_line    0x00000000000079a9       0xb5 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(libc.o)
+ .debug_line    0x0000000000007a5e       0xfb c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__environ.o)
+ .debug_line    0x0000000000007b59       0x72 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_clear.o)
+ .debug_line    0x0000000000007bcb       0x7a c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_copy.o)
+
+.debug_str      0x0000000000000000    0x18614
+ .debug_str     0x0000000000000000     0x2ac5 build/default/debug/_ext/818654064/drv_usbfsv1.o
+ .debug_str     0x0000000000002ac5      0x31b build/default/debug/_ext/1171490990/tasks.o
+ .debug_str     0x0000000000002de0     0x31b9 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+ .debug_str     0x0000000000005f99      0x6ae build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .debug_str     0x0000000000006647      0xda9 build/default/debug/_ext/1360937237/app.o
+ .debug_str     0x00000000000073f0     0x1ad4 build/default/debug/_ext/1171490990/initialization.o
+ .debug_str     0x0000000000008ec4     0x24be build/default/debug/_ext/308758920/usb_device_cdc.o
+ .debug_str     0x000000000000b382      0x8bf build/default/debug/_ext/1865521619/plib_port.o
+ .debug_str     0x000000000000bc41     0x267a build/default/debug/_ext/1171490990/usb_device_init_data.o
+ .debug_str     0x000000000000e2bb      0x30c build/default/debug/_ext/1171490990/exceptions.o
+ .debug_str     0x000000000000e5c7      0x2ad build/default/debug/_ext/1986646378/plib_evsys.o
+ .debug_str     0x000000000000e874      0x29a build/default/debug/_ext/1360937237/main.o
+ .debug_str     0x000000000000eb0e      0x651 build/default/debug/_ext/1984496892/plib_clock.o
+ .debug_str     0x000000000000f15f      0xc8d build/default/debug/_ext/1865468468/plib_nvic.o
+ .debug_str     0x000000000000fdec     0x3402 build/default/debug/_ext/308758920/usb_device.o
+ .debug_str     0x00000000000131ee      0x446 build/default/debug/_ext/1171490990/startup_xc32.o
+ .debug_str     0x0000000000013634      0xbc8 build/default/debug/_ext/1881668453/sys_int.o
+ .debug_str     0x00000000000141fc      0xed4 build/default/debug/_ext/1360937237/cdc.o
+ .debug_str     0x00000000000150d0      0xdc7 build/default/debug/_ext/308758920/usb_device_cdc_acm.o
+ .debug_str     0x0000000000015e97     0x141f build/default/debug/_ext/1171490990/interrupts.o
+ .debug_str     0x00000000000172b6      0x206 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+ .debug_str     0x00000000000174bc      0x22f c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+ .debug_str     0x00000000000176eb      0x21b c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+ .debug_str     0x0000000000017906      0x3d4 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+ .debug_str     0x0000000000017cda      0x33f c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(libc.o)
+ .debug_str     0x0000000000018019      0x23f c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__environ.o)
+ .debug_str     0x0000000000018258      0x1df c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_clear.o)
+ .debug_str     0x0000000000018437      0x1dd c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_copy.o)
+
+.debug_frame    0x0000000000000000     0x11c4
+ .debug_frame   0x0000000000000000      0x130 build/default/debug/_ext/818654064/drv_usbfsv1.o
+ .debug_frame   0x0000000000000130       0x28 build/default/debug/_ext/1171490990/tasks.o
+ .debug_frame   0x0000000000000158      0x2bc build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+ .debug_frame   0x0000000000000414      0x1d8 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+ .debug_frame   0x00000000000005ec       0x50 build/default/debug/_ext/1360937237/app.o
+ .debug_frame   0x000000000000063c       0x28 build/default/debug/_ext/1171490990/initialization.o
+ .debug_frame   0x0000000000000664      0x188 build/default/debug/_ext/308758920/usb_device_cdc.o
+ .debug_frame   0x00000000000007ec       0xd8 build/default/debug/_ext/1865521619/plib_port.o
+ .debug_frame   0x00000000000008c4       0x70 build/default/debug/_ext/1171490990/exceptions.o
+ .debug_frame   0x0000000000000934       0x20 build/default/debug/_ext/1986646378/plib_evsys.o
+ .debug_frame   0x0000000000000954       0x28 build/default/debug/_ext/1360937237/main.o
+ .debug_frame   0x000000000000097c       0x20 build/default/debug/_ext/1984496892/plib_clock.o
+ .debug_frame   0x000000000000099c       0x7c build/default/debug/_ext/1865468468/plib_nvic.o
+ .debug_frame   0x0000000000000a18      0x540 build/default/debug/_ext/308758920/usb_device.o
+ .debug_frame   0x0000000000000f58       0x38 build/default/debug/_ext/1171490990/startup_xc32.o
+ .debug_frame   0x0000000000000f90       0x84 build/default/debug/_ext/1881668453/sys_int.o
+ .debug_frame   0x0000000000001014       0x48 build/default/debug/_ext/1360937237/cdc.o
+ .debug_frame   0x000000000000105c       0x2c build/default/debug/_ext/308758920/usb_device_cdc_acm.o
+ .debug_frame   0x0000000000001088       0x20 build/default/debug/_ext/1171490990/interrupts.o
+ .debug_frame   0x00000000000010a8       0x4c c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+ .debug_frame   0x00000000000010f4       0x2c c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+ .debug_frame   0x0000000000001120       0x20 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+ .debug_frame   0x0000000000001140       0x3c c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+ .debug_frame   0x000000000000117c       0x20 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_clear.o)
+ .debug_frame   0x000000000000119c       0x28 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_copy.o)
+
+.note.GNU-stack
+                0x0000000000000000        0x0
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(libc.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__environ.o)
+
+.stack          0x0000000020000640      0x100
+ .stack         0x0000000020000640      0x100 stack
+
+.bss.gDrvUSBFSV1Obj%1
+                0x0000000020000000      0x138
+ .bss.gDrvUSBFSV1Obj
+                0x0000000020000000      0x138 build/default/debug/_ext/818654064/drv_usbfsv1.o
+
+.bss.usbDeviceInstance%2
+                0x0000000020000138       0xf4
+ .bss.usbDeviceInstance
+                0x0000000020000138       0xf4 build/default/debug/_ext/308758920/usb_device.o
+
+.bss%3          0x000000002000022c       0x50
+ .bss           0x000000002000022c       0x50 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(libc.o)
+                0x000000002000022c                __progname_full
+                0x000000002000022c                program_invocation_name
+                0x0000000020000230                program_invocation_short_name
+                0x0000000020000230                __progname
+                0x0000000020000234                __sysinfo
+                0x0000000020000238                __hwcap
+                0x000000002000023c                __libc
+
+.bss.gUSBDeviceCDCInstance%4
+                0x000000002000027c       0x44
+ .bss.gUSBDeviceCDCInstance
+                0x000000002000027c       0x44 build/default/debug/_ext/308758920/usb_device_cdc.o
+
+.bss.gDrvEP0BufferBank0%5
+                0x00000000200002c0       0x40
+ .bss.gDrvEP0BufferBank0
+                0x00000000200002c0       0x40 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+
+.bss.gDrvEP0BufferBank1%6
+                0x0000000020000300       0x40
+ .bss.gDrvEP0BufferBank1
+                0x0000000020000300       0x40 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+
+.bss.gDrvUSBEndpointObjects%7
+                0x0000000020000340       0x30
+ .bss.gDrvUSBEndpointObjects
+                0x0000000020000340       0x30 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+
+.bss%8          0x0000000020000370       0x1c
+ .bss           0x0000000020000370       0x1c c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+
+.bss.cdcData%9  0x000000002000038c       0x14
+ .bss.cdcData   0x000000002000038c       0x14 build/default/debug/_ext/1360937237/cdc.o
+                0x000000002000038c                cdcData
+
+.bss.gUSBDeviceCDCSerialStateResponse%10
+                0x00000000200003a0        0xa
+ .bss.gUSBDeviceCDCSerialStateResponse
+                0x00000000200003a0        0xa build/default/debug/_ext/308758920/usb_device_cdc.o
+
+.bss.appData%11
+                0x00000000200003ac        0xc
+ .bss.appData   0x00000000200003ac        0xc build/default/debug/_ext/1360937237/app.o
+                0x00000000200003ac                appData
+
+.bss.sysObj%12  0x00000000200003b8        0x8
+ .bss.sysObj    0x00000000200003b8        0x8 build/default/debug/_ext/1171490990/initialization.o
+                0x00000000200003b8                sysObj
+
+.bss.controlLineStateData%13
+                0x00000000200003c0        0x4
+ .bss.controlLineStateData
+                0x00000000200003c0        0x4 build/default/debug/_ext/1360937237/cdc.o
+                0x00000000200003c0                controlLineStateData
+
+.bss%14         0x00000000200003c4        0x4
+ .bss           0x00000000200003c4        0x4 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+
+.bss%15         0x00000000200003c8        0x4
+ .bss           0x00000000200003c8        0x4 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__environ.o)
+                0x00000000200003c8                __environ
+                0x00000000200003c8                environ
+                0x00000000200003c8                ___environ
+                0x00000000200003c8                _environ
+
+.bss.gUSBDeviceCdcCommonDataObj%16
+                0x00000000200003cc        0x2
+ .bss.gUSBDeviceCdcCommonDataObj
+                0x00000000200003cc        0x2 build/default/debug/_ext/308758920/usb_device_cdc.o
+
+.bss.breakDuration%17
+                0x00000000200003aa        0x2
+ .bss.breakDuration
+                0x00000000200003aa        0x2 build/default/debug/_ext/1360937237/cdc.o
+                0x00000000200003aa                breakDuration
+
+.data.gDrvUSBFSV1DeviceInterface%18
+                0x00000000200003d0       0x50
+ .data.gDrvUSBFSV1DeviceInterface
+                0x00000000200003d0       0x50 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x00000000200003d0                gDrvUSBFSV1DeviceInterface
+
+.data.lineCoding%19
+                0x0000000020000420        0x7
+ .data.lineCoding
+                0x0000000020000420        0x7 build/default/debug/_ext/1360937237/cdc.o
+                0x0000000020000420                lineCoding
+
+.eh_frame%z1    0x0000000000000000        0x0
+ .eh_frame      0x0000000000000000        0x0 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+
+.config_00804000.__config_00804000%20
+                0x0000000000804000        0x4
+ .config_00804000.__config_00804000
+                0x0000000000804000        0x4 build/default/debug/_ext/1171490990/initialization.o
+                0x0000000000804000                __config_00804000
+
+.config_00804004.__config_00804004%21
+                0x0000000000804004        0x4
+ .config_00804004.__config_00804004
+                0x0000000000804004        0x4 build/default/debug/_ext/1171490990/initialization.o
+                0x0000000000804004                __config_00804004
+
+.config_00804008.__config_00804008%22
+                0x0000000000804008        0x4
+ .config_00804008.__config_00804008
+                0x0000000000804008        0x4 build/default/debug/_ext/1171490990/initialization.o
+                0x0000000000804008                __config_00804008
+
+.text.F_DRV_USBFSV1_DEVICE_Tasks_ISR%23
+                0x0000000000000280      0x5f4
+ .text.F_DRV_USBFSV1_DEVICE_Tasks_ISR
+                0x0000000000000280      0x5f4 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x0000000000000280                F_DRV_USBFSV1_DEVICE_Tasks_ISR
+
+.text.DRV_USBFSV1_DEVICE_IRPSubmit%24
+                0x0000000000000874      0x40c
+ .text.DRV_USBFSV1_DEVICE_IRPSubmit
+                0x0000000000000874      0x40c build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x0000000000000874                DRV_USBFSV1_DEVICE_IRPSubmit
+
+.text.DRV_USBFSV1_DEVICE_EndpointDisable%25
+                0x0000000000000c80      0x1c0
+ .text.DRV_USBFSV1_DEVICE_EndpointDisable
+                0x0000000000000c80      0x1c0 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x0000000000000c80                DRV_USBFSV1_DEVICE_EndpointDisable
+
+.text.DRV_USBFSV1_DEVICE_EndpointStallClear%26
+                0x0000000000000e40      0x1a4
+ .text.DRV_USBFSV1_DEVICE_EndpointStallClear
+                0x0000000000000e40      0x1a4 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x0000000000000e40                DRV_USBFSV1_DEVICE_EndpointStallClear
+
+.text.DRV_USBFSV1_DEVICE_EndpointEnable%27
+                0x0000000000000fe4      0x178
+ .text.DRV_USBFSV1_DEVICE_EndpointEnable
+                0x0000000000000fe4      0x178 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x0000000000000fe4                DRV_USBFSV1_DEVICE_EndpointEnable
+
+.text.DRV_USBFSV1_DEVICE_EndpointStall%28
+                0x000000000000115c      0x178
+ .text.DRV_USBFSV1_DEVICE_EndpointStall
+                0x000000000000115c      0x178 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x000000000000115c                DRV_USBFSV1_DEVICE_EndpointStall
+
+.text.F_USB_DEVICE_EventHandler%29
+                0x00000000000012d4      0x130
+ .text.F_USB_DEVICE_EventHandler
+                0x00000000000012d4      0x130 build/default/debug/_ext/308758920/usb_device.o
+                0x00000000000012d4                F_USB_DEVICE_EventHandler
+
+.text.DRV_USBFSV1_Initialize%30
+                0x0000000000001404      0x12c
+ .text.DRV_USBFSV1_Initialize
+                0x0000000000001404      0x12c build/default/debug/_ext/818654064/drv_usbfsv1.o
+                0x0000000000001404                DRV_USBFSV1_Initialize
+
+.text.DRV_USBFSV1_DEVICE_IRPCancelAll%31
+                0x0000000000001530      0x12c
+ .text.DRV_USBFSV1_DEVICE_IRPCancelAll
+                0x0000000000001530      0x12c build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x0000000000001530                DRV_USBFSV1_DEVICE_IRPCancelAll
+
+.text.DRV_USBFSV1_DEVICE_IRPCancel%32
+                0x000000000000165c      0x128
+ .text.DRV_USBFSV1_DEVICE_IRPCancel
+                0x000000000000165c      0x128 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x000000000000165c                DRV_USBFSV1_DEVICE_IRPCancel
+
+.text.F_USB_DEVICE_ProcessStandardDeviceSetRequests%33
+                0x0000000000001784      0x124
+ .text.F_USB_DEVICE_ProcessStandardDeviceSetRequests
+                0x0000000000001784      0x124 build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000001784                F_USB_DEVICE_ProcessStandardDeviceSetRequests
+
+.dinit%34       0x00000000000018a8      0x120
+ .dinit         0x00000000000018a8      0x120 data_init
+
+.text.DRV_USBFSV1_DEVICE_Detach%35
+                0x00000000000019c8      0x10c
+ .text.DRV_USBFSV1_DEVICE_Detach
+                0x00000000000019c8      0x10c build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x00000000000019c8                DRV_USBFSV1_DEVICE_Detach
+
+.text.DRV_USBFSV1_Tasks_ISR%36
+                0x0000000000001ad4       0xf0
+ .text.DRV_USBFSV1_Tasks_ISR
+                0x0000000000001ad4       0xf0 build/default/debug/_ext/818654064/drv_usbfsv1.o
+                0x0000000000001ad4                DRV_USBFSV1_Tasks_ISR
+
+.text.F_USB_DEVICE_ControlTransferHandler%37
+                0x0000000000001bc4       0xf0
+ .text.F_USB_DEVICE_ControlTransferHandler
+                0x0000000000001bc4       0xf0 build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000001bc4                F_USB_DEVICE_ControlTransferHandler
+
+.text.F_USB_DEVICE_Ep0ReceiveCompleteCallback%38
+                0x0000000000001cb4       0xe8
+ .text.F_USB_DEVICE_Ep0ReceiveCompleteCallback
+                0x0000000000001cb4       0xe8 build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000001cb4                F_USB_DEVICE_Ep0ReceiveCompleteCallback
+
+.text.CLOCK_Initialize%39
+                0x0000000000001d9c       0xdc
+ .text.CLOCK_Initialize
+                0x0000000000001d9c       0xdc build/default/debug/_ext/1984496892/plib_clock.o
+                0x0000000000001d9c                CLOCK_Initialize
+
+.text.F_USB_DEVICE_ProcessStandardDeviceGetRequests%40
+                0x0000000000001e78       0xda
+ .text.F_USB_DEVICE_ProcessStandardDeviceGetRequests
+                0x0000000000001e78       0xda build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000001e78                F_USB_DEVICE_ProcessStandardDeviceGetRequests
+
+.text.USB_DEVICE_Initialize%41
+                0x0000000000001f54       0xd0
+ .text.USB_DEVICE_Initialize
+                0x0000000000001f54       0xd0 build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000001f54                USB_DEVICE_Initialize
+
+.text.DRV_USBFSV1_Tasks%42
+                0x0000000000002024       0xc4
+ .text.DRV_USBFSV1_Tasks
+                0x0000000000002024       0xc4 build/default/debug/_ext/818654064/drv_usbfsv1.o
+                0x0000000000002024                DRV_USBFSV1_Tasks
+
+.text.APP_USBDeviceEventHandler%43
+                0x00000000000020e8       0xa8
+ .text.APP_USBDeviceEventHandler
+                0x00000000000020e8       0xa8 build/default/debug/_ext/1360937237/app.o
+                0x00000000000020e8                APP_USBDeviceEventHandler
+
+.text.F_USB_DEVICE_CDC_Initialization%44
+                0x0000000000002190       0xa8
+ .text.F_USB_DEVICE_CDC_Initialization
+                0x0000000000002190       0xa8 build/default/debug/_ext/308758920/usb_device_cdc.o
+                0x0000000000002190                F_USB_DEVICE_CDC_Initialization
+
+.text.USBDeviceCDCEventHandler%45
+                0x0000000000002238       0xa0
+ .text.USBDeviceCDCEventHandler
+                0x0000000000002238       0xa0 build/default/debug/_ext/1360937237/cdc.o
+                0x0000000000002238                USBDeviceCDCEventHandler
+
+.text.F_USB_DEVICE_CDC_ControlTransferHandler%46
+                0x00000000000022d8       0x98
+ .text.F_USB_DEVICE_CDC_ControlTransferHandler
+                0x00000000000022d8       0x98 build/default/debug/_ext/308758920/usb_device_cdc.o
+                0x00000000000022d8                F_USB_DEVICE_CDC_ControlTransferHandler
+
+.text.USB_DEVICE_Tasks%47
+                0x0000000000002370       0x90
+ .text.USB_DEVICE_Tasks
+                0x0000000000002370       0x90 build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000002370                USB_DEVICE_Tasks
+
+.text.Reset_Handler%48
+                0x0000000000002400       0x8c
+ .text.Reset_Handler
+                0x0000000000002400       0x8c build/default/debug/_ext/1171490990/startup_xc32.o
+                0x0000000000002400                Reset_Handler
+
+.text.F_USB_DEVICE_CDC_ACMSetUpPacketHandler%49
+                0x000000000000248c       0x80
+ .text.F_USB_DEVICE_CDC_ACMSetUpPacketHandler
+                0x000000000000248c       0x80 build/default/debug/_ext/308758920/usb_device_cdc_acm.o
+                0x000000000000248c                F_USB_DEVICE_CDC_ACMSetUpPacketHandler
+
+.text.F_USB_DEVICE_GetStringDescriptorRequestProcess%50
+                0x000000000000250c       0x7a
+ .text.F_USB_DEVICE_GetStringDescriptorRequestProcess
+                0x000000000000250c       0x7a build/default/debug/_ext/308758920/usb_device.o
+                0x000000000000250c                F_USB_DEVICE_GetStringDescriptorRequestProcess
+
+.text.F_USB_DEVICE_ProcessStandardEndpointRequest%51
+                0x0000000000002586       0x78
+ .text.F_USB_DEVICE_ProcessStandardEndpointRequest
+                0x0000000000002586       0x78 build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000002586                F_USB_DEVICE_ProcessStandardEndpointRequest
+
+.text.NVIC_Initialize%52
+                0x0000000000002600       0x70
+ .text.NVIC_Initialize
+                0x0000000000002600       0x70 build/default/debug/_ext/1865468468/plib_nvic.o
+                0x0000000000002600                NVIC_Initialize
+
+.text.F_USB_DEVICE_ConfigureDevice%53
+                0x0000000000002670       0x6e
+ .text.F_USB_DEVICE_ConfigureDevice
+                0x0000000000002670       0x6e build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000002670                F_USB_DEVICE_ConfigureDevice
+
+.text.F_USB_DEVICE_Ep0TransmitCompleteCallback%54
+                0x00000000000026de       0x66
+ .text.F_USB_DEVICE_Ep0TransmitCompleteCallback
+                0x00000000000026de       0x66 build/default/debug/_ext/308758920/usb_device.o
+                0x00000000000026de                F_USB_DEVICE_Ep0TransmitCompleteCallback
+
+.text.__libc_start_init%55
+                0x0000000000002744       0x5c
+ .text.__libc_start_init
+                0x0000000000002744       0x5c c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+                0x0000000000002744                __libc_init_array
+
+.text.F_USB_DEVICE_DeInitializeAllFunctionDrivers%56
+                0x00000000000027a0       0x50
+ .text.F_USB_DEVICE_DeInitializeAllFunctionDrivers
+                0x00000000000027a0       0x50 build/default/debug/_ext/308758920/usb_device.o
+                0x00000000000027a0                F_USB_DEVICE_DeInitializeAllFunctionDrivers
+
+.text.F_USB_DEVICE_ForwardControlXfrToFunction%57
+                0x00000000000027f0       0x4c
+ .text.F_USB_DEVICE_ForwardControlXfrToFunction
+                0x00000000000027f0       0x4c build/default/debug/_ext/308758920/usb_device.o
+                0x00000000000027f0                F_USB_DEVICE_ForwardControlXfrToFunction
+
+.text.F_USB_DEVICE_GetFunctionDriverEntryByInterface%58
+                0x000000000000283c       0x4a
+ .text.F_USB_DEVICE_GetFunctionDriverEntryByInterface
+                0x000000000000283c       0x4a build/default/debug/_ext/308758920/usb_device.o
+                0x000000000000283c                F_USB_DEVICE_GetFunctionDriverEntryByInterface
+
+.text.SYS_Initialize%59
+                0x0000000000002888       0x44
+ .text.SYS_Initialize
+                0x0000000000002888       0x44 build/default/debug/_ext/1171490990/initialization.o
+                0x0000000000002888                SYS_Initialize
+
+.rodata.fullSpeedConfigurationDescriptor%60
+                0x00000000000028cc       0x44
+ .rodata.fullSpeedConfigurationDescriptor
+                0x00000000000028cc       0x44 build/default/debug/_ext/1171490990/usb_device_init_data.o
+
+.text.USB_DEVICE_ControlStatus%61
+                0x0000000000002910       0x44
+ .text.USB_DEVICE_ControlStatus
+                0x0000000000002910       0x44 build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000002910                USB_DEVICE_ControlStatus
+
+.text.SYS_INT_SourceDisable%62
+                0x0000000000002954       0x44
+ .text.SYS_INT_SourceDisable
+                0x0000000000002954       0x44 build/default/debug/_ext/1881668453/sys_int.o
+                0x0000000000002954                SYS_INT_SourceDisable
+
+.text.USB_DEVICE_ControlSend%63
+                0x0000000000002998       0x42
+ .text.USB_DEVICE_ControlSend
+                0x0000000000002998       0x42 build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000002998                USB_DEVICE_ControlSend
+
+.text%64        0x00000000000029dc       0x40
+ .text          0x00000000000029dc       0x40 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+
+.text.F_USB_DEVICE_FindEndpoint%65
+                0x0000000000002a1c       0x3c
+ .text.F_USB_DEVICE_FindEndpoint
+                0x0000000000002a1c       0x3c build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000002a1c                F_USB_DEVICE_FindEndpoint
+
+.text.F_DRV_USBFSV1_DEVICE_Initialize%66
+                0x0000000000002a58       0x38
+ .text.F_DRV_USBFSV1_DEVICE_Initialize
+                0x0000000000002a58       0x38 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x0000000000002a58                F_DRV_USBFSV1_DEVICE_Initialize
+
+.text.F_USB_DEVICE_CDC_Deinitialization%67
+                0x0000000000002a90       0x38
+ .text.F_USB_DEVICE_CDC_Deinitialization
+                0x0000000000002a90       0x38 build/default/debug/_ext/308758920/usb_device_cdc.o
+                0x0000000000002a90                F_USB_DEVICE_CDC_Deinitialization
+
+.text.USB_DEVICE_Open%68
+                0x0000000000002ac8       0x38
+ .text.USB_DEVICE_Open
+                0x0000000000002ac8       0x38 build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000002ac8                USB_DEVICE_Open
+
+.text.__pic32c_data_initialization%69
+                0x0000000000002b00       0x38
+ .text.__pic32c_data_initialization
+                0x0000000000002b00       0x38 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+                0x0000000000002b00                __pic32c_data_initialization
+
+.text.APP_Tasks%70
+                0x0000000000002b38       0x34
+ .text.APP_Tasks
+                0x0000000000002b38       0x34 build/default/debug/_ext/1360937237/app.o
+                0x0000000000002b38                APP_Tasks
+
+.text.PORT_Initialize%71
+                0x0000000000002b6c       0x34
+ .text.PORT_Initialize
+                0x0000000000002b6c       0x34 build/default/debug/_ext/1865521619/plib_port.o
+                0x0000000000002b6c                PORT_Initialize
+
+.rodata.sd001%72
+                0x0000000000002ba0       0x34
+ .rodata.sd001  0x0000000000002ba0       0x34 build/default/debug/_ext/1171490990/usb_device_init_data.o
+
+.rodata.sd002%73
+                0x0000000000002bd4       0x30
+ .rodata.sd002  0x0000000000002bd4       0x30 build/default/debug/_ext/1171490990/usb_device_init_data.o
+
+.text.DRV_USBFSV1_DEVICE_EndpointIsEnabled%74
+                0x0000000000002c04       0x2e
+ .text.DRV_USBFSV1_DEVICE_EndpointIsEnabled
+                0x0000000000002c04       0x2e build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x0000000000002c04                DRV_USBFSV1_DEVICE_EndpointIsEnabled
+
+.text.F_USB_DEVICE_RedirectControlXfrToClient%75
+                0x0000000000002c32       0x2e
+ .text.F_USB_DEVICE_RedirectControlXfrToClient
+                0x0000000000002c32       0x2e build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000002c32                F_USB_DEVICE_RedirectControlXfrToClient
+
+.rodata.usbDevInitData%76
+                0x0000000000002c60       0x2c
+ .rodata.usbDevInitData
+                0x0000000000002c60       0x2c build/default/debug/_ext/1171490990/usb_device_init_data.o
+                0x0000000000002c60                usbDevInitData
+
+.rodata.usbMasterDescriptor%77
+                0x0000000000002c8c       0x2c
+ .rodata.usbMasterDescriptor
+                0x0000000000002c8c       0x2c build/default/debug/_ext/1171490990/usb_device_init_data.o
+
+.text.F_DRV_USBFSV1_DEVICE_IRPQueueFlush%78
+                0x0000000000002cb8       0x28
+ .text.F_DRV_USBFSV1_DEVICE_IRPQueueFlush
+                0x0000000000002cb8       0x28 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x0000000000002cb8                F_DRV_USBFSV1_DEVICE_IRPQueueFlush
+
+.rodata.drvUSBInit%79
+                0x0000000000002ce0       0x28
+ .rodata.drvUSBInit
+                0x0000000000002ce0       0x28 build/default/debug/_ext/1171490990/initialization.o
+
+.text.USB_DEVICE_EventHandlerSet%80
+                0x0000000000002d08       0x28
+ .text.USB_DEVICE_EventHandlerSet
+                0x0000000000002d08       0x28 build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000002d08                USB_DEVICE_EventHandlerSet
+
+.text.DRV_USBFSV1_DEVICE_EndpointIsStalled%81
+                0x0000000000002d30       0x26
+ .text.DRV_USBFSV1_DEVICE_EndpointIsStalled
+                0x0000000000002d30       0x26 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x0000000000002d30                DRV_USBFSV1_DEVICE_EndpointIsStalled
+
+.text.USB_DEVICE_Detach%82
+                0x0000000000002d56       0x26
+ .text.USB_DEVICE_Detach
+                0x0000000000002d56       0x26 build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000002d56                USB_DEVICE_Detach
+
+.text.USB_DEVICE_EndpointEnable%83
+                0x0000000000002d7c       0x26
+ .text.USB_DEVICE_EndpointEnable
+                0x0000000000002d7c       0x26 build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000002d7c                USB_DEVICE_EndpointEnable
+
+.text.DRV_USBFSV1_Open%84
+                0x0000000000002da4       0x24
+ .text.DRV_USBFSV1_Open
+                0x0000000000002da4       0x24 build/default/debug/_ext/818654064/drv_usbfsv1.o
+                0x0000000000002da4                DRV_USBFSV1_Open
+
+.text.DRV_USBFSV1_DEVICE_Attach%85
+                0x0000000000002dc8       0x24
+ .text.DRV_USBFSV1_DEVICE_Attach
+                0x0000000000002dc8       0x24 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x0000000000002dc8                DRV_USBFSV1_DEVICE_Attach
+
+.text.USB_DEVICE_ControlReceive%86
+                0x0000000000002dec       0x24
+ .text.USB_DEVICE_ControlReceive
+                0x0000000000002dec       0x24 build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000002dec                USB_DEVICE_ControlReceive
+
+.text.SYS_Tasks%87
+                0x0000000000002e10       0x20
+ .text.SYS_Tasks
+                0x0000000000002e10       0x20 build/default/debug/_ext/1171490990/tasks.o
+                0x0000000000002e10                SYS_Tasks
+
+.text.F_USB_DEVICE_CDC_EndpointDisable%88
+                0x0000000000002e30       0x20
+ .text.F_USB_DEVICE_CDC_EndpointDisable
+                0x0000000000002e30       0x20 build/default/debug/_ext/308758920/usb_device_cdc.o
+                0x0000000000002e30                F_USB_DEVICE_CDC_EndpointDisable
+
+.text.USB_DEVICE_Attach%89
+                0x0000000000002e50       0x20
+ .text.USB_DEVICE_Attach
+                0x0000000000002e50       0x20 build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000002e50                USB_DEVICE_Attach
+
+.text.USB_DEVICE_EndpointDisable%90
+                0x0000000000002e70       0x1e
+ .text.USB_DEVICE_EndpointDisable
+                0x0000000000002e70       0x1e build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000002e70                USB_DEVICE_EndpointDisable
+
+.text.USB_DEVICE_IRPCancelAll%91
+                0x0000000000002e8e       0x1e
+ .text.USB_DEVICE_IRPCancelAll
+                0x0000000000002e8e       0x1e build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000002e8e                USB_DEVICE_IRPCancelAll
+
+.text.__dinit_copy%92
+                0x0000000000002eac       0x1e
+ .text.__dinit_copy
+                0x0000000000002eac       0x1e c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_copy.o)
+                0x0000000000002eac                __dinit_copy_needed
+                0x0000000000002eac                __dinit_copy
+
+.text.USB_DEVICE_CDC_EventHandlerSet%93
+                0x0000000000002ecc       0x1c
+ .text.USB_DEVICE_CDC_EventHandlerSet
+                0x0000000000002ecc       0x1c build/default/debug/_ext/308758920/usb_device_cdc.o
+                0x0000000000002ecc                USB_DEVICE_CDC_EventHandlerSet
+
+.text.memcpy%94
+                0x0000000000002ee8       0x1c
+ .text.memcpy   0x0000000000002ee8       0x1c c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memcpy.o)
+                0x0000000000002ee8                memcpy
+
+.text.F_USB_DEVICE_ClientHandleValidate%95
+                0x0000000000002f04       0x18
+ .text.F_USB_DEVICE_ClientHandleValidate
+                0x0000000000002f04       0x18 build/default/debug/_ext/308758920/usb_device.o
+                0x0000000000002f04                F_USB_DEVICE_ClientHandleValidate
+
+.text.F_USB_DEVICE_CDC_GlobalInitialize%96
+                0x0000000000002f1c       0x14
+ .text.F_USB_DEVICE_CDC_GlobalInitialize
+                0x0000000000002f1c       0x14 build/default/debug/_ext/308758920/usb_device_cdc.o
+                0x0000000000002f1c                F_USB_DEVICE_CDC_GlobalInitialize
+
+.rodata.cdcFunctionDriver%97
+                0x0000000000002f30       0x14
+ .rodata.cdcFunctionDriver
+                0x0000000000002f30       0x14 build/default/debug/_ext/308758920/usb_device_cdc.o
+                0x0000000000002f30                cdcFunctionDriver
+
+.rodata.usbDeviceDescriptor%98
+                0x0000000000002f44       0x14
+ .rodata.usbDeviceDescriptor
+                0x0000000000002f44       0x14 build/default/debug/_ext/1171490990/usb_device_init_data.o
+
+.text.CDC_Tasks%99
+                0x0000000000002f58       0x14
+ .text.CDC_Tasks
+                0x0000000000002f58       0x14 build/default/debug/_ext/1360937237/cdc.o
+                0x0000000000002f58                CDC_Tasks
+
+.rodata%100     0x0000000000002f6c       0x14
+ .rodata        0x0000000000002f6c       0x14 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+
+.text.memset%101
+                0x0000000000002f80       0x14
+ .text.memset   0x0000000000002f80       0x14 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc-size-musl.a(memset.o)
+                0x0000000000002f80                memset
+
+.text.DRV_USBFSV1_Close%102
+                0x0000000000002f94       0x12
+ .text.DRV_USBFSV1_Close
+                0x0000000000002f94       0x12 build/default/debug/_ext/818654064/drv_usbfsv1.o
+                0x0000000000002f94                DRV_USBFSV1_Close
+
+.text.DRV_USBFSV1_DEVICE_RemoteWakeupStart%103
+                0x0000000000002fa6       0x12
+ .text.DRV_USBFSV1_DEVICE_RemoteWakeupStart
+                0x0000000000002fa6       0x12 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x0000000000002fa6                DRV_USBFSV1_DEVICE_RemoteWakeupStart
+
+.text.DRV_USBFSV1_DEVICE_SOFNumberGet%104
+                0x0000000000002fb8       0x12
+ .text.DRV_USBFSV1_DEVICE_SOFNumberGet
+                0x0000000000002fb8       0x12 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x0000000000002fb8                DRV_USBFSV1_DEVICE_SOFNumberGet
+
+.text.NVIC_INT_Disable%105
+                0x0000000000002fca       0x12
+ .text.NVIC_INT_Disable
+                0x0000000000002fca       0x12 build/default/debug/_ext/1865468468/plib_nvic.o
+                0x0000000000002fca                NVIC_INT_Disable
+
+.text.NVIC_INT_Restore%106
+                0x0000000000002fdc       0x12
+ .text.NVIC_INT_Restore
+                0x0000000000002fdc       0x12 build/default/debug/_ext/1865468468/plib_nvic.o
+                0x0000000000002fdc                NVIC_INT_Restore
+
+.text.__dinit_clear%107
+                0x0000000000002fee       0x12
+ .text.__dinit_clear
+                0x0000000000002fee       0x12 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(pic32_data_init_clear.o)
+                0x0000000000002fee                __dinit_clear
+                0x0000000000002fee                __dinit_clear_needed
+
+.text.DRV_USBFSV1_OTHER_Handler%108
+                0x0000000000003000       0x10
+ .text.DRV_USBFSV1_OTHER_Handler
+                0x0000000000003000       0x10 build/default/debug/_ext/818654064/drv_usbfsv1.o
+                0x0000000000003000                DRV_USBFSV1_OTHER_Handler
+
+.text.DRV_USBFSV1_SOF_HSOF_Handler%109
+                0x0000000000003010       0x10
+ .text.DRV_USBFSV1_SOF_HSOF_Handler
+                0x0000000000003010       0x10 build/default/debug/_ext/818654064/drv_usbfsv1.o
+                0x0000000000003010                DRV_USBFSV1_SOF_HSOF_Handler
+
+.text.DRV_USBFSV1_TRCPT0_Handler%110
+                0x0000000000003020       0x10
+ .text.DRV_USBFSV1_TRCPT0_Handler
+                0x0000000000003020       0x10 build/default/debug/_ext/818654064/drv_usbfsv1.o
+                0x0000000000003020                DRV_USBFSV1_TRCPT0_Handler
+
+.text.DRV_USBFSV1_TRCPT1_Handler%111
+                0x0000000000003030       0x10
+ .text.DRV_USBFSV1_TRCPT1_Handler
+                0x0000000000003030       0x10 build/default/debug/_ext/818654064/drv_usbfsv1.o
+                0x0000000000003030                DRV_USBFSV1_TRCPT1_Handler
+
+.text.DRV_USBFSV1_ClientEventCallBackSet%112
+                0x0000000000003040       0x10
+ .text.DRV_USBFSV1_ClientEventCallBackSet
+                0x0000000000003040       0x10 build/default/debug/_ext/818654064/drv_usbfsv1.o
+                0x0000000000003040                DRV_USBFSV1_ClientEventCallBackSet
+
+.text.DRV_USBFSV1_DEVICE_AddressSet%113
+                0x0000000000003050       0x10
+ .text.DRV_USBFSV1_DEVICE_AddressSet
+                0x0000000000003050       0x10 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x0000000000003050                DRV_USBFSV1_DEVICE_AddressSet
+
+.text.NVMCTRL_Initialize%114
+                0x0000000000003060       0x10
+ .text.NVMCTRL_Initialize
+                0x0000000000003060       0x10 build/default/debug/_ext/1593096446/plib_nvmctrl.o
+                0x0000000000003060                NVMCTRL_Initialize
+
+.rodata.funcRegistrationTable%115
+                0x0000000000003070       0x10
+ .rodata.funcRegistrationTable
+                0x0000000000003070       0x10 build/default/debug/_ext/1171490990/usb_device_init_data.o
+
+.text.DRV_USBFSV1_DEVICE_CurrentSpeedGet%116
+                0x0000000000003080        0xe
+ .text.DRV_USBFSV1_DEVICE_CurrentSpeedGet
+                0x0000000000003080        0xe build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x0000000000003080                DRV_USBFSV1_DEVICE_CurrentSpeedGet
+
+.text.main%117  0x000000000000308e        0xe
+ .text.main     0x000000000000308e        0xe build/default/debug/_ext/1360937237/main.o
+                0x000000000000308e                main
+
+.text.APP_Initialize%118
+                0x000000000000309c        0xc
+ .text.APP_Initialize
+                0x000000000000309c        0xc build/default/debug/_ext/1360937237/app.o
+                0x000000000000309c                APP_Initialize
+
+.rodata.cdcInit0%119
+                0x00000000000030a8        0xc
+ .rodata.cdcInit0
+                0x00000000000030a8        0xc build/default/debug/_ext/1171490990/usb_device_init_data.o
+
+.rodata.stringDescriptors%120
+                0x00000000000030b4        0xc
+ .rodata.stringDescriptors
+                0x00000000000030b4        0xc build/default/debug/_ext/1171490990/usb_device_init_data.o
+
+.text.CDC_Initialize%121
+                0x00000000000030c0        0xc
+ .text.CDC_Initialize
+                0x00000000000030c0        0xc build/default/debug/_ext/1360937237/cdc.o
+                0x00000000000030c0                CDC_Initialize
+
+.rodata.gDrvUSBFSV1DeviceEndpointTypeMap%122
+                0x00000000000030cc        0x8
+ .rodata.gDrvUSBFSV1DeviceEndpointTypeMap
+                0x00000000000030cc        0x8 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+
+.rodata.gDrvUSBFSV1DeviceSpeedMap%123
+                0x00000000000030d4        0x4
+ .rodata.gDrvUSBFSV1DeviceSpeedMap
+                0x00000000000030d4        0x4 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+
+.rodata.fullSpeedConfigDescSet%124
+                0x00000000000030d8        0x4
+ .rodata.fullSpeedConfigDescSet
+                0x00000000000030d8        0x4 build/default/debug/_ext/1171490990/usb_device_init_data.o
+
+.rodata.sd000%125
+                0x00000000000030dc        0x4
+ .rodata.sd000  0x00000000000030dc        0x4 build/default/debug/_ext/1171490990/usb_device_init_data.o
+
+.text.NonMaskableInt_Handler%126
+                0x00000000000030e0        0x4
+ .text.NonMaskableInt_Handler
+                0x00000000000030e0        0x4 build/default/debug/_ext/1171490990/exceptions.o
+                0x00000000000030e0                NonMaskableInt_Handler
+
+.text.HardFault_Handler%127
+                0x00000000000030e4        0x4
+ .text.HardFault_Handler
+                0x00000000000030e4        0x4 build/default/debug/_ext/1171490990/exceptions.o
+                0x00000000000030e4                HardFault_Handler
+
+.text.DebugMonitor_Handler%128
+                0x00000000000030e8        0x4
+ .text.DebugMonitor_Handler
+                0x00000000000030e8        0x4 build/default/debug/_ext/1171490990/exceptions.o
+                0x00000000000030e8                DebugMonitor_Handler
+
+.text.MemoryManagement_Handler%129
+                0x00000000000030ec        0x4
+ .text.MemoryManagement_Handler
+                0x00000000000030ec        0x4 build/default/debug/_ext/1171490990/exceptions.o
+                0x00000000000030ec                MemoryManagement_Handler
+
+.text.BusFault_Handler%130
+                0x00000000000030f0        0x4
+ .text.BusFault_Handler
+                0x00000000000030f0        0x4 build/default/debug/_ext/1171490990/exceptions.o
+                0x00000000000030f0                BusFault_Handler
+
+.text.UsageFault_Handler%131
+                0x00000000000030f4        0x4
+ .text.UsageFault_Handler
+                0x00000000000030f4        0x4 build/default/debug/_ext/1171490990/exceptions.o
+                0x00000000000030f4                UsageFault_Handler
+
+.text.Dummy_Handler%132
+                0x00000000000030f8        0x4
+ .text.Dummy_Handler
+                0x00000000000030f8        0x4 build/default/debug/_ext/1171490990/interrupts.o
+                0x00000000000030f8                EIC_EXTINT_9_Handler
+                0x00000000000030f8                TCC0_MC5_Handler
+                0x00000000000030f8                SVCall_Handler
+                0x00000000000030f8                SERCOM0_2_Handler
+                0x00000000000030f8                TCC4_OTHER_Handler
+                0x00000000000030f8                TCC2_MC2_Handler
+                0x00000000000030f8                EVSYS_0_Handler
+                0x00000000000030f8                TRNG_Handler
+                0x00000000000030f8                TC2_Handler
+                0x00000000000030f8                DAC_OTHER_Handler
+                0x00000000000030f8                AC_Handler
+                0x00000000000030f8                DAC_EMPTY_0_Handler
+                0x00000000000030f8                DMAC_OTHER_Handler
+                0x00000000000030f8                EIC_EXTINT_5_Handler
+                0x00000000000030f8                SERCOM3_1_Handler
+                0x00000000000030f8                SysTick_Handler
+                0x00000000000030f8                SERCOM4_OTHER_Handler
+                0x00000000000030f8                SERCOM3_2_Handler
+                0x00000000000030f8                EIC_EXTINT_6_Handler
+                0x00000000000030f8                PendSV_Handler
+                0x00000000000030f8                TCC4_MC0_Handler
+                0x00000000000030f8                EVSYS_3_Handler
+                0x00000000000030f8                QSPI_Handler
+                0x00000000000030f8                TCC2_MC0_Handler
+                0x00000000000030f8                PDEC_OTHER_Handler
+                0x00000000000030f8                TCC3_MC0_Handler
+                0x00000000000030f8                PDEC_MC1_Handler
+                0x00000000000030f8                TCC2_MC1_Handler
+                0x00000000000030f8                OSCCTRL_XOSC1_Handler
+                0x00000000000030f8                PDEC_MC0_Handler
+                0x00000000000030f8                EIC_EXTINT_4_Handler
+                0x00000000000030f8                EIC_EXTINT_7_Handler
+                0x00000000000030f8                SERCOM0_OTHER_Handler
+                0x00000000000030f8                EVSYS_OTHER_Handler
+                0x00000000000030f8                SERCOM0_0_Handler
+                0x00000000000030f8                RTC_Handler
+                0x00000000000030f8                SERCOM4_0_Handler
+                0x00000000000030f8                TCC1_MC0_Handler
+                0x00000000000030f8                SERCOM1_OTHER_Handler
+                0x00000000000030f8                TCC2_OTHER_Handler
+                0x00000000000030f8                EIC_EXTINT_11_Handler
+                0x00000000000030f8                SUPC_BODDET_Handler
+                0x00000000000030f8                EIC_EXTINT_14_Handler
+                0x00000000000030f8                OSC32KCTRL_Handler
+                0x00000000000030f8                EVSYS_1_Handler
+                0x00000000000030f8                TCC4_MC1_Handler
+                0x00000000000030f8                DMAC_0_Handler
+                0x00000000000030f8                SUPC_OTHER_Handler
+                0x00000000000030f8                WDT_Handler
+                0x00000000000030f8                EIC_EXTINT_15_Handler
+                0x00000000000030f8                EIC_EXTINT_1_Handler
+                0x00000000000030f8                TCC3_MC1_Handler
+                0x00000000000030f8                SERCOM5_0_Handler
+                0x00000000000030f8                TC4_Handler
+                0x00000000000030f8                TC1_Handler
+                0x00000000000030f8                TCC1_MC1_Handler
+                0x00000000000030f8                EIC_EXTINT_0_Handler
+                0x00000000000030f8                TCC1_OTHER_Handler
+                0x00000000000030f8                PAC_Handler
+                0x00000000000030f8                SERCOM4_1_Handler
+                0x00000000000030f8                TC3_Handler
+                0x00000000000030f8                Dummy_Handler
+                0x00000000000030f8                DAC_RESRDY_0_Handler
+                0x00000000000030f8                SERCOM5_1_Handler
+                0x00000000000030f8                DMAC_2_Handler
+                0x00000000000030f8                TCC0_MC4_Handler
+                0x00000000000030f8                SERCOM0_1_Handler
+                0x00000000000030f8                TCC0_MC3_Handler
+                0x00000000000030f8                EIC_EXTINT_12_Handler
+                0x00000000000030f8                OSCCTRL_DPLL0_Handler
+                0x00000000000030f8                SERCOM5_OTHER_Handler
+                0x00000000000030f8                PM_Handler
+                0x00000000000030f8                OSCCTRL_DFLL_Handler
+                0x00000000000030f8                DAC_RESRDY_1_Handler
+                0x00000000000030f8                DMAC_1_Handler
+                0x00000000000030f8                TCC0_OTHER_Handler
+                0x00000000000030f8                EIC_EXTINT_10_Handler
+                0x00000000000030f8                TCC1_MC3_Handler
+                0x00000000000030f8                OSCCTRL_XOSC0_Handler
+                0x00000000000030f8                TCC0_MC0_Handler
+                0x00000000000030f8                EIC_EXTINT_2_Handler
+                0x00000000000030f8                SDHC0_Handler
+                0x00000000000030f8                SERCOM1_1_Handler
+                0x00000000000030f8                I2S_Handler
+                0x00000000000030f8                PCC_Handler
+                0x00000000000030f8                TCC3_OTHER_Handler
+                0x00000000000030f8                EIC_EXTINT_13_Handler
+                0x00000000000030f8                SERCOM1_0_Handler
+                0x00000000000030f8                PUKCC_Handler
+                0x00000000000030f8                SERCOM2_1_Handler
+                0x00000000000030f8                SERCOM1_2_Handler
+                0x00000000000030f8                SERCOM3_0_Handler
+                0x00000000000030f8                SERCOM4_2_Handler
+                0x00000000000030f8                TCC1_MC2_Handler
+                0x00000000000030f8                ADC1_RESRDY_Handler
+                0x00000000000030f8                NVMCTRL_1_Handler
+                0x00000000000030f8                SERCOM5_2_Handler
+                0x00000000000030f8                SERCOM2_2_Handler
+                0x00000000000030f8                DAC_EMPTY_1_Handler
+                0x00000000000030f8                ADC1_OTHER_Handler
+                0x00000000000030f8                OSCCTRL_DPLL1_Handler
+                0x00000000000030f8                EIC_EXTINT_3_Handler
+                0x00000000000030f8                SERCOM3_OTHER_Handler
+                0x00000000000030f8                EIC_EXTINT_8_Handler
+                0x00000000000030f8                NVMCTRL_0_Handler
+                0x00000000000030f8                ADC0_RESRDY_Handler
+                0x00000000000030f8                ADC0_OTHER_Handler
+                0x00000000000030f8                MCLK_Handler
+                0x00000000000030f8                EVSYS_2_Handler
+                0x00000000000030f8                SERCOM2_OTHER_Handler
+                0x00000000000030f8                FREQM_Handler
+                0x00000000000030f8                TC0_Handler
+                0x00000000000030f8                TCC0_MC1_Handler
+                0x00000000000030f8                DMAC_3_Handler
+                0x00000000000030f8                RAMECC_Handler
+                0x00000000000030f8                TC5_Handler
+                0x00000000000030f8                SERCOM2_0_Handler
+                0x00000000000030f8                AES_Handler
+                0x00000000000030f8                ICM_Handler
+                0x00000000000030f8                TCC0_MC2_Handler
+
+.text.__dummy_decompress%133
+                0x00000000000030fc        0x4
+ .text.__dummy_decompress
+                0x00000000000030fc        0x4 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+                0x00000000000030fc                __dinit_decompress
+                0x00000000000030fc                __dinit_copy_val_data
+                0x00000000000030fc                __dinit_copy_emb
+
+.text.DRV_USBFSV1_DEVICE_RemoteWakeupStop%134
+                0x0000000000001f52        0x2
+ .text.DRV_USBFSV1_DEVICE_RemoteWakeupStop
+                0x0000000000001f52        0x2 build/default/debug/_ext/818654064/drv_usbfsv1_device.o
+                0x0000000000001f52                DRV_USBFSV1_DEVICE_RemoteWakeupStop
+
+.text.EVSYS_Initialize%135
+                0x00000000000025fe        0x2
+ .text.EVSYS_Initialize
+                0x00000000000025fe        0x2 build/default/debug/_ext/1986646378/plib_evsys.o
+                0x00000000000025fe                EVSYS_Initialize
+
+.text.Dummy_App_Func%136
+                0x0000000000002886        0x2
+ .text.Dummy_App_Func
+                0x0000000000002886        0x2 build/default/debug/_ext/1171490990/startup_xc32.o
+                0x0000000000002886                _on_reset
+                0x0000000000002886                _on_bootstrap
+                0x0000000000002886                __xc32_on_reset
+                0x0000000000002886                Dummy_App_Func
+                0x0000000000002886                __xc32_on_bootstrap
+
+.text.__dummy_init_tls%137
+                0x00000000000029da        0x2
+ .text.__dummy_init_tls
+                0x00000000000029da        0x2 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+                0x00000000000029da                xc32_init_tls
+
+.text.__dummy%138
+                0x0000000000002da2        0x2
+ .text.__dummy  0x0000000000002da2        0x2 c:/program files/microchip/xc32/v4.60/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libg-musl.a(__libc_start_main.o)
+                0x0000000000002da2                __init_stdio
+                0x0000000000002da2                __init_host
