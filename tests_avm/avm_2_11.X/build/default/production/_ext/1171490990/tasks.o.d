@@ -108,6 +108,7 @@ build/default/production/_ext/1171490990/tasks.o: \
  ../src/config/default/peripheral/port/plib_port.h \
  ../src/config/default/peripheral/clock/plib_clock.h \
  ../src/config/default/peripheral/nvic/plib_nvic.h \
+ ../src/config/default/peripheral/dmac/plib_dmac.h \
  ../src/config/default/peripheral/cmcc/plib_cmcc.h \
  ../src/config/default/usb/usb_chapter_9.h \
  ../src/config/default/usb/usb_device.h \
@@ -139,6 +140,7 @@ build/default/production/_ext/1171490990/tasks.o: \
  ../src/config/default/system/console/sys_console.h \
  ../src/config/default/driver/driver.h \
  ../src/config/default/system/console/src/sys_console_local.h \
+ ../src/config/default/system/console/src/sys_console_usb_cdc_definitions.h \
  ../src/config/default/system/int/sys_int.h \
  ../src/config/default/system/cache/sys_cache.h \
  ../src/config/default/osal/osal.h \
@@ -146,6 +148,7 @@ build/default/production/_ext/1171490990/tasks.o: \
  ../src/config/default/osal/osal_impl_basic.h \
  ../src/config/default/system/debug/sys_debug.h \
  ../src/config/default/system/console/sys_console.h ../src/app.h \
+ ../src/cdc.h ../src/config/default/usb/usb_device_cdc.h \
  ../src/config/default/sys_tasks.h ../src/app_usb.h \
  ../src/config/default/definitions.h
 
@@ -369,6 +372,8 @@ build/default/production/_ext/1171490990/tasks.o: \
 
 ../src/config/default/peripheral/nvic/plib_nvic.h:
 
+../src/config/default/peripheral/dmac/plib_dmac.h:
+
 ../src/config/default/peripheral/cmcc/plib_cmcc.h:
 
 ../src/config/default/usb/usb_chapter_9.h:
@@ -433,6 +438,8 @@ build/default/production/_ext/1171490990/tasks.o: \
 
 ../src/config/default/system/console/src/sys_console_local.h:
 
+../src/config/default/system/console/src/sys_console_usb_cdc_definitions.h:
+
 ../src/config/default/system/int/sys_int.h:
 
 ../src/config/default/system/cache/sys_cache.h:
@@ -448,6 +455,10 @@ build/default/production/_ext/1171490990/tasks.o: \
 ../src/config/default/system/console/sys_console.h:
 
 ../src/app.h:
+
+../src/cdc.h:
+
+../src/config/default/usb/usb_device_cdc.h:
 
 ../src/config/default/sys_tasks.h:
 

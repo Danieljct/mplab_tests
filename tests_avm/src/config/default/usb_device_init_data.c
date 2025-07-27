@@ -92,13 +92,13 @@ static const USB_DEVICE_DESCRIPTOR usbDeviceDescriptor =
 {
     0x12,                                                   // Size of this descriptor in bytes
     (uint8_t)USB_DESCRIPTOR_DEVICE,                                  // DEVICE descriptor type
-    0x0110,                                                 // USB Spec Release Number in BCD format (USB 1.1)
-    0x00,                                                   // Class Code - See interface descriptors
-    0x00,                                                   // Subclass code - See interface descriptors
-    0x00,                                                   // Protocol code - See interface descriptors
+    0x0200,                                                 // USB Spec Release Number in BCD format (USB 2.0)
+    0x02,                                                   // Class Code - CDC
+    0x00,                                                   // Subclass code 
+    0x00,                                                   // Protocol code 
     USB_DEVICE_EP0_BUFFER_SIZE,                             // Max packet size for EP0, see configuration.h
-    0x0403,                                                 // Vendor ID (FTDI)
-    0x6001,                                                 // Product ID (FT232 USB-UART)
+    0x04D8,                                                 // Vendor ID (Microchip)
+    0x000A,                                                 // Product ID (CDC Serial Port)
     0x0100,                                                 // Device release number in BCD format
     0x01,                                                   // Manufacturer string index
     0x02,                                                   // Product string index
@@ -256,14 +256,14 @@ const struct
 {
     uint8_t bLength;                                    // Size of this descriptor in bytes
     uint8_t bDscType;                                   // STRING descriptor type
-    uint16_t string[16];                                // String
+    uint16_t string[21];                                // String
 }
 
 static sd002 =
 {
     (uint8_t)sizeof(sd002),
     USB_DESCRIPTOR_STRING,
-    {'A','T','S','A','M','D','5','1',' ','C','D','C',' ','T'}
+    {'A','T','S','A','M','D','5','1',' ','C','D','C',' ','S','e','r','i','a','l',' ','P','o','r','t'}
 };
 
 /***************************************

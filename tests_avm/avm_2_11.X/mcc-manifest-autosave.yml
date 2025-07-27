@@ -2,7 +2,7 @@
 
 manifest_file_version: 1.0.0
 project: avm_2_11
-creation_date: 2025-07-24T01:29:15.742-04:00[America/Santiago]
+creation_date: 2025-07-26T18:28:39.610-04:00[America/Santiago]
 operating_system: Windows 10
 mcc_mode: IDE
 mcc_mode_version: v6.25
@@ -22,4 +22,3 @@ modules:
 - {name: core, type: HARMONY, version: v3.15.3}
 - {name: CMSIS_5, type: HARMONY, version: 5.9.0}
 - {name: usb, type: HARMONY, version: v3.16.0}
-- {name: audio, type: HARMONY, version: v3.7.0}

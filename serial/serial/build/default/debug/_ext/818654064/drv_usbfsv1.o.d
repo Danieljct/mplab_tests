@@ -142,6 +142,7 @@ build/default/debug/_ext/818654064/drv_usbfsv1.o: \
  ../src/config/default/osal/osal_impl_basic.h \
  ../src/config/default/system/debug/sys_debug.h ../src/app.h ../src/cdc.h \
  ../src/config/default/usb/usb_device_cdc.h \
+ ../src/config/default/peripheral/port/plib_port.h \
  ../src/config/default/driver/usb/usbfsv1/drv_usbfsv1.h \
  ../src/config/default/driver/usb/usbfsv1/src/drv_usbfsv1_variant_mapping.h \
  ../src/config/default/osal/osal.h ../src/config/default/interrupts.h
@@ -437,6 +438,8 @@ build/default/debug/_ext/818654064/drv_usbfsv1.o: \
 ../src/cdc.h:
 
 ../src/config/default/usb/usb_device_cdc.h:
+
+../src/config/default/peripheral/port/plib_port.h:
 
 ../src/config/default/driver/usb/usbfsv1/drv_usbfsv1.h:
 

@@ -139,7 +139,8 @@ build/default/debug/_ext/1171490990/usb_device_init_data.o: \
  ../src/config/default/osal/osal_definitions.h \
  ../src/config/default/osal/osal_impl_basic.h \
  ../src/config/default/system/debug/sys_debug.h ../src/app.h ../src/cdc.h \
- ../src/config/default/usb/usb_device_cdc.h
+ ../src/config/default/usb/usb_device_cdc.h \
+ ../src/config/default/peripheral/port/plib_port.h
 
 ../src/config/default/configuration.h:
 
@@ -428,3 +429,5 @@ build/default/debug/_ext/1171490990/usb_device_init_data.o: \
 ../src/cdc.h:
 
 ../src/config/default/usb/usb_device_cdc.h:
+
+../src/config/default/peripheral/port/plib_port.h:

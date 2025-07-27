@@ -26,12 +26,13 @@
 #include <stdbool.h>                    // Defines true
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "definitions.h"                // SYS function prototypes
+#include <stdio.h>
 
 static bool volatile bToggleLED = false;
 static uint16_t volatile adcValue = 0;
 
 // This function is called after period expires
-void TC0_CH0_TimerInterruptHandler(TC_TIMER_STATUS status, uintptr_t context)
+void TC0_CH0_TimerInterruptHandler(uint32_t status, uintptr_t context)
 {
     bToggleLED = true;
 }
@@ -72,6 +73,7 @@ int main ( void )
         {
             // Read ADC value
             adcValue = ADC1_ConversionResultGet();
+            SYS_CONSOLE_PRINT("ADC Value: %d\r\n", adcValue);
             bToggleLED = false;
             LED_R_Toggle();
         }

@@ -119,7 +119,8 @@ build/default/debug/_ext/1360937237/cdc.o: ../src/cdc.c ../src/cdc.h \
  ../src/config/default/usb/usb_host_hub_interface.h \
  ../src/config/default/usb/src/usb_device_mapping.h \
  ../src/config/default/usb/src/usb_device_function_driver.h \
- ../src/config/default/usb/usb_cdc.h ../src/app.h
+ ../src/config/default/usb/usb_cdc.h \
+ ../src/config/default/peripheral/port/plib_port.h ../src/app.h
 
 ../src/cdc.h:
 
@@ -366,5 +367,7 @@ build/default/debug/_ext/1360937237/cdc.o: ../src/cdc.c ../src/cdc.h \
 ../src/config/default/usb/src/usb_device_function_driver.h:
 
 ../src/config/default/usb/usb_cdc.h:
+
+../src/config/default/peripheral/port/plib_port.h:
 
 ../src/app.h:

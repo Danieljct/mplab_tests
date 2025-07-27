@@ -74,6 +74,7 @@
 void SYS_Tasks ( void )
 {
     /* Maintain system services */
+    SYS_CONSOLE_Tasks(SYS_CONSOLE_INDEX_0);
     
 
 
@@ -92,7 +93,6 @@ void SYS_Tasks ( void )
     /* Maintain the application's state machine. */
         /* Call Application task APP. */
     APP_Tasks();
-    APP_USB_Tasks();
 
 
 
