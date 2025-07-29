@@ -49,6 +49,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include "peripheral/nvmctrl/plib_nvmctrl.h"
+#include "peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h"
 #include "peripheral/evsys/plib_evsys.h"
 #include "peripheral/port/plib_port.h"
 #include "peripheral/clock/plib_clock.h"
@@ -57,7 +58,9 @@
 #include "peripheral/cmcc/plib_cmcc.h"
 #include "usb/usb_chapter_9.h"
 #include "usb/usb_device.h"
+#include "peripheral/tc/plib_tc1.h"
 #include "peripheral/tc/plib_tc0.h"
+#include "driver/i2c/drv_i2c.h"
 #include "usb/usb_device_cdc.h"
 #include "usb/usb_cdc.h"
 #include "driver/usb/usbfsv1/drv_usbfsv1.h"
@@ -200,6 +203,9 @@ Remarks:
 
 typedef struct
 {
+    /* I2C0 Driver Object */
+    SYS_MODULE_OBJ drvI2C0;
+
     SYS_MODULE_OBJ  usbDevObject0;
 
     SYS_MODULE_OBJ  sysDebug;

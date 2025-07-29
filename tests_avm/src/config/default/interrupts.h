@@ -65,11 +65,13 @@ void UsageFault_Handler (void);
 void DebugMonitor_Handler (void);
 void DMAC_0_InterruptHandler (void);
 void DMAC_1_InterruptHandler (void);
+void SERCOM1_I2C_InterruptHandler (void);
 void DRV_USBFSV1_OTHER_Handler (void);
 void DRV_USBFSV1_SOF_HSOF_Handler (void);
 void DRV_USBFSV1_TRCPT0_Handler (void);
 void DRV_USBFSV1_TRCPT1_Handler (void);
 void TC0_TimerInterruptHandler (void);
+void TC1_TimerInterruptHandler (void);
 
 
 
