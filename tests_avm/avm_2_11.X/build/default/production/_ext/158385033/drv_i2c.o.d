@@ -112,7 +112,6 @@ build/default/production/_ext/158385033/drv_i2c.o: \
  ../src/config/default/device.h \
  ../src/config/default/system/int/sys_int_mapping.h \
  ../src/config/default/driver/i2c/src/drv_i2c_local.h \
- ../src/config/default/driver/i2c/drv_i2c_definitions.h \
  ../src/config/default/osal/osal.h \
  ../src/config/default/osal/osal_definitions.h \
  ../src/config/default/osal/osal_impl_basic.h \
@@ -347,8 +346,6 @@ build/default/production/_ext/158385033/drv_i2c.o: \
 ../src/config/default/system/int/sys_int_mapping.h:
 
 ../src/config/default/driver/i2c/src/drv_i2c_local.h:
-
-../src/config/default/driver/i2c/drv_i2c_definitions.h:
 
 ../src/config/default/osal/osal.h:
 

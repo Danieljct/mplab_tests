@@ -115,14 +115,18 @@ build/default/production/_ext/818654064/drv_usbfsv1.o: \
  ../src/config/default/driver/usb/usbfsv1/src/drv_usbfsv1_local.h \
  ../src/config/default/driver/usb/drv_usb_external_dependencies.h \
  ../src/config/default/definitions.h \
- ../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h \
+ ../src/config/default/peripheral/sercom/spi_slave/plib_sercom2_spi_slave.h \
+ ../src/config/default/peripheral/sercom/spi_slave/plib_sercom_spi_slave_common.h \
  ../src/config/default/device.h \
+ ../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h \
  ../src/config/default/peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h \
  ../src/config/default/peripheral/sercom/i2c_master/plib_sercom_i2c_master_common.h \
  ../src/config/default/peripheral/evsys/plib_evsys.h \
  ../src/config/default/peripheral/port/plib_port.h \
  ../src/config/default/peripheral/clock/plib_clock.h \
  ../src/config/default/peripheral/nvic/plib_nvic.h \
+ ../src/config/default/peripheral/mpu/plib_mpu.h \
+ ../src/config/default/peripheral/systick/plib_systick.h \
  ../src/config/default/peripheral/dmac/plib_dmac.h \
  ../src/config/default/peripheral/cmcc/plib_cmcc.h \
  ../src/config/default/usb/usb_chapter_9.h \
@@ -142,7 +146,6 @@ build/default/production/_ext/818654064/drv_usbfsv1.o: \
  ../src/config/default/driver/i2c/drv_i2c.h \
  ../src/config/default/driver/i2c/drv_i2c_definitions.h \
  ../src/config/default/driver/i2c/src/drv_i2c_local.h \
- ../src/config/default/driver/i2c/drv_i2c_definitions.h \
  ../src/config/default/osal/osal.h \
  ../src/config/default/osal/osal_definitions.h \
  ../src/config/default/osal/osal_impl_basic.h \
@@ -159,8 +162,7 @@ build/default/production/_ext/818654064/drv_usbfsv1.o: \
  ../src/config/default/system/int/sys_int.h \
  ../src/config/default/system/cache/sys_cache.h \
  ../src/config/default/osal/osal.h \
- ../src/config/default/system/debug/sys_debug.h ../src/app.h ../src/cdc.h \
- ../src/config/default/usb/usb_device_cdc.h \
+ ../src/config/default/system/debug/sys_debug.h ../src/app.h \
  ../src/config/default/driver/usb/usbfsv1/drv_usbfsv1.h \
  ../src/config/default/driver/usb/usbfsv1/src/drv_usbfsv1_variant_mapping.h \
  ../src/config/default/interrupts.h
@@ -397,9 +399,13 @@ build/default/production/_ext/818654064/drv_usbfsv1.o: \
 
 ../src/config/default/definitions.h:
 
-../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h:
+../src/config/default/peripheral/sercom/spi_slave/plib_sercom2_spi_slave.h:
+
+../src/config/default/peripheral/sercom/spi_slave/plib_sercom_spi_slave_common.h:
 
 ../src/config/default/device.h:
+
+../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h:
 
 ../src/config/default/peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h:
 
@@ -412,6 +418,10 @@ build/default/production/_ext/818654064/drv_usbfsv1.o: \
 ../src/config/default/peripheral/clock/plib_clock.h:
 
 ../src/config/default/peripheral/nvic/plib_nvic.h:
+
+../src/config/default/peripheral/mpu/plib_mpu.h:
+
+../src/config/default/peripheral/systick/plib_systick.h:
 
 ../src/config/default/peripheral/dmac/plib_dmac.h:
 
@@ -451,8 +461,6 @@ build/default/production/_ext/818654064/drv_usbfsv1.o: \
 
 ../src/config/default/driver/i2c/src/drv_i2c_local.h:
 
-../src/config/default/driver/i2c/drv_i2c_definitions.h:
-
 ../src/config/default/osal/osal.h:
 
 ../src/config/default/osal/osal_definitions.h:
@@ -490,10 +498,6 @@ build/default/production/_ext/818654064/drv_usbfsv1.o: \
 ../src/config/default/system/debug/sys_debug.h:
 
 ../src/app.h:
-
-../src/cdc.h:
-
-../src/config/default/usb/usb_device_cdc.h:
 
 ../src/config/default/driver/usb/usbfsv1/drv_usbfsv1.h:
 

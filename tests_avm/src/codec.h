@@ -149,6 +149,12 @@ CodecResult_t CODEC_printAllRegisters(void);
  */
 CodecResult_t CODEC_initTimer(void);
 
+/**
+ * @brief Perform a hardware reset of the codec
+ * @return CODEC_SUCCESS if successful, error code otherwise
+ */
+CodecResult_t CODEC_resetHw(void);
+
 #ifdef __cplusplus
 }
 #endif

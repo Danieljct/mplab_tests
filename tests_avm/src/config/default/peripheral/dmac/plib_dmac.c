@@ -54,7 +54,7 @@
 // *****************************************************************************
 // *****************************************************************************
 
-#define DMAC_CHANNELS_NUMBER        (2U)
+#define DMAC_CHANNELS_NUMBER        (1U)
 
 #define DMAC_CRC_CHANNEL_OFFSET     (0x20U)
 
@@ -110,27 +110,15 @@ void DMAC_Initialize( void )
     DMAC_REGS->DMAC_PRICTRL0 |= DMAC_PRICTRL0_LVLPRI0(1U) | DMAC_PRICTRL0_RRLVLEN0_Msk | DMAC_PRICTRL0_LVLPRI1(1U) | DMAC_PRICTRL0_RRLVLEN1_Msk | DMAC_PRICTRL0_LVLPRI2(1U) | DMAC_PRICTRL0_RRLVLEN2_Msk | DMAC_PRICTRL0_LVLPRI3(1U) | DMAC_PRICTRL0_RRLVLEN3_Msk;
 
    /***************** Configure DMA channel 0 ********************/
-   DMAC_REGS->CHANNEL[0].DMAC_CHCTRLA = DMAC_CHCTRLA_TRIGACT(2U) | DMAC_CHCTRLA_TRIGSRC(76U) | DMAC_CHCTRLA_THRESHOLD(0U) | DMAC_CHCTRLA_BURSTLEN(0U) ;
+   DMAC_REGS->CHANNEL[0].DMAC_CHCTRLA = DMAC_CHCTRLA_TRIGACT(0U) | DMAC_CHCTRLA_TRIGSRC(76U) | DMAC_CHCTRLA_THRESHOLD(0U) | DMAC_CHCTRLA_BURSTLEN(0U) ;
 
-   descriptor_section[0].DMAC_BTCTRL = DMAC_BTCTRL_BLOCKACT_INT | DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_VALID_Msk | DMAC_BTCTRL_DSTINC_Msk ;
+   descriptor_section[0].DMAC_BTCTRL = DMAC_BTCTRL_BLOCKACT_INT | DMAC_BTCTRL_BEATSIZE_HWORD | DMAC_BTCTRL_VALID_Msk ;
 
    DMAC_REGS->CHANNEL[0].DMAC_CHPRILVL = DMAC_CHPRILVL_PRILVL(0U);
 
    dmacChannelObj[0].inUse = true;
 
    DMAC_REGS->CHANNEL[0].DMAC_CHINTENSET = (DMAC_CHINTENSET_TERR_Msk | DMAC_CHINTENSET_TCMPL_Msk);
-
-
-   /***************** Configure DMA channel 1 ********************/
-   DMAC_REGS->CHANNEL[1].DMAC_CHCTRLA = DMAC_CHCTRLA_TRIGACT(0U) | DMAC_CHCTRLA_TRIGSRC(0U) | DMAC_CHCTRLA_THRESHOLD(0U) | DMAC_CHCTRLA_BURSTLEN(0U) ;
-
-   descriptor_section[1].DMAC_BTCTRL = DMAC_BTCTRL_BLOCKACT_INT | DMAC_BTCTRL_BEATSIZE_WORD | DMAC_BTCTRL_VALID_Msk | DMAC_BTCTRL_SRCINC_Msk | DMAC_BTCTRL_DSTINC_Msk ;
-
-   DMAC_REGS->CHANNEL[1].DMAC_CHPRILVL = DMAC_CHPRILVL_PRILVL(0U);
-
-   dmacChannelObj[1].inUse = true;
-
-   DMAC_REGS->CHANNEL[1].DMAC_CHINTENSET = (DMAC_CHINTENSET_TERR_Msk | DMAC_CHINTENSET_TCMPL_Msk);
 
     /* Enable the DMAC module & Priority Level x Enable */
     DMAC_REGS->DMAC_CTRL = DMAC_CTRL_DMAENABLE_Msk | DMAC_CTRL_LVLEN0_Msk | DMAC_CTRL_LVLEN1_Msk | DMAC_CTRL_LVLEN2_Msk | DMAC_CTRL_LVLEN3_Msk;
@@ -493,10 +481,5 @@ static void __attribute__((used)) DMAC_channel_interruptHandler(uint8_t channel)
 void __attribute__((used)) DMAC_0_InterruptHandler( void )
 {
    DMAC_channel_interruptHandler(0U);
-}
-
-void __attribute__((used)) DMAC_1_InterruptHandler( void )
-{
-   DMAC_channel_interruptHandler(1U);
 }
 

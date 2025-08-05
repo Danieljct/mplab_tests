@@ -46,7 +46,6 @@
 #include "configuration.h"
 #include "definitions.h"
 #include "device.h"
-#include "app_usb.h"
 
 
 // ****************************************************************************
@@ -88,9 +87,6 @@
 /* I2C Client Objects Pool */
 static DRV_I2C_CLIENT_OBJ drvI2C0ClientObjPool[DRV_I2C_CLIENTS_NUMBER_IDX0];
 
-/* I2C Transfer Objects Pool */
-static DRV_I2C_TRANSFER_OBJ drvI2C0TransferObj[DRV_I2C_QUEUE_SIZE_IDX0];
-
 /* I2C PLib Interface Initialization */
 static const DRV_I2C_PLIB_INTERFACE drvI2C0PLibAPI = {
 
@@ -118,18 +114,6 @@ static const DRV_I2C_PLIB_INTERFACE drvI2C0PLibAPI = {
 };
 
 
-static const DRV_I2C_INTERRUPT_SOURCES drvI2C0InterruptSources =
-{
-    /* Peripheral has more than one interrupt vector */
-    .isSingleIntSrc                        = false,
-
-    /* Peripheral interrupt lines */
-   .intSources.multi.i2cInt0   = (int32_t)SERCOM1_OTHER_IRQn,
-   .intSources.multi.i2cInt1   = (int32_t)SERCOM1_2_IRQn,
-   .intSources.multi.i2cInt2   = (int32_t)SERCOM1_OTHER_IRQn,
-   .intSources.multi.i2cInt3   = (int32_t)SERCOM1_OTHER_IRQn,
-};
-
 /* I2C Driver Initialization Data */
 static const DRV_I2C_INIT drvI2C0InitData =
 {
@@ -141,15 +125,6 @@ static const DRV_I2C_INIT drvI2C0InitData =
 
     /* I2C Client Objects Pool */
     .clientObjPool = (uintptr_t)&drvI2C0ClientObjPool[0],
-
-    /* I2C TWI Queue Size */
-    .transferObjPoolSize = DRV_I2C_QUEUE_SIZE_IDX0,
-
-    /* I2C Transfer Objects */
-    .transferObjPool = (uintptr_t)&drvI2C0TransferObj[0],
-
-    /* I2C interrupt sources */
-    .interruptSources = &drvI2C0InterruptSources,
 
     /* I2C Clock Speed */
     .clockSpeed = DRV_I2C_CLOCK_SPEED_IDX0,
@@ -297,10 +272,13 @@ void SYS_Initialize ( void* data )
 
 
 
+    SERCOM2_SPI_Initialize();
+
     SERCOM1_I2C_Initialize();
 
     EVSYS_Initialize();
 
+	SYSTICK_TimerInitialize();
     DMAC_Initialize();
 
     TC1_TimerInitialize();
@@ -314,15 +292,9 @@ void SYS_Initialize ( void* data )
     /* MISRA C-2012 Rule 11.3 - Deviation record ID - H3_MISRAC_2012_R_11_3_DR_1 */
     /* MISRA C-2012 Rule 11.8 - Deviation record ID - H3_MISRAC_2012_R_11_8_DR_1 */
 
-    /* Initialize the USB device layer */
-    sysObj.usbDevObject0 = USB_DEVICE_Initialize (USB_DEVICE_INDEX_0 , ( SYS_MODULE_INIT* ) & usbDevInitData);
-
     /* Initialize I2C0 Driver Instance */
     sysObj.drvI2C0 = DRV_I2C_Initialize(DRV_I2C_INDEX_0, (SYS_MODULE_INIT *)&drvI2C0InitData);
 
-
-    /* Initialize USB Driver */ 
-    sysObj.drvUSBFSV1Object = DRV_USBFSV1_Initialize(DRV_USBFSV1_INDEX_0, (SYS_MODULE_INIT *) &drvUSBInit);
 
     /* MISRA C-2012 Rule 11.3, 11.8 deviated below. Deviation record ID -  
      H3_MISRAC_2012_R_11_3_DR_1 & H3_MISRAC_2012_R_11_8_DR_1*/
@@ -334,6 +306,14 @@ void SYS_Initialize ( void* data )
      H3_MISRAC_2012_R_11_3_DR_1 & H3_MISRAC_2012_R_11_8_DR_1*/
         sysObj.sysConsole0 = SYS_CONSOLE_Initialize(SYS_CONSOLE_INDEX_0, (SYS_MODULE_INIT *)&sysConsole0Init);
     /* MISRAC 2012 deviation block end */
+
+
+    /* Initialize the USB device layer */
+    sysObj.usbDevObject0 = USB_DEVICE_Initialize (USB_DEVICE_INDEX_0 , ( SYS_MODULE_INIT* ) & usbDevInitData);
+
+
+    /* Initialize USB Driver */ 
+    sysObj.drvUSBFSV1Object = DRV_USBFSV1_Initialize(DRV_USBFSV1_INDEX_0, (SYS_MODULE_INIT *) &drvUSBInit);
 
 
     /* MISRAC 2012 deviation block end */

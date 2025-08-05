@@ -15,7 +15,6 @@
 #include "codec.h"
 #include "definitions.h"
 #include "config/default/configuration.h"
-#include "timer_delay.h"
 #include <stdio.h>
 
 /******************************************************************************
@@ -46,7 +45,7 @@ static bool isCodecInitialized = false;
 /******************************************************************************
 **      PRIVATE FUNCTION DECLARATIONS (PROTOTYPES)
 ******************************************************************************/
-static CodecResult_t CODEC_resetHw(void);
+
 static bool CODEC_waitForTransferComplete(void);
 
 /******************************************************************************
@@ -59,16 +58,6 @@ static bool CODEC_waitForTransferComplete(void);
 CodecResult_t CODEC_init(CodecGain_t gain)
 {
     DRV_I2C_TRANSFER_SETUP transferSetup;
-    
-    // Initialize global timer delay system if not already done
-    if (!TimerDelay_IsInitialized())
-    {
-        TimerDelayResult_t result = TimerDelay_Init();
-        if (result != TIMER_DELAY_SUCCESS)
-        {
-            return CODEC_ERROR_I2C_INIT;
-        }
-    }
     
     // Open I2C driver
     codecI2CHandle = DRV_I2C_Open(DRV_I2C_INDEX_0, DRV_IO_INTENT_READWRITE);
@@ -101,10 +90,10 @@ CodecResult_t CODEC_init(CodecGain_t gain)
     }
     
     // Wait for reset to complete
-    TimerDelay_Ms(100);
+    SYSTICK_DelayMs(100);
     
     // Configure PLL if needed
- /*   if (CODEC_configPll(gain) != CODEC_SUCCESS)
+   if (CODEC_configPll(gain) != CODEC_SUCCESS)
     {
         DRV_I2C_Close(codecI2CHandle);
         return CODEC_ERROR_I2C_INIT;
@@ -116,7 +105,7 @@ CodecResult_t CODEC_init(CodecGain_t gain)
         DRV_I2C_Close(codecI2CHandle);
         return CODEC_ERROR_I2C_INIT;
     }
-   */ 
+   
     isCodecInitialized = true;
     return CODEC_SUCCESS;
 }
@@ -138,7 +127,7 @@ CodecResult_t CODEC_writeRegister(uint8_t reg_add, uint8_t reg_val)
     writeBuffer[1] = reg_val;
     
     // Start write transfer
-    DRV_I2C_WriteTransferAdd(codecI2CHandle, CODEC_ADDRESS, writeBuffer, 2, &transferHandle);
+    DRV_I2C_WriteTransfer(codecI2CHandle, CODEC_ADDRESS, writeBuffer, 2);
     
     if (transferHandle == DRV_I2C_TRANSFER_HANDLE_INVALID)
     {
@@ -151,7 +140,7 @@ CodecResult_t CODEC_writeRegister(uint8_t reg_add, uint8_t reg_val)
         return CODEC_ERROR_TIMEOUT;
     }
     
-    TimerDelay_Ms(I2C_TRANSFER_DELAY_MS);
+    SYSTICK_DelayMs(I2C_TRANSFER_DELAY_MS);
     return CODEC_SUCCESS;
 }
 
@@ -173,8 +162,8 @@ CodecResult_t CODEC_readRegister(uint8_t reg_add, uint8_t* reg_val)
     }
     
     // Write register address then read value
-    DRV_I2C_WriteReadTransferAdd(codecI2CHandle, CODEC_ADDRESS, 
-                                 &reg_add, 1, reg_val, 1, &transferHandle);
+    DRV_I2C_WriteReadTransfer(codecI2CHandle, CODEC_ADDRESS, 
+                                 &reg_add, 1, reg_val, 1);
     
     if (transferHandle == DRV_I2C_TRANSFER_HANDLE_INVALID)
     {
@@ -187,7 +176,7 @@ CodecResult_t CODEC_readRegister(uint8_t reg_add, uint8_t* reg_val)
         return CODEC_ERROR_TIMEOUT;
     }
     
-    TimerDelay_Ms(I2C_TRANSFER_DELAY_MS);
+    SYSTICK_DelayMs(I2C_TRANSFER_DELAY_MS);
     return CODEC_SUCCESS;
 }
 
@@ -333,19 +322,6 @@ CodecResult_t CODEC_printAllRegisters(void)
     return CODEC_SUCCESS;
 }
 
-/**
- * @brief Public function to initialize timer (optional)
- */
-CodecResult_t CODEC_initTimer(void)
-{
-    TimerDelayResult_t result = TimerDelay_Init();
-    if (result == TIMER_DELAY_SUCCESS || result == TIMER_DELAY_ERROR_ALREADY_INIT)
-    {
-        return CODEC_SUCCESS;
-    }
-    return CODEC_ERROR_I2C_INIT;
-}
-
 /******************************************************************************
 **      PRIVATE FUNCTION DEFINITIONS
 ******************************************************************************/
@@ -353,11 +329,19 @@ CodecResult_t CODEC_initTimer(void)
 /**
  * @brief Hardware reset of the codec (placeholder)
  */
-static CodecResult_t CODEC_resetHw(void)
+CodecResult_t CODEC_resetHw(void)
 {
-    // Note: This would typically toggle a reset pin
-    // For now, just implement a delay
-    TimerDelay_Ms(50);
+    // Configure COD_RESET pin as output
+    COD_RESET_OutputEnable();
+    
+    // Pull reset pin low for 10ms to perform hardware reset
+    COD_RESET_Clear();
+    SYSTICK_DelayMs(10);
+    
+    // Release reset pin (set high) to allow normal operation
+    COD_RESET_Set();
+    SYSTICK_DelayMs(5);  // Additional delay for codec to stabilize
+    
     return CODEC_SUCCESS;
 }
 
@@ -372,7 +356,7 @@ static bool CODEC_waitForTransferComplete(void)
     // In a real implementation, you would check the transfer status
     while (timeout > 0)
     {
-        TimerDelay_Ms(1);
+        SYSTICK_DelayMs(1);
         timeout--;
         
         // For this example, we'll assume the transfer completes quickly

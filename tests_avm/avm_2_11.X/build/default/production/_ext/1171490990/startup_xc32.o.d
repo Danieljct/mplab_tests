@@ -100,7 +100,8 @@ build/default/production/_ext/1171490990/startup_xc32.o: \
  ../src/config/default/device_cache.h \
  ../src/config/default/toolchain_specifics.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h \
- ../src/config/default/interrupts.h
+ ../src/config/default/interrupts.h \
+ ../src/config/default/peripheral/mpu/plib_mpu.h
 
 ../src/config/default/device.h:
 
@@ -305,3 +306,5 @@ build/default/production/_ext/1171490990/startup_xc32.o: \
 ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h:
 
 ../src/config/default/interrupts.h:
+
+../src/config/default/peripheral/mpu/plib_mpu.h:

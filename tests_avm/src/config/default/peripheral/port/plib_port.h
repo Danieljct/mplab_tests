@@ -65,6 +65,15 @@
 // *****************************************************************************
 // *****************************************************************************
 
+/*** Macros for PWR_SUSP pin ***/
+#define PWR_SUSP_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = ((uint32_t)1U << 2U))
+#define PWR_SUSP_Clear()             (PORT_REGS->GROUP[0].PORT_OUTCLR = ((uint32_t)1U << 2U))
+#define PWR_SUSP_Toggle()            (PORT_REGS->GROUP[0].PORT_OUTTGL = ((uint32_t)1U << 2U))
+#define PWR_SUSP_OutputEnable()      (PORT_REGS->GROUP[0].PORT_DIRSET = ((uint32_t)1U << 2U))
+#define PWR_SUSP_InputEnable()       (PORT_REGS->GROUP[0].PORT_DIRCLR = ((uint32_t)1U << 2U))
+#define PWR_SUSP_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 2U)) & 0x01U)
+#define PWR_SUSP_PIN                  PORT_PIN_PA02
+
 /*** Macros for LED_R pin ***/
 #define LED_R_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 8U))
 #define LED_R_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = ((uint32_t)1U << 8U))
@@ -92,6 +101,31 @@
 #define LED_B_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 4U)) & 0x01U)
 #define LED_B_PIN                  PORT_PIN_PA04
 
+/*** Macros for BLE_MOSI pin ***/
+#define BLE_MOSI_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 12U)) & 0x01U)
+#define BLE_MOSI_PIN                  PORT_PIN_PA12
+
+/*** Macros for BLE_SCK pin ***/
+#define BLE_SCK_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 13U)) & 0x01U)
+#define BLE_SCK_PIN                  PORT_PIN_PA13
+
+/*** Macros for BLE_SS pin ***/
+#define BLE_SS_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 14U)) & 0x01U)
+#define BLE_SS_PIN                  PORT_PIN_PA14
+
+/*** Macros for BLE_MISO pin ***/
+#define BLE_MISO_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 15U)) & 0x01U)
+#define BLE_MISO_PIN                  PORT_PIN_PA15
+
+/*** Macros for COD_RESET pin ***/
+#define COD_RESET_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = ((uint32_t)1U << 23U))
+#define COD_RESET_Clear()             (PORT_REGS->GROUP[0].PORT_OUTCLR = ((uint32_t)1U << 23U))
+#define COD_RESET_Toggle()            (PORT_REGS->GROUP[0].PORT_OUTTGL = ((uint32_t)1U << 23U))
+#define COD_RESET_OutputEnable()      (PORT_REGS->GROUP[0].PORT_DIRSET = ((uint32_t)1U << 23U))
+#define COD_RESET_InputEnable()       (PORT_REGS->GROUP[0].PORT_DIRCLR = ((uint32_t)1U << 23U))
+#define COD_RESET_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 23U)) & 0x01U)
+#define COD_RESET_PIN                  PORT_PIN_PA23
+
 /*** Macros for USB_DM pin ***/
 #define USB_DM_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 24U)) & 0x01U)
 #define USB_DM_PIN                  PORT_PIN_PA24
@@ -99,6 +133,51 @@
 /*** Macros for USB_DP pin ***/
 #define USB_DP_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 25U)) & 0x01U)
 #define USB_DP_PIN                  PORT_PIN_PA25
+
+/*** Macros for PWR_BON pin ***/
+#define PWR_BON_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 31U))
+#define PWR_BON_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = ((uint32_t)1U << 31U))
+#define PWR_BON_Toggle()            (PORT_REGS->GROUP[1].PORT_OUTTGL = ((uint32_t)1U << 31U))
+#define PWR_BON_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = ((uint32_t)1U << 31U))
+#define PWR_BON_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = ((uint32_t)1U << 31U))
+#define PWR_BON_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 31U)) & 0x01U)
+#define PWR_BON_PIN                  PORT_PIN_PB31
+
+/*** Macros for PWR_STBY pin ***/
+#define PWR_STBY_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 0U))
+#define PWR_STBY_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = ((uint32_t)1U << 0U))
+#define PWR_STBY_Toggle()            (PORT_REGS->GROUP[1].PORT_OUTTGL = ((uint32_t)1U << 0U))
+#define PWR_STBY_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = ((uint32_t)1U << 0U))
+#define PWR_STBY_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = ((uint32_t)1U << 0U))
+#define PWR_STBY_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 0U)) & 0x01U)
+#define PWR_STBY_PIN                  PORT_PIN_PB00
+
+/*** Macros for PWR_LDOON pin ***/
+#define PWR_LDOON_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 1U))
+#define PWR_LDOON_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = ((uint32_t)1U << 1U))
+#define PWR_LDOON_Toggle()            (PORT_REGS->GROUP[1].PORT_OUTTGL = ((uint32_t)1U << 1U))
+#define PWR_LDOON_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = ((uint32_t)1U << 1U))
+#define PWR_LDOON_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = ((uint32_t)1U << 1U))
+#define PWR_LDOON_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 1U)) & 0x01U)
+#define PWR_LDOON_PIN                  PORT_PIN_PB01
+
+/*** Macros for PWR_PBSTAT pin ***/
+#define PWR_PBSTAT_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 2U))
+#define PWR_PBSTAT_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = ((uint32_t)1U << 2U))
+#define PWR_PBSTAT_Toggle()            (PORT_REGS->GROUP[1].PORT_OUTTGL = ((uint32_t)1U << 2U))
+#define PWR_PBSTAT_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = ((uint32_t)1U << 2U))
+#define PWR_PBSTAT_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = ((uint32_t)1U << 2U))
+#define PWR_PBSTAT_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 2U)) & 0x01U)
+#define PWR_PBSTAT_PIN                  PORT_PIN_PB02
+
+/*** Macros for PWR_HPWR pin ***/
+#define PWR_HPWR_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 3U))
+#define PWR_HPWR_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = ((uint32_t)1U << 3U))
+#define PWR_HPWR_Toggle()            (PORT_REGS->GROUP[1].PORT_OUTTGL = ((uint32_t)1U << 3U))
+#define PWR_HPWR_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = ((uint32_t)1U << 3U))
+#define PWR_HPWR_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = ((uint32_t)1U << 3U))
+#define PWR_HPWR_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 3U)) & 0x01U)
+#define PWR_HPWR_PIN                  PORT_PIN_PB03
 
 // *****************************************************************************
 /* PORT Group

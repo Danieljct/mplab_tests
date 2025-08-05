@@ -1,7 +1,8 @@
 build/default/production/_ext/1360937237/timer_delay.o: \
  ../src/timer_delay.c ../src/timer_delay.h \
  ../src/config/default/definitions.h \
- ../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h \
+ ../src/config/default/peripheral/sercom/spi_slave/plib_sercom2_spi_slave.h \
+ ../src/config/default/peripheral/sercom/spi_slave/plib_sercom_spi_slave_common.h \
  ../src/config/default/device.h \
  ../src/packs/ATSAMD51J20A_DFP/samd51j20a.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/core_cm4.h \
@@ -103,12 +104,15 @@ build/default/production/_ext/1360937237/timer_delay.o: \
  ../src/config/default/device_cache.h ../src/config/default/device.h \
  ../src/config/default/toolchain_specifics.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h \
+ ../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h \
  ../src/config/default/peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h \
  ../src/config/default/peripheral/sercom/i2c_master/plib_sercom_i2c_master_common.h \
  ../src/config/default/peripheral/evsys/plib_evsys.h \
  ../src/config/default/peripheral/port/plib_port.h \
  ../src/config/default/peripheral/clock/plib_clock.h \
  ../src/config/default/peripheral/nvic/plib_nvic.h \
+ ../src/config/default/peripheral/mpu/plib_mpu.h \
+ ../src/config/default/peripheral/systick/plib_systick.h \
  ../src/config/default/peripheral/dmac/plib_dmac.h \
  ../src/config/default/peripheral/cmcc/plib_cmcc.h \
  ../src/config/default/usb/usb_chapter_9.h \
@@ -135,7 +139,6 @@ build/default/production/_ext/1360937237/timer_delay.o: \
  ../src/config/default/driver/i2c/drv_i2c_definitions.h \
  ../src/config/default/driver/driver.h \
  ../src/config/default/driver/i2c/src/drv_i2c_local.h \
- ../src/config/default/driver/i2c/drv_i2c_definitions.h \
  ../src/config/default/osal/osal.h \
  ../src/config/default/osal/osal_definitions.h \
  ../src/config/default/osal/osal_impl_basic.h \
@@ -155,14 +158,15 @@ build/default/production/_ext/1360937237/timer_delay.o: \
  ../src/config/default/osal/osal.h \
  ../src/config/default/system/debug/sys_debug.h \
  ../src/config/default/system/console/sys_console.h ../src/app.h \
- ../src/cdc.h ../src/config/default/usb/usb_device_cdc.h \
  ../src/config/default/peripheral/tc/plib_tc1.h
 
 ../src/timer_delay.h:
 
 ../src/config/default/definitions.h:
 
-../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h:
+../src/config/default/peripheral/sercom/spi_slave/plib_sercom2_spi_slave.h:
+
+../src/config/default/peripheral/sercom/spi_slave/plib_sercom_spi_slave_common.h:
 
 ../src/config/default/device.h:
 
@@ -368,6 +372,8 @@ build/default/production/_ext/1360937237/timer_delay.o: \
 
 ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h:
 
+../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h:
+
 ../src/config/default/peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h:
 
 ../src/config/default/peripheral/sercom/i2c_master/plib_sercom_i2c_master_common.h:
@@ -379,6 +385,10 @@ build/default/production/_ext/1360937237/timer_delay.o: \
 ../src/config/default/peripheral/clock/plib_clock.h:
 
 ../src/config/default/peripheral/nvic/plib_nvic.h:
+
+../src/config/default/peripheral/mpu/plib_mpu.h:
+
+../src/config/default/peripheral/systick/plib_systick.h:
 
 ../src/config/default/peripheral/dmac/plib_dmac.h:
 
@@ -434,8 +444,6 @@ build/default/production/_ext/1360937237/timer_delay.o: \
 
 ../src/config/default/driver/i2c/src/drv_i2c_local.h:
 
-../src/config/default/driver/i2c/drv_i2c_definitions.h:
-
 ../src/config/default/osal/osal.h:
 
 ../src/config/default/osal/osal_definitions.h:
@@ -477,9 +485,5 @@ build/default/production/_ext/1360937237/timer_delay.o: \
 ../src/config/default/system/console/sys_console.h:
 
 ../src/app.h:
-
-../src/cdc.h:
-
-../src/config/default/usb/usb_device_cdc.h:
 
 ../src/config/default/peripheral/tc/plib_tc1.h:
