@@ -34,6 +34,11 @@ static bool volatile bToggleLED = false;
 static uint16_t volatile adcValue = 0;
 static bool codecTestDone = false;
 
+// Variables para SPI slave
+static uint8_t spiRxBuffer[256];
+static volatile bool spiCommandReceived = false;
+static volatile uint8_t lastCommand = 0;
+
 // This function is called after period expires
 void TC0_CH0_TimerInterruptHandler(uint32_t status, uintptr_t context)
 {
@@ -328,6 +333,57 @@ void CODEC_TestFunction(void)
     SYS_CONSOLE_PRINT("=== CODEC Test Completed ===\r\n\r\n");
 }
 
+// Callback para cuando se completa una transacción SPI
+void SPI_SlaveCallback(uintptr_t context)
+{
+    // Leer los datos recibidos
+    size_t bytesRead = SERCOM2_SPI_Read(spiRxBuffer, sizeof(spiRxBuffer));
+    
+    if (bytesRead > 0)
+    {
+        lastCommand = spiRxBuffer[0];  // El primer byte es el comando
+        spiCommandReceived = true;
+    }
+    
+    // Limpiar cualquier error
+    SERCOM2_SPI_ErrorGet();
+}
+
+// Función para procesar comandos SPI recibidos
+void ProcessSPICommands(void)
+{
+    if (spiCommandReceived)
+    {
+        SYS_CONSOLE_PRINT("SPI Command received: %d (0x%02X)\r\n", lastCommand, lastCommand);
+        
+        // Resetear flag
+        spiCommandReceived = false;
+        
+        // Opcional: mostrar información adicional según el comando
+        switch(lastCommand)
+        {
+            case 1:  // BLE_POWER_OFF
+                SYS_CONSOLE_PRINT("  -> BLE_POWER_OFF command\r\n");
+                break;
+            case 2:  // BLE_GET_DEVICE_STATUS
+                SYS_CONSOLE_PRINT("  -> BLE_GET_DEVICE_STATUS command\r\n");
+                break;
+            case 3:  // BLE_REC_STOP
+                SYS_CONSOLE_PRINT("  -> BLE_REC_STOP command\r\n");
+                break;
+            case 4:  // BLE_SET_LEFT_GAIN
+                SYS_CONSOLE_PRINT("  -> BLE_SET_LEFT_GAIN command\r\n");
+                break;
+            case 5:  // BLE_GET_LEFT_GAIN
+                SYS_CONSOLE_PRINT("  -> BLE_GET_LEFT_GAIN command\r\n");
+                break;
+            default:
+                SYS_CONSOLE_PRINT("  -> Unknown command: %d\r\n", lastCommand);
+                break;
+        }
+    }
+}
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Main Entry Point
@@ -339,6 +395,13 @@ int main ( void )
     // Initialize all modules
     SYS_Initialize(NULL);
     SYSTICK_TimerStart();
+    
+    // Initialize SPI Slave
+    SERCOM2_SPI_Initialize();
+    SERCOM2_SPI_CallbackRegister(SPI_SlaveCallback, 0);
+    
+    SYS_CONSOLE_PRINT("SPI Slave initialized and ready to receive commands\r\n");
+    
     PWR_LDOON_Set();
     PWR_BON_Set();
     PWR_HPWR_Set();
@@ -354,10 +417,15 @@ int main ( void )
     // Start the timer channel 0
     TC0_TimerStart();
     int try = 0;
+    
     while ( true )
     {
         // Maintain state machines of all polled MPLAB Harmony modules.
         SYS_Tasks();
+        
+        // Procesar comandos SPI recibidos
+        ProcessSPICommands();
+        
         // Run codec test once after system initialization
         if (!codecTestDone && try>10)
         {
@@ -365,7 +433,6 @@ int main ( void )
             I2C_ScanDevices();  // Scan I2C bus first
             CODEC_DiagnosticTest();
             codecTestDone = true;
-            
         }
         
         // ADC reading logic
@@ -382,9 +449,8 @@ int main ( void )
             SYS_CONSOLE_PRINT("ADC Value: %d\r\n", adcValue);
             bToggleLED = false;
             LED_R_Toggle();
-            
         }
-        //SYSTICK_DelayMs(1000);
+        
         try++;
     }
 

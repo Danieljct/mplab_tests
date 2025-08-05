@@ -24068,7 +24068,14 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sercom2" name="SPIS_DOPO"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sercom2&gt;
   &lt;sercom2 dnOrder=&quot;0&quot; id=&quot;SPIS_DOPO&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/sercom2&gt;
 &lt;/sercom2&gt;
 </value>
@@ -27118,7 +27125,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\definitions.h</file>
-         <hash>f9f7cf0c5e1de0516da33abd8d7fcad93656da5572468463ef13069bd923eaae</hash>
+         <hash>53990ed2fad3e3f9f41943b0fca9e64f62d0dc337ad347ebb156b04a8d637f36</hash>
       </entry>
       <entry>
          <file>..\src\config\default\device.h</file>
@@ -27310,7 +27317,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\sercom\spi_slave\plib_sercom2_spi_slave.c</file>
-         <hash>ca6219eb282274e645326039c3121bd68dc0634229146ae5f7e0b612b979d9b6</hash>
+         <hash>f40b7e5cb72b9fbacb6344d7c528f95681f52859cdc6e16e2a7d9816fe747ebb</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\sercom\spi_slave\plib_sercom2_spi_slave.h</file>

@@ -1,7 +1,6 @@
 build/default/production/_ext/1360937237/codec.o: ../src/codec.c \
  ../src/codec.h ../src/config/default/definitions.h \
- ../src/config/default/peripheral/sercom/spi_slave/plib_sercom2_spi_slave.h \
- ../src/config/default/peripheral/sercom/spi_slave/plib_sercom_spi_slave_common.h \
+ ../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h \
  ../src/config/default/device.h \
  ../src/packs/ATSAMD51J20A_DFP/samd51j20a.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/core_cm4.h \
@@ -103,7 +102,8 @@ build/default/production/_ext/1360937237/codec.o: ../src/codec.c \
  ../src/config/default/device_cache.h ../src/config/default/device.h \
  ../src/config/default/toolchain_specifics.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h \
- ../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h \
+ ../src/config/default/peripheral/sercom/spi_slave/plib_sercom2_spi_slave.h \
+ ../src/config/default/peripheral/sercom/spi_slave/plib_sercom_spi_slave_common.h \
  ../src/config/default/peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h \
  ../src/config/default/peripheral/sercom/i2c_master/plib_sercom_i2c_master_common.h \
  ../src/config/default/peripheral/evsys/plib_evsys.h \
@@ -164,9 +164,7 @@ build/default/production/_ext/1360937237/codec.o: ../src/codec.c \
 
 ../src/config/default/definitions.h:
 
-../src/config/default/peripheral/sercom/spi_slave/plib_sercom2_spi_slave.h:
-
-../src/config/default/peripheral/sercom/spi_slave/plib_sercom_spi_slave_common.h:
+../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h:
 
 ../src/config/default/device.h:
 
@@ -372,7 +370,9 @@ build/default/production/_ext/1360937237/codec.o: ../src/codec.c \
 
 ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h:
 
-../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h:
+../src/config/default/peripheral/sercom/spi_slave/plib_sercom2_spi_slave.h:
+
+../src/config/default/peripheral/sercom/spi_slave/plib_sercom_spi_slave_common.h:
 
 ../src/config/default/peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h:
 

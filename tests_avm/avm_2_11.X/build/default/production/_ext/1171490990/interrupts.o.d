@@ -103,10 +103,10 @@ build/default/production/_ext/1171490990/interrupts.o: \
  ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h \
  ../src/config/default/device_vectors.h \
  ../src/config/default/interrupts.h ../src/config/default/definitions.h \
+ ../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h \
+ ../src/config/default/device.h \
  ../src/config/default/peripheral/sercom/spi_slave/plib_sercom2_spi_slave.h \
  ../src/config/default/peripheral/sercom/spi_slave/plib_sercom_spi_slave_common.h \
- ../src/config/default/device.h \
- ../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h \
  ../src/config/default/peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h \
  ../src/config/default/peripheral/sercom/i2c_master/plib_sercom_i2c_master_common.h \
  ../src/config/default/peripheral/evsys/plib_evsys.h \
@@ -373,13 +373,13 @@ build/default/production/_ext/1171490990/interrupts.o: \
 
 ../src/config/default/definitions.h:
 
-../src/config/default/peripheral/sercom/spi_slave/plib_sercom2_spi_slave.h:
-
-../src/config/default/peripheral/sercom/spi_slave/plib_sercom_spi_slave_common.h:
+../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h:
 
 ../src/config/default/device.h:
 
-../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h:
+../src/config/default/peripheral/sercom/spi_slave/plib_sercom2_spi_slave.h:
+
+../src/config/default/peripheral/sercom/spi_slave/plib_sercom_spi_slave_common.h:
 
 ../src/config/default/peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h:
 
