@@ -262,6 +262,8 @@
       <itemPath>../src/app_usb.h</itemPath>
       <itemPath>../src/cdc.h</itemPath>
       <itemPath>../src/codec.h</itemPath>
+      <itemPath>../src/AVM_ble_cmd.h</itemPath>
+      <itemPath>../src/ble_slave.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -379,6 +381,8 @@
       <itemPath>../src/app.c</itemPath>
       <itemPath>../src/cdc.c</itemPath>
       <itemPath>../src/codec.c</itemPath>
+      <itemPath>../src/AVM_ble_cmd.c</itemPath>
+      <itemPath>../src/ble_slave.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>

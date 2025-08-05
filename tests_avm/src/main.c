@@ -29,6 +29,7 @@
 #include "definitions.h"                // SYS function prototypes
 #include <stdio.h>
 #include "codec.h"                      // Codec driver
+#include "ble_slave.h"   
 
 static bool volatile bToggleLED = false;
 static uint16_t volatile adcValue = 0;
@@ -38,6 +39,7 @@ static bool codecTestDone = false;
 static uint8_t spiRxBuffer[256];
 static volatile bool spiCommandReceived = false;
 static volatile uint8_t lastCommand = 0;
+static volatile size_t lastBytesReceived = 0;
 
 // This function is called after period expires
 void TC0_CH0_TimerInterruptHandler(uint32_t status, uintptr_t context)
@@ -336,17 +338,28 @@ void CODEC_TestFunction(void)
 // Callback para cuando se completa una transacción SPI
 void SPI_SlaveCallback(uintptr_t context)
 {
-    // Leer los datos recibidos
-    size_t bytesRead = SERCOM2_SPI_Read(spiRxBuffer, sizeof(spiRxBuffer));
-    
-    if (bytesRead > 0)
+    // Verificar si hay errores primero
+    SPI_SLAVE_ERROR error = SERCOM2_SPI_ErrorGet();
+    if (error != SPI_SLAVE_ERROR_NONE)
     {
-        lastCommand = spiRxBuffer[0];  // El primer byte es el comando
-        spiCommandReceived = true;
+        SYS_CONSOLE_PRINT("SPI Error: 0x%08X\r\n", error);
+        return;
     }
     
-    // Limpiar cualquier error
-    SERCOM2_SPI_ErrorGet();
+    // Obtener cuántos bytes fueron recibidos
+    lastBytesReceived = SERCOM2_SPI_ReadCountGet();
+    
+    if (lastBytesReceived > 0)
+    {
+        // Leer los datos recibidos
+        size_t bytesRead = SERCOM2_SPI_Read(spiRxBuffer, sizeof(spiRxBuffer));
+        
+        if (bytesRead > 0 && spiRxBuffer[0] != 0x00)
+        {
+            lastCommand = spiRxBuffer[0];
+            spiCommandReceived = true;
+        }
+    }
 }
 
 // Función para procesar comandos SPI recibidos
@@ -354,33 +367,11 @@ void ProcessSPICommands(void)
 {
     if (spiCommandReceived)
     {
-        SYS_CONSOLE_PRINT("SPI Command received: %d (0x%02X)\r\n", lastCommand, lastCommand);
+        // Usar el nuevo sistema BLE para procesar comandos
+        BLE_processCommand(lastCommand, spiRxBuffer, lastBytesReceived);
         
         // Resetear flag
         spiCommandReceived = false;
-        
-        // Opcional: mostrar información adicional según el comando
-        switch(lastCommand)
-        {
-            case 1:  // BLE_POWER_OFF
-                SYS_CONSOLE_PRINT("  -> BLE_POWER_OFF command\r\n");
-                break;
-            case 2:  // BLE_GET_DEVICE_STATUS
-                SYS_CONSOLE_PRINT("  -> BLE_GET_DEVICE_STATUS command\r\n");
-                break;
-            case 3:  // BLE_REC_STOP
-                SYS_CONSOLE_PRINT("  -> BLE_REC_STOP command\r\n");
-                break;
-            case 4:  // BLE_SET_LEFT_GAIN
-                SYS_CONSOLE_PRINT("  -> BLE_SET_LEFT_GAIN command\r\n");
-                break;
-            case 5:  // BLE_GET_LEFT_GAIN
-                SYS_CONSOLE_PRINT("  -> BLE_GET_LEFT_GAIN command\r\n");
-                break;
-            default:
-                SYS_CONSOLE_PRINT("  -> Unknown command: %d\r\n", lastCommand);
-                break;
-        }
     }
 }
 
@@ -397,8 +388,12 @@ int main ( void )
     SYSTICK_TimerStart();
     
     // Initialize SPI Slave
+    SYS_CONSOLE_PRINT("Initializing SPI Slave...\r\n");
     SERCOM2_SPI_Initialize();
     SERCOM2_SPI_CallbackRegister(SPI_SlaveCallback, 0);
+    
+    // Initialize BLE slave system
+    BLE_slave_init();
     
     SYS_CONSOLE_PRINT("SPI Slave initialized and ready to receive commands\r\n");
     
