@@ -101,6 +101,15 @@
 #define LED_B_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 4U)) & 0x01U)
 #define LED_B_PIN                  PORT_PIN_PA04
 
+/*** Macros for PWR_SD_LDO_EN pin ***/
+#define PWR_SD_LDO_EN_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = ((uint32_t)1U << 7U))
+#define PWR_SD_LDO_EN_Clear()             (PORT_REGS->GROUP[0].PORT_OUTCLR = ((uint32_t)1U << 7U))
+#define PWR_SD_LDO_EN_Toggle()            (PORT_REGS->GROUP[0].PORT_OUTTGL = ((uint32_t)1U << 7U))
+#define PWR_SD_LDO_EN_OutputEnable()      (PORT_REGS->GROUP[0].PORT_DIRSET = ((uint32_t)1U << 7U))
+#define PWR_SD_LDO_EN_InputEnable()       (PORT_REGS->GROUP[0].PORT_DIRCLR = ((uint32_t)1U << 7U))
+#define PWR_SD_LDO_EN_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 7U)) & 0x01U)
+#define PWR_SD_LDO_EN_PIN                  PORT_PIN_PA07
+
 /*** Macros for BLE_MOSI pin ***/
 #define BLE_MOSI_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 12U)) & 0x01U)
 #define BLE_MOSI_PIN                  PORT_PIN_PA12
@@ -133,6 +142,15 @@
 /*** Macros for USB_DP pin ***/
 #define USB_DP_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 25U)) & 0x01U)
 #define USB_DP_PIN                  PORT_PIN_PA25
+
+/*** Macros for SD_DETECT pin ***/
+#define SD_DETECT_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 30U))
+#define SD_DETECT_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = ((uint32_t)1U << 30U))
+#define SD_DETECT_Toggle()            (PORT_REGS->GROUP[1].PORT_OUTTGL = ((uint32_t)1U << 30U))
+#define SD_DETECT_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = ((uint32_t)1U << 30U))
+#define SD_DETECT_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = ((uint32_t)1U << 30U))
+#define SD_DETECT_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 30U)) & 0x01U)
+#define SD_DETECT_PIN                  PORT_PIN_PB30
 
 /*** Macros for PWR_BON pin ***/
 #define PWR_BON_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 31U))

@@ -73,6 +73,13 @@
 void SYS_Tasks ( void )
 {
     /* Maintain system services */
+    
+SYS_FS_Tasks();
+
+DRV_SDMMC_Tasks(sysObj.drvSDMMC0);
+
+
+
     SYS_CONSOLE_Tasks(SYS_CONSOLE_INDEX_0);
     
 

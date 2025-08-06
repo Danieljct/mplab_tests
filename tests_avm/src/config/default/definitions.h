@@ -52,6 +52,7 @@
 #include "peripheral/sercom/spi_slave/plib_sercom2_spi_slave.h"
 #include "peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h"
 #include "peripheral/evsys/plib_evsys.h"
+#include "driver/sdmmc/drv_sdmmc.h"
 #include "peripheral/port/plib_port.h"
 #include "peripheral/clock/plib_clock.h"
 #include "peripheral/nvic/plib_nvic.h"
@@ -63,8 +64,17 @@
 #include "usb/usb_device.h"
 #include "peripheral/tc/plib_tc1.h"
 #include "peripheral/tc/plib_tc0.h"
+#include "peripheral/sdhc/plib_sdhc0.h"
+#include "system/time/sys_time.h"
 #include "usb/usb_device_cdc.h"
 #include "usb/usb_cdc.h"
+#include "system/fs/sys_fs.h"
+#include "system/fs/sys_fs_media_manager.h"
+#include "system/fs/sys_fs_fat_interface.h"
+#include "system/fs/fat_fs/file_system/ff.h"
+#include "system/fs/fat_fs/file_system/ffconf.h"
+#include "system/fs/fat_fs/hardware_access/diskio.h"
+#include "system/fs/mpfs/mpfs.h"
 #include "driver/usb/usbfsv1/drv_usbfsv1.h"
 #include "peripheral/adc/plib_adc1.h"
 #include "system/console/sys_console.h"
@@ -206,9 +216,13 @@ typedef struct
 {
     SYS_MODULE_OBJ  usbDevObject0;
 
+    SYS_MODULE_OBJ  sysTime;
     SYS_MODULE_OBJ  sysDebug;
 
     SYS_MODULE_OBJ  drvUSBFSV1Object;
+
+    SYS_MODULE_OBJ  drvSDMMC0;
+
 
     SYS_MODULE_OBJ  sysConsole0;
 

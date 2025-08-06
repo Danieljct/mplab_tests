@@ -2,7 +2,7 @@
 
 manifest_file_version: 1.0.0
 project: avm_2_11
-creation_date: 2025-08-06T17:29:19.315-04:00[America/Santiago]
+creation_date: 2025-08-06T18:14:19.165-04:00[America/Santiago]
 operating_system: Windows 10
 mcc_mode: IDE
 mcc_mode_version: v6.25
@@ -20,5 +20,7 @@ packs: {name: SAMD51_DFP, version: 3.8.246}
 modules:
 - {name: csp, type: HARMONY, version: v3.22.5}
 - {name: core, type: HARMONY, version: v3.15.3}
+- {name: filex, type: HARMONY, version: v6.4.0_rel}
 - {name: CMSIS_5, type: HARMONY, version: 5.9.0}
 - {name: usb, type: HARMONY, version: v3.16.0}
+- {name: littlefs, type: HARMONY, version: v2.11.1}

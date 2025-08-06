@@ -127,6 +127,16 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
  ../src/config/default/peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h \
  ../src/config/default/peripheral/sercom/i2c_master/plib_sercom_i2c_master_common.h \
  ../src/config/default/peripheral/evsys/plib_evsys.h \
+ ../src/config/default/driver/sdmmc/drv_sdmmc.h \
+ ../src/config/default/system/system_media.h \
+ ../src/config/default/driver/sdmmc/drv_sdmmc_definitions.h \
+ ../src/config/default/driver/sdmmc/src/drv_sdmmc_local.h \
+ ../src/config/default/driver/sdmmc/drv_sdmmc.h \
+ ../src/config/default/system/time/sys_time.h \
+ ../src/config/default/system/time/sys_time_definitions.h \
+ ../src/config/default/osal/osal.h \
+ ../src/config/default/osal/osal_definitions.h \
+ ../src/config/default/osal/osal_impl_basic.h \
  ../src/config/default/peripheral/port/plib_port.h \
  ../src/config/default/peripheral/clock/plib_clock.h \
  ../src/config/default/peripheral/nvic/plib_nvic.h \
@@ -139,8 +149,22 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
  ../src/config/default/peripheral/tc/plib_tc1.h \
  ../src/config/default/peripheral/tc/plib_tc_common.h \
  ../src/config/default/peripheral/tc/plib_tc0.h \
+ ../src/config/default/peripheral/sdhc/plib_sdhc0.h \
+ ../src/config/default/peripheral/sdhc/plib_sdhc_common.h \
+ ../src/config/default/system/time/sys_time.h \
  ../src/config/default/usb/usb_device_cdc.h \
  ../src/config/default/usb/usb_cdc.h \
+ ../src/config/default/system/fs/sys_fs.h \
+ ../src/config/default/system/fs/sys_fs_media_manager.h \
+ ../src/config/default/system/fs/sys_fs.h \
+ ../src/config/default/system/fs/fat_fs/file_system/ff.h \
+ ../src/config/default/system/fs/fat_fs/file_system/ffconf.h \
+ ../src/config/default/system/fs/sys_fs_fat_interface.h \
+ ../src/config/default/system/fs/fat_fs/file_system/ff.h \
+ ../src/config/default/system/fs/fat_fs/file_system/ffconf.h \
+ ../src/config/default/system/fs/fat_fs/hardware_access/diskio.h \
+ ../src/config/default/system/fs/fat_fs/file_system/ff.h \
+ ../src/config/default/system/fs/mpfs/mpfs.h \
  ../src/config/default/driver/usb/usbfsv1/drv_usbfsv1.h \
  ../src/config/default/usb/usb_hub.h \
  ../src/config/default/peripheral/adc/plib_adc1.h \
@@ -152,8 +176,6 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
  ../src/config/default/system/int/sys_int.h \
  ../src/config/default/system/cache/sys_cache.h \
  ../src/config/default/osal/osal.h \
- ../src/config/default/osal/osal_definitions.h \
- ../src/config/default/osal/osal_impl_basic.h \
  ../src/config/default/system/debug/sys_debug.h \
  ../src/config/default/system/console/sys_console.h ../src/app.h \
  ../src/codec.h ../src/ble_slave.h
@@ -420,6 +442,26 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
 
 ../src/config/default/peripheral/evsys/plib_evsys.h:
 
+../src/config/default/driver/sdmmc/drv_sdmmc.h:
+
+../src/config/default/system/system_media.h:
+
+../src/config/default/driver/sdmmc/drv_sdmmc_definitions.h:
+
+../src/config/default/driver/sdmmc/src/drv_sdmmc_local.h:
+
+../src/config/default/driver/sdmmc/drv_sdmmc.h:
+
+../src/config/default/system/time/sys_time.h:
+
+../src/config/default/system/time/sys_time_definitions.h:
+
+../src/config/default/osal/osal.h:
+
+../src/config/default/osal/osal_definitions.h:
+
+../src/config/default/osal/osal_impl_basic.h:
+
 ../src/config/default/peripheral/port/plib_port.h:
 
 ../src/config/default/peripheral/clock/plib_clock.h:
@@ -444,9 +486,37 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
 
 ../src/config/default/peripheral/tc/plib_tc0.h:
 
+../src/config/default/peripheral/sdhc/plib_sdhc0.h:
+
+../src/config/default/peripheral/sdhc/plib_sdhc_common.h:
+
+../src/config/default/system/time/sys_time.h:
+
 ../src/config/default/usb/usb_device_cdc.h:
 
 ../src/config/default/usb/usb_cdc.h:
+
+../src/config/default/system/fs/sys_fs.h:
+
+../src/config/default/system/fs/sys_fs_media_manager.h:
+
+../src/config/default/system/fs/sys_fs.h:
+
+../src/config/default/system/fs/fat_fs/file_system/ff.h:
+
+../src/config/default/system/fs/fat_fs/file_system/ffconf.h:
+
+../src/config/default/system/fs/sys_fs_fat_interface.h:
+
+../src/config/default/system/fs/fat_fs/file_system/ff.h:
+
+../src/config/default/system/fs/fat_fs/file_system/ffconf.h:
+
+../src/config/default/system/fs/fat_fs/hardware_access/diskio.h:
+
+../src/config/default/system/fs/fat_fs/file_system/ff.h:
+
+../src/config/default/system/fs/mpfs/mpfs.h:
 
 ../src/config/default/driver/usb/usbfsv1/drv_usbfsv1.h:
 
@@ -469,10 +539,6 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
 ../src/config/default/system/cache/sys_cache.h:
 
 ../src/config/default/osal/osal.h:
-
-../src/config/default/osal/osal_definitions.h:
-
-../src/config/default/osal/osal_impl_basic.h:
 
 ../src/config/default/system/debug/sys_debug.h:
 

@@ -102,7 +102,8 @@ build/default/production/_ext/1827571544/plib_systick.o: \
  ../src/config/default/toolchain_specifics.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h \
  ../src/config/default/interrupts.h \
- ../src/config/default/peripheral/systick/plib_systick.h
+ ../src/config/default/peripheral/systick/plib_systick.h \
+ ../src/config/default/peripheral/nvic/plib_nvic.h
 
 ../src/config/default/device.h:
 
@@ -311,3 +312,5 @@ build/default/production/_ext/1827571544/plib_systick.o: \
 ../src/config/default/interrupts.h:
 
 ../src/config/default/peripheral/systick/plib_systick.h:
+
+../src/config/default/peripheral/nvic/plib_nvic.h:
