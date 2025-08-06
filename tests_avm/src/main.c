@@ -28,7 +28,7 @@
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "definitions.h"                // SYS function prototypes
 #include <stdio.h>
-#include "codec.h"                      // Codec driver
+//#include "codec.h"                      // Codec driver
 #include "ble_slave.h"   
 
 static bool volatile bToggleLED = false;
@@ -47,82 +47,86 @@ void TC0_CH0_TimerInterruptHandler(uint32_t status, uintptr_t context)
     bToggleLED = true;
 }
 
-// Simple I2C scanner function using synchronous mode
+// Simple I2C scanner function using SERCOM1 PLIB
 void I2C_ScanDevices(void)
 {
-    DRV_HANDLE i2cHandle;
-    DRV_I2C_TRANSFER_SETUP transferSetup;
-    uint8_t testByte = 0x00;
-    int devicesFound = 0;
+    uint8_t devicesFound[128];  // Lista para almacenar dispositivos encontrados
+    uint8_t nDevicesFound = 0;
     
-    SYS_CONSOLE_PRINT("\r\n=== I2C Device Scanner (Synchronous Mode) ===\r\n");
+    SYS_CONSOLE_PRINT("\r\n=== I2C Device Scanner (SERCOM1 PLIB) ===\r\n");
     SYS_CONSOLE_PRINT("Scanning I2C bus for devices...\r\n");
     SYS_CONSOLE_PRINT("     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f\r\n");
     
-    // Open I2C driver
-    i2cHandle = DRV_I2C_Open(DRV_I2C_INDEX_0, DRV_IO_INTENT_READWRITE);
-    
-    if (i2cHandle == DRV_HANDLE_INVALID)
+    // Usar la función de escaneo incorporada del PLIB
+    if (SERCOM1_I2C_BusScan(0x08, 0x77, devicesFound, &nDevicesFound))
     {
-        SYS_CONSOLE_PRINT("Failed to open I2C driver!\r\n");
-        return;
-    }
-    
-    // Configure I2C for 100kHz
-    transferSetup.clockSpeed = 100000;
-    if (!DRV_I2C_TransferSetup(i2cHandle, &transferSetup))
-    {
-        SYS_CONSOLE_PRINT("Failed to configure I2C!\r\n");
-        DRV_I2C_Close(i2cHandle);
-        return;
-    }
-    CODEC_resetHw();
-    // Scan addresses 0x08 to 0x77 (valid 7-bit I2C addresses)
-    for (uint8_t addr = 0x08; addr <= 0x77; addr++)
-    {
-        if (addr % 16 == 0)
+        // Mostrar resultados en formato hexadecimal organizado
+        for (uint8_t addr = 0x08; addr <= 0x77; addr++)
         {
-            SYS_CONSOLE_PRINT("%02x: ", addr);
+            if (addr % 16 == 0)
+            {
+                SYS_CONSOLE_PRINT("%02x: ", addr);
+            }
+            
+            // Verificar si la dirección está en la lista de dispositivos encontrados
+            bool found = false;
+            for (uint8_t i = 0; i < nDevicesFound; i++)
+            {
+                if (devicesFound[i] == addr)
+                {
+                    found = true;
+                    break;
+                }
+            }
+            
+            if (found)
+            {
+                SYS_CONSOLE_PRINT("%02x ", addr);
+                
+                // Special note for codec address (si está definido)
+                #ifdef CODEC_ADDRESS
+                if (addr == CODEC_ADDRESS)
+                {
+                    SYS_CONSOLE_PRINT("(CODEC) ");
+                }
+                #endif
+            }
+            else
+            {
+                SYS_CONSOLE_PRINT("-- ");
+            }
+            
+            if ((addr + 1) % 16 == 0)
+            {
+                SYS_CONSOLE_PRINT("\r\n");
+            }
         }
         
-        // Try to write to the device using synchronous mode (just address, no data)
-        if (DRV_I2C_WriteTransfer(i2cHandle, addr, &testByte, 0))
+        SYS_CONSOLE_PRINT("\r\n");
+        SYS_CONSOLE_PRINT("Scan complete. Found %d device(s).\r\n", nDevicesFound);
+        
+        if (nDevicesFound == 0)
         {
-            SYS_CONSOLE_PRINT("%02x ", addr);
-            devicesFound++;
-            
-            // Special note for codec address
-            if (addr == CODEC_ADDRESS)
-            {
-                SYS_CONSOLE_PRINT("(CODEC) ");
-            }
+            SYS_CONSOLE_PRINT("No I2C devices found. Check connections and pull-up resistors.\r\n");
         }
         else
         {
-            SYS_CONSOLE_PRINT("-- ");
-        }
-        
-        if ((addr + 1) % 16 == 0)
-        {
+            SYS_CONSOLE_PRINT("Device addresses found: ");
+            for (uint8_t i = 0; i < nDevicesFound; i++)
+            {
+                SYS_CONSOLE_PRINT("0x%02X ", devicesFound[i]);
+            }
             SYS_CONSOLE_PRINT("\r\n");
         }
-        
-        SYSTICK_DelayMs(5); // Small delay between scans
     }
-    
-    SYS_CONSOLE_PRINT("\r\n");
-    SYS_CONSOLE_PRINT("Scan complete. Found %d device(s).\r\n", devicesFound);
-    
-    if (devicesFound == 0)
+    else
     {
-        SYS_CONSOLE_PRINT("No I2C devices found. Check connections and pull-up resistors.\r\n");
+        SYS_CONSOLE_PRINT("Failed to scan I2C bus - bus may be busy\r\n");
     }
     
     SYS_CONSOLE_PRINT("=== I2C Scanner Complete ===\r\n\r\n");
-    
-    DRV_I2C_Close(i2cHandle);
 }
-
+/*
 // Función mejorada para diagnóstico del codec
 void CODEC_DiagnosticTest(void)
 {
@@ -312,20 +316,7 @@ void CODEC_TestFunction(void)
         // Print all register values
         CODEC_printAllRegisters();
         
-        // Test non-blocking delay functionality
-        SYS_CONSOLE_PRINT("Testing non-blocking delay (3 seconds)...\r\n");
-        TimerDelay_StartNonBlocking(3000);
-        
-        while (!TimerDelay_IsFinished())
-        {
-            uint32_t remaining = TimerDelay_GetRemaining();
-            if (remaining % 500 == 0) // Print every 500ms
-            {
-                SYS_CONSOLE_PRINT("Remaining: %d ms\r\n", remaining);
-            }
-            TimerDelay_Ms(10); // Small delay to avoid flooding console
-        }
-        SYS_CONSOLE_PRINT("Non-blocking delay test completed!\r\n");
+
     }
     else
     {
@@ -334,7 +325,7 @@ void CODEC_TestFunction(void)
     
     SYS_CONSOLE_PRINT("=== CODEC Test Completed ===\r\n\r\n");
 }
-
+*/
 // Callback para cuando se completa una transacción SPI
 void SPI_SlaveCallback(uintptr_t context)
 {
@@ -419,14 +410,14 @@ int main ( void )
         SYS_Tasks();
         
         // Procesar comandos SPI recibidos
-        ProcessSPICommands();
+       // ProcessSPICommands();
         
         // Run codec test once after system initialization
-        if (!codecTestDone && try>10)
+        if (!codecTestDone && try>5)
         {
             // Wait for system to stabilize (2 seconds)
             I2C_ScanDevices();  // Scan I2C bus first
-            CODEC_DiagnosticTest();
+         //   CODEC_DiagnosticTest();
             codecTestDone = true;
         }
         
@@ -444,9 +435,10 @@ int main ( void )
             SYS_CONSOLE_PRINT("ADC Value: %d\r\n", adcValue);
             bToggleLED = false;
             LED_R_Toggle();
+             try++;
         }
         
-        try++;
+       
     }
 
     // Execution should not come here during normal operation

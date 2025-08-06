@@ -7,11 +7,6 @@
       <logicalFolder name="config" displayName="config" projectFiles="true">
         <logicalFolder name="default" displayName="default" projectFiles="true">
           <logicalFolder name="driver" displayName="driver" projectFiles="true">
-            <logicalFolder name="i2c" displayName="i2c" projectFiles="true">
-              <itemPath>../src/config/default/driver/i2c/src/drv_i2c_local.h</itemPath>
-              <itemPath>../src/config/default/driver/i2c/drv_i2c.h</itemPath>
-              <itemPath>../src/config/default/driver/i2c/drv_i2c_definitions.h</itemPath>
-            </logicalFolder>
             <logicalFolder name="usb" displayName="usb" projectFiles="true">
               <logicalFolder name="usbfsv1" displayName="usbfsv1" projectFiles="true">
                 <logicalFolder name="src" displayName="src" projectFiles="true">
@@ -261,7 +256,6 @@
       <itemPath>../src/app.h</itemPath>
       <itemPath>../src/app_usb.h</itemPath>
       <itemPath>../src/cdc.h</itemPath>
-      <itemPath>../src/codec.h</itemPath>
       <itemPath>../src/AVM_ble_cmd.h</itemPath>
       <itemPath>../src/ble_slave.h</itemPath>
     </logicalFolder>
@@ -286,9 +280,6 @@
       <logicalFolder name="config" displayName="config" projectFiles="true">
         <logicalFolder name="default" displayName="default" projectFiles="true">
           <logicalFolder name="driver" displayName="driver" projectFiles="true">
-            <logicalFolder name="i2c" displayName="i2c" projectFiles="true">
-              <itemPath>../src/config/default/driver/i2c/src/drv_i2c.c</itemPath>
-            </logicalFolder>
             <logicalFolder name="usb" displayName="usb" projectFiles="true">
               <logicalFolder name="usbfsv1" displayName="usbfsv1" projectFiles="true">
                 <logicalFolder name="src" displayName="src" projectFiles="true">
@@ -380,7 +371,6 @@
       <itemPath>../src/config/default/pin_configurations.csv</itemPath>
       <itemPath>../src/app.c</itemPath>
       <itemPath>../src/cdc.c</itemPath>
-      <itemPath>../src/codec.c</itemPath>
       <itemPath>../src/AVM_ble_cmd.c</itemPath>
       <itemPath>../src/ble_slave.c</itemPath>
     </logicalFolder>

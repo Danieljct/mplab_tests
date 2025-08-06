@@ -143,12 +143,6 @@ build/default/production/_ext/818654064/drv_usbfsv1.o: \
  ../src/config/default/peripheral/tc/plib_tc1.h \
  ../src/config/default/peripheral/tc/plib_tc_common.h \
  ../src/config/default/peripheral/tc/plib_tc0.h \
- ../src/config/default/driver/i2c/drv_i2c.h \
- ../src/config/default/driver/i2c/drv_i2c_definitions.h \
- ../src/config/default/driver/i2c/src/drv_i2c_local.h \
- ../src/config/default/osal/osal.h \
- ../src/config/default/osal/osal_definitions.h \
- ../src/config/default/osal/osal_impl_basic.h \
  ../src/config/default/usb/usb_device_cdc.h \
  ../src/config/default/usb/usb_device.h \
  ../src/config/default/usb/src/usb_device_function_driver.h \
@@ -162,10 +156,12 @@ build/default/production/_ext/818654064/drv_usbfsv1.o: \
  ../src/config/default/system/int/sys_int.h \
  ../src/config/default/system/cache/sys_cache.h \
  ../src/config/default/osal/osal.h \
+ ../src/config/default/osal/osal_definitions.h \
+ ../src/config/default/osal/osal_impl_basic.h \
  ../src/config/default/system/debug/sys_debug.h ../src/app.h \
  ../src/config/default/driver/usb/usbfsv1/drv_usbfsv1.h \
  ../src/config/default/driver/usb/usbfsv1/src/drv_usbfsv1_variant_mapping.h \
- ../src/config/default/interrupts.h
+ ../src/config/default/osal/osal.h ../src/config/default/interrupts.h
 
 ../src/config/default/usb/src/usb_external_dependencies.h:
 
@@ -455,18 +451,6 @@ build/default/production/_ext/818654064/drv_usbfsv1.o: \
 
 ../src/config/default/peripheral/tc/plib_tc0.h:
 
-../src/config/default/driver/i2c/drv_i2c.h:
-
-../src/config/default/driver/i2c/drv_i2c_definitions.h:
-
-../src/config/default/driver/i2c/src/drv_i2c_local.h:
-
-../src/config/default/osal/osal.h:
-
-../src/config/default/osal/osal_definitions.h:
-
-../src/config/default/osal/osal_impl_basic.h:
-
 ../src/config/default/usb/usb_device_cdc.h:
 
 ../src/config/default/usb/usb_device.h:
@@ -495,6 +479,10 @@ build/default/production/_ext/818654064/drv_usbfsv1.o: \
 
 ../src/config/default/osal/osal.h:
 
+../src/config/default/osal/osal_definitions.h:
+
+../src/config/default/osal/osal_impl_basic.h:
+
 ../src/config/default/system/debug/sys_debug.h:
 
 ../src/app.h:
@@ -502,5 +490,7 @@ build/default/production/_ext/818654064/drv_usbfsv1.o: \
 ../src/config/default/driver/usb/usbfsv1/drv_usbfsv1.h:
 
 ../src/config/default/driver/usb/usbfsv1/src/drv_usbfsv1_variant_mapping.h:
+
+../src/config/default/osal/osal.h:
 
 ../src/config/default/interrupts.h:
