@@ -1,6 +1,8 @@
-build/default/production/_ext/1360937237/main.o: ../src/main.c \
- ../src/cdc.h ../src/config/default/configuration.h \
- ../src/config/default/user.h ../src/config/default/device.h \
+build/default/production/_ext/1360937237/sd_handler.o: \
+ ../src/sd_handler.c ../src/sd_handler.h \
+ ../src/config/default/definitions.h \
+ ../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h \
+ ../src/config/default/device.h \
  ../src/packs/ATSAMD51J20A_DFP/samd51j20a.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/core_cm4.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_version.h \
@@ -98,42 +100,29 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
  ../src/packs/ATSAMD51J20A_DFP/instance/usb.h \
  ../src/packs/ATSAMD51J20A_DFP/instance/wdt.h \
  ../src/packs/ATSAMD51J20A_DFP/pio/samd51j20a.h \
- ../src/config/default/device_cache.h \
+ ../src/config/default/device_cache.h ../src/config/default/device.h \
  ../src/config/default/toolchain_specifics.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h \
- ../src/config/default/usb/usb_device_cdc.h \
- ../src/config/default/usb/usb_common.h \
- ../src/config/default/usb/usb_chapter_9.h \
- ../src/config/default/usb/usb_device.h \
- ../src/config/default/system/system.h \
- ../src/config/default/system/system_common.h \
- ../src/config/default/system/system_module.h \
- ../src/config/default/system/system_common.h \
- ../src/config/default/driver/driver_common.h \
- ../src/config/default/driver/usb/drv_usb.h \
- ../src/config/default/system/int/sys_int.h \
- ../src/config/default/device.h \
- ../src/config/default/system/int/sys_int_mapping.h \
- ../src/config/default/usb/usb_host_client_driver.h \
- ../src/config/default/usb/usb_host.h \
- ../src/config/default/usb/usb_host_hub_interface.h \
- ../src/config/default/usb/src/usb_device_mapping.h \
- ../src/config/default/usb/src/usb_device_function_driver.h \
- ../src/config/default/usb/usb_cdc.h ../src/app_usb.h \
- ../src/config/default/definitions.h \
- ../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h \
  ../src/config/default/peripheral/sercom/spi_slave/plib_sercom2_spi_slave.h \
  ../src/config/default/peripheral/sercom/spi_slave/plib_sercom_spi_slave_common.h \
  ../src/config/default/peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h \
  ../src/config/default/peripheral/sercom/i2c_master/plib_sercom_i2c_master_common.h \
  ../src/config/default/peripheral/evsys/plib_evsys.h \
  ../src/config/default/driver/sdmmc/drv_sdmmc.h \
+ ../src/config/default/system/system.h \
+ ../src/config/default/system/system_common.h \
+ ../src/config/default/system/system_module.h \
+ ../src/config/default/system/system_common.h \
+ ../src/config/default/driver/driver_common.h \
+ ../src/config/default/system/int/sys_int.h \
+ ../src/config/default/system/int/sys_int_mapping.h \
  ../src/config/default/system/system_media.h \
  ../src/config/default/driver/sdmmc/drv_sdmmc_definitions.h \
  ../src/config/default/driver/sdmmc/src/drv_sdmmc_local.h \
  ../src/config/default/driver/sdmmc/drv_sdmmc.h \
  ../src/config/default/system/time/sys_time.h \
  ../src/config/default/system/time/sys_time_definitions.h \
+ ../src/config/default/configuration.h ../src/config/default/user.h \
  ../src/config/default/osal/osal.h \
  ../src/config/default/osal/osal_definitions.h \
  ../src/config/default/osal/osal_impl_basic.h \
@@ -146,6 +135,13 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
  ../src/config/default/peripheral/cmcc/plib_cmcc.h \
  ../src/config/default/usb/usb_chapter_9.h \
  ../src/config/default/usb/usb_device.h \
+ ../src/config/default/usb/usb_common.h \
+ ../src/config/default/usb/usb_chapter_9.h \
+ ../src/config/default/driver/usb/drv_usb.h \
+ ../src/config/default/usb/usb_host_client_driver.h \
+ ../src/config/default/usb/usb_host.h \
+ ../src/config/default/usb/usb_host_hub_interface.h \
+ ../src/config/default/usb/src/usb_device_mapping.h \
  ../src/config/default/peripheral/tc/plib_tc1.h \
  ../src/config/default/peripheral/tc/plib_tc_common.h \
  ../src/config/default/peripheral/tc/plib_tc0.h \
@@ -153,7 +149,9 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
  ../src/config/default/peripheral/sdhc/plib_sdhc_common.h \
  ../src/config/default/system/time/sys_time.h \
  ../src/config/default/usb/usb_device_cdc.h \
- ../src/config/default/usb/usb_cdc.h \
+ ../src/config/default/usb/usb_device.h \
+ ../src/config/default/usb/src/usb_device_function_driver.h \
+ ../src/config/default/usb/usb_cdc.h ../src/config/default/usb/usb_cdc.h \
  ../src/config/default/system/fs/sys_fs.h \
  ../src/config/default/system/fs/sys_fs_media_manager.h \
  ../src/config/default/system/fs/sys_fs.h \
@@ -177,14 +175,13 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
  ../src/config/default/system/cache/sys_cache.h \
  ../src/config/default/osal/osal.h \
  ../src/config/default/system/debug/sys_debug.h \
- ../src/config/default/system/console/sys_console.h ../src/app.h \
- ../src/codec.h ../src/ble_slave.h ../src/sd_handler.h
+ ../src/config/default/system/console/sys_console.h ../src/app.h
 
-../src/cdc.h:
+../src/sd_handler.h:
 
-../src/config/default/configuration.h:
+../src/config/default/definitions.h:
 
-../src/config/default/user.h:
+../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h:
 
 ../src/config/default/device.h:
 
@@ -384,53 +381,11 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
 
 ../src/config/default/device_cache.h:
 
+../src/config/default/device.h:
+
 ../src/config/default/toolchain_specifics.h:
 
 ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h:
-
-../src/config/default/usb/usb_device_cdc.h:
-
-../src/config/default/usb/usb_common.h:
-
-../src/config/default/usb/usb_chapter_9.h:
-
-../src/config/default/usb/usb_device.h:
-
-../src/config/default/system/system.h:
-
-../src/config/default/system/system_common.h:
-
-../src/config/default/system/system_module.h:
-
-../src/config/default/system/system_common.h:
-
-../src/config/default/driver/driver_common.h:
-
-../src/config/default/driver/usb/drv_usb.h:
-
-../src/config/default/system/int/sys_int.h:
-
-../src/config/default/device.h:
-
-../src/config/default/system/int/sys_int_mapping.h:
-
-../src/config/default/usb/usb_host_client_driver.h:
-
-../src/config/default/usb/usb_host.h:
-
-../src/config/default/usb/usb_host_hub_interface.h:
-
-../src/config/default/usb/src/usb_device_mapping.h:
-
-../src/config/default/usb/src/usb_device_function_driver.h:
-
-../src/config/default/usb/usb_cdc.h:
-
-../src/app_usb.h:
-
-../src/config/default/definitions.h:
-
-../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h:
 
 ../src/config/default/peripheral/sercom/spi_slave/plib_sercom2_spi_slave.h:
 
@@ -444,6 +399,20 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
 
 ../src/config/default/driver/sdmmc/drv_sdmmc.h:
 
+../src/config/default/system/system.h:
+
+../src/config/default/system/system_common.h:
+
+../src/config/default/system/system_module.h:
+
+../src/config/default/system/system_common.h:
+
+../src/config/default/driver/driver_common.h:
+
+../src/config/default/system/int/sys_int.h:
+
+../src/config/default/system/int/sys_int_mapping.h:
+
 ../src/config/default/system/system_media.h:
 
 ../src/config/default/driver/sdmmc/drv_sdmmc_definitions.h:
@@ -455,6 +424,10 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
 ../src/config/default/system/time/sys_time.h:
 
 ../src/config/default/system/time/sys_time_definitions.h:
+
+../src/config/default/configuration.h:
+
+../src/config/default/user.h:
 
 ../src/config/default/osal/osal.h:
 
@@ -480,6 +453,20 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
 
 ../src/config/default/usb/usb_device.h:
 
+../src/config/default/usb/usb_common.h:
+
+../src/config/default/usb/usb_chapter_9.h:
+
+../src/config/default/driver/usb/drv_usb.h:
+
+../src/config/default/usb/usb_host_client_driver.h:
+
+../src/config/default/usb/usb_host.h:
+
+../src/config/default/usb/usb_host_hub_interface.h:
+
+../src/config/default/usb/src/usb_device_mapping.h:
+
 ../src/config/default/peripheral/tc/plib_tc1.h:
 
 ../src/config/default/peripheral/tc/plib_tc_common.h:
@@ -493,6 +480,12 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
 ../src/config/default/system/time/sys_time.h:
 
 ../src/config/default/usb/usb_device_cdc.h:
+
+../src/config/default/usb/usb_device.h:
+
+../src/config/default/usb/src/usb_device_function_driver.h:
+
+../src/config/default/usb/usb_cdc.h:
 
 ../src/config/default/usb/usb_cdc.h:
 
@@ -545,9 +538,3 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
 ../src/config/default/system/console/sys_console.h:
 
 ../src/app.h:
-
-../src/codec.h:
-
-../src/ble_slave.h:
-
-../src/sd_handler.h:

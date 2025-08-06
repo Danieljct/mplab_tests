@@ -30,10 +30,12 @@
 #include <stdio.h>
 #include "codec.h"                      // Codec driver
 #include "ble_slave.h"   
+#include "sd_handler.h"                 // SD Card handler
 
 static bool volatile bToggleLED = false;
 static uint16_t volatile adcValue = 0;
 static bool codecInitDone = false;
+static bool sdInitDone = false;
 
 // Variables para SPI slave
 static uint8_t spiRxBuffer[256];
@@ -111,6 +113,7 @@ int main ( void )
     PWR_HPWR_Set();
     PWR_SUSP_Clear();
     PWR_STBY_Clear();
+    PWR_SD_LDO_EN_Set();
     COD_RESET_Set();
     
     // Enable ADC1
@@ -122,13 +125,15 @@ int main ( void )
     // Start the timer channel 0
     TC0_TimerStart();
     
+    SYS_CONSOLE_PRINT("=== Sistema AVM Iniciado ===\r\n");
+    
     while ( true )
     {
         // Maintain state machines of all polled MPLAB Harmony modules.
         SYS_Tasks();
         
         // Procesar comandos SPI recibidos
-        ProcessSPICommands();
+       // ProcessSPICommands();
         
         // Initialize codec once after system stabilization
         if (!codecInitDone)
@@ -136,7 +141,7 @@ int main ( void )
             static uint32_t initCounter = 0;
             initCounter++;
             
-            if (initCounter > 10000) // Wait for system to stabilize
+            if (initCounter > 5000) // Reducir tiempo de espera para codec
             {
                 CodecGain_t codecGain;
                 codecGain.leftGain = 0x50;   // Default gain value
@@ -146,10 +151,47 @@ int main ( void )
                 CODEC_init(codecGain);
                 codecInitDone = true;
                 
-                CODEC_printAllRegisters();
+                SYS_CONSOLE_PRINT("Codec inicializado\r\n");
             }
         }
         
+        // Initialize SD Card system - darle más tiempo después del codec
+        if (!sdInitDone && codecInitDone)
+        {
+            static uint32_t sdInitCounter = 0;
+            sdInitCounter++;
+            
+            if (sdInitCounter > 3000) // Menos tiempo de espera ya que el codec está listo
+            {
+                SYS_CONSOLE_PRINT("Iniciando sistema SD...\r\n");
+                
+                SD_Result_t result = SD_Initialize();
+                if(result == SD_SUCCESS)
+                {
+                    SYS_CONSOLE_PRINT("SD inicializada correctamente\r\n");
+                    
+                    // Mostrar información de la SD
+                    SD_PrintInfo();
+                    
+                    // Listar archivos existentes
+                    SD_ListFiles();
+                    
+                    // Escribir archivo de prueba
+                    SD_WriteTestFile();
+                    
+                    // Listar archivos nuevamente para ver el archivo creado
+                    SD_ListFiles();
+                }
+                else
+                {
+                    SYS_CONSOLE_PRINT("Error inicializando SD: %d\r\n", result);
+                    SYS_CONSOLE_PRINT("Reintentando en próximo ciclo...\r\n");
+                }
+                
+                sdInitDone = true;
+            }
+        }
+
         // ADC reading logic
         ADC1_ConversionStart();
         while (!ADC1_ConversionStatusGet())
@@ -163,10 +205,26 @@ int main ( void )
             adcValue = ADC1_ConversionResultGet();
             bToggleLED = false;
             LED_R_Toggle();
+            
+            // Escribir datos periódicos a SD si está lista
+            static uint32_t dataCounter = 0;
+            if(SD_IsReady() && (dataCounter % 10000 == 0)) // Cada ~10 segundos aprox
+            {
+                char dataFile[64];
+                char sensorData[256];
+                
+                snprintf(dataFile, sizeof(dataFile), "sensor_%u.txt", dataCounter / 10000);
+                snprintf(sensorData, sizeof(sensorData), 
+                    "Timestamp: %u\r\nADC Value: %d\r\nCounter: %u\r\n", 
+                    SYSTICK_GetTickCounter(), adcValue, dataCounter);
+                
+                SD_WriteFile(dataFile, sensorData, strlen(sensorData));
+                SYS_CONSOLE_PRINT("Datos de sensor escritos: %s\r\n", dataFile);
+            }
+            dataCounter++;
         }
     }
 
     // Execution should not come here during normal operation
     return EXIT_FAILURE;
 }
-   
