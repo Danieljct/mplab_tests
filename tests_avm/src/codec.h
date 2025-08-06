@@ -29,7 +29,7 @@ extern "C" {
 ******************************************************************************/
 #ifndef CODEC_DRIVER_CFG
 #define CODEC_DRIVER_CFG
-
+#define CODEC_I2C_TIMEOUT_MS 100
 #define USE_CODEC_PLL 0
 
 #endif
@@ -41,7 +41,7 @@ extern "C" {
 /******************************************************************************
 **      MACRO DEFINITIONS
 ******************************************************************************/
-#define CODEC_ADDRESS 0x18
+#define CODEC_ADDRESS           0x18    // Dirección encontrada en el escaneo I2C
 
 /* REGISTER MAP */
 #define CODEC_REG_PAGE_SELECT									0

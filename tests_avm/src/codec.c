@@ -5,7 +5,7 @@
 * Origin Date           :   28/07/2025
 * Version               :   1.0.0
 * Target                :   SAMD51J20A
-* Notes                 :   Adapted for MPLAB Harmony I2C Driver
+* Notes                 :   Adapted for MPLAB Harmony SERCOM1 I2C PLIB
 *
 ******************************************************************************/
 
@@ -20,33 +20,18 @@
 /******************************************************************************
 **      MODULE PREPROCESSOR CONSTANTS
 ******************************************************************************/
-#define CODEC_I2C_TIMEOUT_MS    1000
 #define I2C_TRANSFER_DELAY_MS   10
-
-// I2C Driver Index (if not defined in configuration)
-#ifndef DRV_I2C_INDEX_0
-#define DRV_I2C_INDEX_0         0
-#endif
-
-/******************************************************************************
-**      MODULE MACROS
-******************************************************************************/
-
-/******************************************************************************
-*       MODULE DATATYPES
-******************************************************************************/
 
 /******************************************************************************
 **      MODULE VARIABLE DEFINITIONS
 ******************************************************************************/
-static DRV_HANDLE codecI2CHandle = DRV_HANDLE_INVALID;
 static bool isCodecInitialized = false;
 
 /******************************************************************************
 **      PRIVATE FUNCTION DECLARATIONS (PROTOTYPES)
 ******************************************************************************/
 
-static bool CODEC_waitForTransferComplete(void);
+static bool CODEC_waitForI2CReady(void);
 
 /******************************************************************************
 **      FUNCTION DEFINITIONS
@@ -57,35 +42,21 @@ static bool CODEC_waitForTransferComplete(void);
  */
 CodecResult_t CODEC_init(CodecGain_t gain)
 {
-    DRV_I2C_TRANSFER_SETUP transferSetup;
-    
-    // Open I2C driver
-    codecI2CHandle = DRV_I2C_Open(DRV_I2C_INDEX_0, DRV_IO_INTENT_READWRITE);
-    
-    if (codecI2CHandle == DRV_HANDLE_INVALID)
+    // I2C ya está inicializado por el sistema, solo verificamos que esté disponible
+    if (SERCOM1_I2C_IsBusy())
     {
-        return CODEC_ERROR_I2C_INIT;
-    }
-    
-    // Configure I2C transfer settings for 100kHz
-    transferSetup.clockSpeed = 100000;
-    if (!DRV_I2C_TransferSetup(codecI2CHandle, &transferSetup))
-    {
-        DRV_I2C_Close(codecI2CHandle);
         return CODEC_ERROR_I2C_INIT;
     }
     
     // Hardware reset
     if (CODEC_resetHw() != CODEC_SUCCESS)
     {
-        DRV_I2C_Close(codecI2CHandle);
         return CODEC_ERROR_I2C_INIT;
     }
     
     // Software reset
     if (CODEC_writeRegister(CODEC_REG_SOFT_RESET, 0x01) != CODEC_SUCCESS)
     {
-        DRV_I2C_Close(codecI2CHandle);
         return CODEC_ERROR_I2C_INIT;
     }
     
@@ -93,16 +64,14 @@ CodecResult_t CODEC_init(CodecGain_t gain)
     SYSTICK_DelayMs(100);
     
     // Configure PLL if needed
-   if (CODEC_configPll(gain) != CODEC_SUCCESS)
+    if (CODEC_configPll(gain) != CODEC_SUCCESS)
     {
-        DRV_I2C_Close(codecI2CHandle);
         return CODEC_ERROR_I2C_INIT;
     }
     
     // Set initial gain
     if (CODEC_setGain(gain) != CODEC_SUCCESS)
     {
-        DRV_I2C_Close(codecI2CHandle);
         return CODEC_ERROR_I2C_INIT;
     }
    
@@ -116,28 +85,31 @@ CodecResult_t CODEC_init(CodecGain_t gain)
 CodecResult_t CODEC_writeRegister(uint8_t reg_add, uint8_t reg_val)
 {
     uint8_t writeBuffer[2];
-    DRV_I2C_TRANSFER_HANDLE transferHandle;
     
-    if (!isCodecInitialized && codecI2CHandle == DRV_HANDLE_INVALID)
+    if (!CODEC_waitForI2CReady())
     {
-        return CODEC_ERROR_I2C_INIT;
+        return CODEC_ERROR_I2C_WRITE;
     }
     
     writeBuffer[0] = reg_add;
     writeBuffer[1] = reg_val;
     
-    // Start write transfer
-    DRV_I2C_WriteTransfer(codecI2CHandle, CODEC_ADDRESS, writeBuffer, 2);
-    
-    if (transferHandle == DRV_I2C_TRANSFER_HANDLE_INVALID)
+    // Use SERCOM1 I2C Write function
+    if (!SERCOM1_I2C_Write(CODEC_ADDRESS, writeBuffer, 2))
     {
         return CODEC_ERROR_I2C_WRITE;
     }
     
     // Wait for transfer to complete
-    if (!CODEC_waitForTransferComplete())
+    while (SERCOM1_I2C_IsBusy())
     {
-        return CODEC_ERROR_TIMEOUT;
+        // Wait for transfer completion
+    }
+    
+    // Check for errors
+    if (SERCOM1_I2C_ErrorGet() != SERCOM_I2C_ERROR_NONE)
+    {
+        return CODEC_ERROR_I2C_WRITE;
     }
     
     SYSTICK_DelayMs(I2C_TRANSFER_DELAY_MS);
@@ -149,11 +121,9 @@ CodecResult_t CODEC_writeRegister(uint8_t reg_add, uint8_t reg_val)
  */
 CodecResult_t CODEC_readRegister(uint8_t reg_add, uint8_t* reg_val)
 {
-    DRV_I2C_TRANSFER_HANDLE transferHandle;
-    
-    if (!isCodecInitialized && codecI2CHandle == DRV_HANDLE_INVALID)
+    if (!CODEC_waitForI2CReady())
     {
-        return CODEC_ERROR_I2C_INIT;
+        return CODEC_ERROR_I2C_READ;
     }
     
     if (reg_val == NULL)
@@ -161,19 +131,22 @@ CodecResult_t CODEC_readRegister(uint8_t reg_add, uint8_t* reg_val)
         return CODEC_ERROR_I2C_READ;
     }
     
-    // Write register address then read value
-    DRV_I2C_WriteReadTransfer(codecI2CHandle, CODEC_ADDRESS, 
-                                 &reg_add, 1, reg_val, 1);
-    
-    if (transferHandle == DRV_I2C_TRANSFER_HANDLE_INVALID)
+    // Use SERCOM1 I2C WriteRead function
+    if (!SERCOM1_I2C_WriteRead(CODEC_ADDRESS, &reg_add, 1, reg_val, 1))
     {
         return CODEC_ERROR_I2C_READ;
     }
     
     // Wait for transfer to complete
-    if (!CODEC_waitForTransferComplete())
+    while (SERCOM1_I2C_IsBusy())
     {
-        return CODEC_ERROR_TIMEOUT;
+        // Wait for transfer completion
+    }
+    
+    // Check for errors
+    if (SERCOM1_I2C_ErrorGet() != SERCOM_I2C_ERROR_NONE)
+    {
+        return CODEC_ERROR_I2C_READ;
     }
     
     SYSTICK_DelayMs(I2C_TRANSFER_DELAY_MS);
@@ -327,7 +300,7 @@ CodecResult_t CODEC_printAllRegisters(void)
 ******************************************************************************/
 
 /**
- * @brief Hardware reset of the codec (placeholder)
+ * @brief Hardware reset of the codec
  */
 CodecResult_t CODEC_resetHw(void)
 {
@@ -346,25 +319,19 @@ CodecResult_t CODEC_resetHw(void)
 }
 
 /**
- * @brief Wait for I2C transfer to complete
+ * @brief Wait for I2C to be ready
  */
-static bool CODEC_waitForTransferComplete(void)
+static bool CODEC_waitForI2CReady(void)
 {
-    uint32_t timeout = CODEC_I2C_TIMEOUT_MS;
+    uint32_t timeout = 1000; // 1 segundo timeout
     
-    // This is a simplified timeout mechanism
-    // In a real implementation, you would check the transfer status
-    while (timeout > 0)
+    while (SERCOM1_I2C_IsBusy() && timeout > 0)
     {
         SYSTICK_DelayMs(1);
         timeout--;
-        
-        // For this example, we'll assume the transfer completes quickly
-        if (timeout < (CODEC_I2C_TIMEOUT_MS - 10))
-        {
-            return true;
-        }
     }
     
-    return false;
+    return (timeout > 0);
 }
+    
+

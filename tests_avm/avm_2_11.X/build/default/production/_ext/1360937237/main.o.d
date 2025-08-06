@@ -156,7 +156,7 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
  ../src/config/default/osal/osal_impl_basic.h \
  ../src/config/default/system/debug/sys_debug.h \
  ../src/config/default/system/console/sys_console.h ../src/app.h \
- ../src/ble_slave.h
+ ../src/codec.h ../src/ble_slave.h
 
 ../src/cdc.h:
 
@@ -479,5 +479,7 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
 ../src/config/default/system/console/sys_console.h:
 
 ../src/app.h:
+
+../src/codec.h:
 
 ../src/ble_slave.h:

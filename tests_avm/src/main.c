@@ -28,7 +28,7 @@
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "definitions.h"                // SYS function prototypes
 #include <stdio.h>
-//#include "codec.h"                      // Codec driver
+#include "codec.h"                      // Codec driver
 #include "ble_slave.h"   
 
 static bool volatile bToggleLED = false;
@@ -47,86 +47,6 @@ void TC0_CH0_TimerInterruptHandler(uint32_t status, uintptr_t context)
     bToggleLED = true;
 }
 
-// Simple I2C scanner function using SERCOM1 PLIB
-void I2C_ScanDevices(void)
-{
-    uint8_t devicesFound[128];  // Lista para almacenar dispositivos encontrados
-    uint8_t nDevicesFound = 0;
-    
-    SYS_CONSOLE_PRINT("\r\n=== I2C Device Scanner (SERCOM1 PLIB) ===\r\n");
-    SYS_CONSOLE_PRINT("Scanning I2C bus for devices...\r\n");
-    SYS_CONSOLE_PRINT("     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f\r\n");
-    
-    // Usar la función de escaneo incorporada del PLIB
-    if (SERCOM1_I2C_BusScan(0x08, 0x77, devicesFound, &nDevicesFound))
-    {
-        // Mostrar resultados en formato hexadecimal organizado
-        for (uint8_t addr = 0x08; addr <= 0x77; addr++)
-        {
-            if (addr % 16 == 0)
-            {
-                SYS_CONSOLE_PRINT("%02x: ", addr);
-            }
-            
-            // Verificar si la dirección está en la lista de dispositivos encontrados
-            bool found = false;
-            for (uint8_t i = 0; i < nDevicesFound; i++)
-            {
-                if (devicesFound[i] == addr)
-                {
-                    found = true;
-                    break;
-                }
-            }
-            
-            if (found)
-            {
-                SYS_CONSOLE_PRINT("%02x ", addr);
-                
-                // Special note for codec address (si está definido)
-                #ifdef CODEC_ADDRESS
-                if (addr == CODEC_ADDRESS)
-                {
-                    SYS_CONSOLE_PRINT("(CODEC) ");
-                }
-                #endif
-            }
-            else
-            {
-                SYS_CONSOLE_PRINT("-- ");
-            }
-            
-            if ((addr + 1) % 16 == 0)
-            {
-                SYS_CONSOLE_PRINT("\r\n");
-            }
-        }
-        
-        SYS_CONSOLE_PRINT("\r\n");
-        SYS_CONSOLE_PRINT("Scan complete. Found %d device(s).\r\n", nDevicesFound);
-        
-        if (nDevicesFound == 0)
-        {
-            SYS_CONSOLE_PRINT("No I2C devices found. Check connections and pull-up resistors.\r\n");
-        }
-        else
-        {
-            SYS_CONSOLE_PRINT("Device addresses found: ");
-            for (uint8_t i = 0; i < nDevicesFound; i++)
-            {
-                SYS_CONSOLE_PRINT("0x%02X ", devicesFound[i]);
-            }
-            SYS_CONSOLE_PRINT("\r\n");
-        }
-    }
-    else
-    {
-        SYS_CONSOLE_PRINT("Failed to scan I2C bus - bus may be busy\r\n");
-    }
-    
-    SYS_CONSOLE_PRINT("=== I2C Scanner Complete ===\r\n\r\n");
-}
-/*
 // Función mejorada para diagnóstico del codec
 void CODEC_DiagnosticTest(void)
 {
@@ -143,7 +63,7 @@ void CODEC_DiagnosticTest(void)
     result = CODEC_readRegister(0x02, &regValue); // Registro 0 (suele ser ID o reset)
     if (result == CODEC_SUCCESS)
     {
-        SYS_CONSOLE_PRINT("   Basic read: SUCCESS - Reg 0x00 = 0x%02X\r\n", regValue);
+        SYS_CONSOLE_PRINT("   Basic read: SUCCESS - Reg 0x02 = 0x%02X\r\n", regValue);
     }
     else
     {
@@ -199,26 +119,23 @@ void CODEC_DiagnosticTest(void)
         {
             if (regValue == testValues[i])
             {
-                SYS_CONSOLE_PRINT("   Write/Read 0x%02X: SUCCESS �??\r\n", testValues[i]);
+                SYS_CONSOLE_PRINT("   Write/Read 0x%02X: SUCCESS ✓\r\n", testValues[i]);
                 writeReadSuccess++;
             }
             else
             {
-                SYS_CONSOLE_PRINT("   Write/Read 0x%02X: MISMATCH (got 0x%02X) �??\r\n", 
+                SYS_CONSOLE_PRINT("   Write/Read 0x%02X: MISMATCH (got 0x%02X) ✗\r\n", 
                                  testValues[i], regValue);
             }
         }
         else
         {
-            SYS_CONSOLE_PRINT("   Write 0x%02X, Read: FAILED �??\r\n", testValues[i]);
+            SYS_CONSOLE_PRINT("   Write 0x%02X, Read: FAILED ✗\r\n", testValues[i]);
         }
     }
     
     // Restaurar valor original
     CODEC_writeRegister(CODEC_REG_SAMPLE_RATE_SELECT, originalValue);
-   
-    
-
     
     // 5. Resumen de resultados
     SYS_CONSOLE_PRINT("\r\n=== Diagnostic Summary ===\r\n");
@@ -240,11 +157,12 @@ void CODEC_DiagnosticTest(void)
     }
     else if (writeReadSuccess == testCount)
     {
-        SYS_CONSOLE_PRINT("DIAGNOSIS: Communication is working correctly! �??\r\n");
+        SYS_CONSOLE_PRINT("DIAGNOSIS: Communication is working correctly! ✓\r\n");
     }
     
     SYS_CONSOLE_PRINT("=== Diagnostic Test Complete ===\r\n\r\n");
 }
+
 // Function to test codec functionality
 void CODEC_TestFunction(void)
 {
@@ -315,8 +233,6 @@ void CODEC_TestFunction(void)
         
         // Print all register values
         CODEC_printAllRegisters();
-        
-
     }
     else
     {
@@ -325,7 +241,100 @@ void CODEC_TestFunction(void)
     
     SYS_CONSOLE_PRINT("=== CODEC Test Completed ===\r\n\r\n");
 }
+
+// Simple I2C scanner function using SERCOM1 PLIB
+void I2C_ScanDevices(void)
+{
+    uint8_t devicesFound[128];  // Lista para almacenar dispositivos encontrados
+    uint8_t nDevicesFound = 0;
+    
+    SYS_CONSOLE_PRINT("\r\n=== I2C Device Scanner (SERCOM1 PLIB) ===\r\n");
+    SYS_CONSOLE_PRINT("Scanning I2C bus for devices...\r\n");
+    SYS_CONSOLE_PRINT("     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f\r\n");
+    
+    // Usar la función de escaneo incorporada del PLIB
+    if (SERCOM1_I2C_BusScan(0x08, 0x77, devicesFound, &nDevicesFound))
+    {
+        // Mostrar resultados en formato hexadecimal organizado
+        for (uint8_t addr = 0x08; addr <= 0x77; addr++)
+        {
+            if (addr % 16 == 0)
+            {
+                SYS_CONSOLE_PRINT("%02x: ", addr);
+            }
+            
+            // Verificar si la dirección está en la lista de dispositivos encontrados
+            bool found = false;
+            for (uint8_t i = 0; i < nDevicesFound; i++)
+            {
+                if (devicesFound[i] == addr)
+                {
+                    found = true;
+                    break;
+                }
+            }
+            
+            if (found)
+            {
+                SYS_CONSOLE_PRINT("%02x ", addr);
+                
+                // Special note for codec address
+                if (addr == 0x18) // Dirección encontrada del codec
+                {
+                    SYS_CONSOLE_PRINT("(CODEC) ");
+                }
+            }
+            else
+            {
+                SYS_CONSOLE_PRINT("-- ");
+            }
+            
+            if ((addr + 1) % 16 == 0)
+            {
+                SYS_CONSOLE_PRINT("\r\n");
+            }
+        }
+        
+        SYS_CONSOLE_PRINT("\r\n");
+        SYS_CONSOLE_PRINT("Scan complete. Found %d device(s).\r\n", nDevicesFound);
+        
+        if (nDevicesFound == 0)
+        {
+            SYS_CONSOLE_PRINT("No I2C devices found. Check connections and pull-up resistors.\r\n");
+        }
+        else
+        {
+            SYS_CONSOLE_PRINT("Device addresses found: ");
+            for (uint8_t i = 0; i < nDevicesFound; i++)
+            {
+                SYS_CONSOLE_PRINT("0x%02X ", devicesFound[i]);
+            }
+            SYS_CONSOLE_PRINT("\r\n");
+        }
+    }
+    else
+    {
+        SYS_CONSOLE_PRINT("Failed to scan I2C bus - bus may be busy\r\n");
+    }
+    
+    SYS_CONSOLE_PRINT("=== I2C Scanner Complete ===\r\n\r\n");
+}
+
+/*
+// Función para procesar comandos SPI recibidos
+void ProcessSPICommands(void)
+{
+    if (spiCommandReceived)
+    {
+        // Usar el nuevo sistema BLE para procesar comandos
+        BLE_processCommand(lastCommand, spiRxBuffer, lastBytesReceived);
+        
+        // Resetear flag
+        spiCommandReceived = false;
+    }
+}
 */
+
 // Callback para cuando se completa una transacción SPI
 void SPI_SlaveCallback(uintptr_t context)
 {
@@ -410,14 +419,15 @@ int main ( void )
         SYS_Tasks();
         
         // Procesar comandos SPI recibidos
-       // ProcessSPICommands();
+        //ProcessSPICommands();
         
         // Run codec test once after system initialization
         if (!codecTestDone && try>5)
         {
             // Wait for system to stabilize (2 seconds)
             I2C_ScanDevices();  // Scan I2C bus first
-         //   CODEC_DiagnosticTest();
+            CODEC_DiagnosticTest();  // Reactivado
+            CODEC_TestFunction();    // Reactivado
             codecTestDone = true;
         }
         
