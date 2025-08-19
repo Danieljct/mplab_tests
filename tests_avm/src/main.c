@@ -41,6 +41,7 @@ static bool codecInitDone = false;
 static bool sdInitDone = false;
 static bool i2sInitDone = false;
 static DRV_HANDLE i2sHandle = DRV_HANDLE_INVALID;
+static bool volatile bReadI2S = false;  // Flag para lectura I2S controlada por timer
 
 // Variables para SPI slave
 static uint8_t spiRxBuffer[256];
@@ -52,6 +53,13 @@ static volatile size_t lastBytesReceived = 0;
 void TC0_CH0_TimerInterruptHandler(uint32_t status, uintptr_t context)
 {
     bToggleLED = true;
+}
+
+// Callback para TC1 - controla lectura I2S a 1kHz
+void TC1_CH0_TimerInterruptHandler(uint32_t status, uintptr_t context)
+{
+    bReadI2S = true;
+    LED_B_Toggle();
 }
 
 // Callback para cuando se completa una transacción SPI
@@ -112,23 +120,8 @@ int main ( void )
     // Initialize BLE slave system
     BLE_slave_init();
     
-    // Initialize I2S PLIB first
+    // Initialize I2S PLIB first (but don't open driver yet)
     I2S_Initialize();
-    
-    // Wait a bit for I2S to stabilize
-    for(volatile uint32_t i = 0; i < 10000; i++);
-    
-    // Open I2S driver handle
-    i2sHandle = DRV_I2S_Open(0, DRV_IO_INTENT_READ);
-    if(i2sHandle != DRV_HANDLE_INVALID)
-    {
-        i2sInitDone = true;
-        SYS_CONSOLE_PRINT("I2S Driver inicializado correctamente\r\n");
-    }
-    else
-    {
-        SYS_CONSOLE_PRINT("Error al abrir I2S Driver\r\n");
-    }
     
     // Initialize power pins
     PWR_LDOON_Set();
@@ -145,8 +138,14 @@ int main ( void )
     // Register callback function for CH0 period interrupt
     TC0_TimerCallbackRegister(TC0_CH0_TimerInterruptHandler, (uintptr_t)NULL);
 
+    // Register callback function for TC1 CH0 period interrupt (1kHz para I2S)
+    TC1_TimerCallbackRegister(TC1_CH0_TimerInterruptHandler, (uintptr_t)NULL);
+
     // Start the timer channel 0
     TC0_TimerStart();
+    
+    // Start TC1 timer for I2S sampling
+    TC1_TimerStart();
     
     SYS_CONSOLE_PRINT("=== Sistema AVM Iniciado ===\r\n");
     
@@ -157,56 +156,6 @@ int main ( void )
         
         // Procesar comandos SPI recibidos
        // ProcessSPICommands();
-        
-        // Leer datos I2S usando buffer queue (sin callback para simplificar)
-        if (i2sInitDone && i2sHandle != DRV_HANDLE_INVALID)
-        {
-            static uint32_t i2sReadCounter = 0;
-            static uint32_t i2sBuffer[64]; // Buffer para leer datos I2S
-            static DRV_I2S_BUFFER_HANDLE bufferHandle = DRV_I2S_BUFFER_HANDLE_INVALID;
-            static bool readInProgress = false;
-            
-            i2sReadCounter++;
-            
-            // Si no hay lectura en progreso, iniciar una nueva
-            if (!readInProgress && (i2sReadCounter % 100000 == 0))
-            {
-                DRV_I2S_ReadBufferAdd(i2sHandle, i2sBuffer, sizeof(i2sBuffer), &bufferHandle);
-                
-                if (bufferHandle != DRV_I2S_BUFFER_HANDLE_INVALID)
-                {
-                    readInProgress = true;
-                    SYS_CONSOLE_PRINT("I2S Read iniciado [%u]\r\n", i2sReadCounter / 100000);
-                }
-                else
-                {
-                    SYS_CONSOLE_PRINT("Error al iniciar I2S Read\r\n");
-                }
-            }
-            
-            // Verificar si la lectura se completó
-            if (readInProgress && bufferHandle != DRV_I2S_BUFFER_HANDLE_INVALID)
-            {
-                DRV_I2S_BUFFER_EVENT status = DRV_I2S_BufferStatusGet(bufferHandle);
-                
-                if (status == DRV_I2S_BUFFER_EVENT_COMPLETE)
-                {
-                    // Imprimir algunos datos del buffer
-                    SYS_CONSOLE_PRINT("I2S Read OK: 0x%08X 0x%08X 0x%08X 0x%08X\r\n", 
-                        i2sBuffer[0], i2sBuffer[1], i2sBuffer[2], i2sBuffer[3]);
-                    
-                    readInProgress = false;
-                    bufferHandle = DRV_I2S_BUFFER_HANDLE_INVALID;
-                }
-                else if (status == DRV_I2S_BUFFER_EVENT_ERROR)
-                {
-                    SYS_CONSOLE_PRINT("I2S Read Error\r\n");
-                    readInProgress = false;
-                    bufferHandle = DRV_I2S_BUFFER_HANDLE_INVALID;
-                }
-                // Si está en progreso, seguir esperando
-            }
-        }
         
         // Initialize codec once after system stabilization
         if (!codecInitDone)
@@ -227,45 +176,95 @@ int main ( void )
                 SYS_CONSOLE_PRINT("Codec inicializado\r\n");
             }
         }
-        /*
-        // Initialize SD Card system - darle más tiempo después del codec
-        if (!sdInitDone && codecInitDone)
+        
+        // Initialize I2S driver after codec is ready
+        if (!i2sInitDone && codecInitDone)
         {
-            static uint32_t sdInitCounter = 0;
-            sdInitCounter++;
+            static uint32_t i2sInitCounter = 0;
+            i2sInitCounter++;
             
-            if (sdInitCounter > 3000) // Menos tiempo de espera ya que el codec está listo
+            if (i2sInitCounter > 1000) // Esperar un poco después del codec
             {
-                SYS_CONSOLE_PRINT("Iniciando sistema SD...\r\n");
-                
-                SD_Result_t result = SD_Initialize();
-                if(result == SD_SUCCESS)
+                // Open I2S driver handle
+                i2sHandle = DRV_I2S_Open(0, DRV_IO_INTENT_READ);
+                if(i2sHandle != DRV_HANDLE_INVALID)
                 {
-                    SYS_CONSOLE_PRINT("SD inicializada correctamente\r\n");
-                    
-                    // Mostrar información de la SD
-                    SD_PrintInfo();
-                    
-                    // Listar archivos existentes
-                    SD_ListFiles();
-                    
-                    // Escribir archivo de prueba
-                    SD_WriteTestFile();
-                    
-                    // Listar archivos nuevamente para ver el archivo creado
-                    SD_ListFiles();
+                    i2sInitDone = true;
+                    SYS_CONSOLE_PRINT("I2S Driver inicializado correctamente\r\n");
                 }
                 else
                 {
-                    SYS_CONSOLE_PRINT("Error inicializando SD: %d\r\n", result);
-                    SYS_CONSOLE_PRINT("Reintentando en próximo ciclo...\r\n");
+                    SYS_CONSOLE_PRINT("Error al abrir I2S Driver\r\n");
                 }
-                
-                sdInitDone = true;
             }
         }
-         */
-
+        
+        // Leer datos I2S controlado por timer TC1 a 1kHz - UNA SOLA VEZ
+        if (i2sInitDone && i2sHandle != DRV_HANDLE_INVALID && bReadI2S)
+        {
+            static uint32_t i2sBuffer[1]; // Buffer pequeño para una sola muestra
+            static DRV_I2S_BUFFER_HANDLE bufferHandle = DRV_I2S_BUFFER_HANDLE_INVALID;
+            static bool readInProgress = false;
+            static uint32_t sampleCounter = 0;
+            
+            bReadI2S = false; // Resetear flag inmediatamente
+            
+            // Purgar cola cada cierto número de muestras para liberar buffers
+            if (sampleCounter % 5 == 0 && sampleCounter > 0)
+            {
+                DRV_I2S_ReadQueuePurge(i2sHandle);
+                readInProgress = false;
+                bufferHandle = DRV_I2S_BUFFER_HANDLE_INVALID;
+            }
+            
+            // Solo iniciar nueva lectura si no hay una en progreso
+            if (!readInProgress)
+            {
+                DRV_I2S_ReadBufferAdd(i2sHandle, i2sBuffer, sizeof(i2sBuffer), &bufferHandle);
+                
+                if (bufferHandle != DRV_I2S_BUFFER_HANDLE_INVALID)
+                {
+                    readInProgress = true;
+                }
+                else
+                {
+                    // Solo imprimir error ocasionalmente
+                    if (sampleCounter % 100 == 0)
+                    {
+                        SYS_CONSOLE_PRINT("I2S Buffer Add Failed - purging queue\r\n");
+                        DRV_I2S_ReadQueuePurge(i2sHandle);
+                        readInProgress = false;
+                    }
+                }
+            }
+            
+            // Verificar si la lectura se completó
+            if (readInProgress && bufferHandle != DRV_I2S_BUFFER_HANDLE_INVALID)
+            {
+                DRV_I2S_BUFFER_EVENT status = DRV_I2S_BufferStatusGet(bufferHandle);
+                
+                if (status == DRV_I2S_BUFFER_EVENT_COMPLETE)
+                {
+                    // Imprimir cada 100 muestras para no saturar consola
+                    if (sampleCounter % 100 == 0)
+                    {
+                        SYS_CONSOLE_PRINT("I2S[%u]: 0x%08X (%d)\r\n", 
+                            sampleCounter, i2sBuffer[0], (int16_t)(i2sBuffer[0] & 0xFFFF));
+                    }
+                    sampleCounter++;
+                    readInProgress = false;
+                    bufferHandle = DRV_I2S_BUFFER_HANDLE_INVALID;
+                }
+                else if (status == DRV_I2S_BUFFER_EVENT_ERROR)
+                {
+                    SYS_CONSOLE_PRINT("I2S Error[%u]\r\n", sampleCounter);
+                    readInProgress = false;
+                    bufferHandle = DRV_I2S_BUFFER_HANDLE_INVALID;
+                }
+                // Si está en progreso, seguir esperando
+            }
+        }
+        
         // ADC reading logic
         ADC1_ConversionStart();
         while (!ADC1_ConversionStatusGet())
