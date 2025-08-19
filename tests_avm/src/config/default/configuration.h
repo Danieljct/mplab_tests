@@ -84,6 +84,16 @@ extern "C" {
 #define SYS_TIME_MAX_TIMERS                         (5)
 #define SYS_TIME_HW_COUNTER_WIDTH                   (24)
 #define SYS_TIME_TICK_FREQ_IN_HZ                    (1000)
+#define SYS_TIME_CPU_CLOCK_FREQUENCY 120000000
+
+#define SYS_CONSOLE_INDEX_0                       0
+
+/* RX buffer size has one additional element for the empty spot needed in circular buffer */
+#define SYS_CONSOLE_USB_CDC_RD_BUFFER_SIZE_IDX0    129
+
+/* TX buffer size has one additional element for the empty spot needed in circular buffer */
+#define SYS_CONSOLE_USB_CDC_WR_BUFFER_SIZE_IDX0    129
+
 
 
 #define SYS_DEBUG_ENABLE
@@ -125,15 +135,6 @@ extern "C" {
 
 #define SYS_CONSOLE_USB_CDC_READ_WRITE_BUFFER_SIZE 	(512)
 
-#define SYS_CONSOLE_INDEX_0                       0
-
-/* RX buffer size has one additional element for the empty spot needed in circular buffer */
-#define SYS_CONSOLE_USB_CDC_RD_BUFFER_SIZE_IDX0    129
-
-/* TX buffer size has one additional element for the empty spot needed in circular buffer */
-#define SYS_CONSOLE_USB_CDC_WR_BUFFER_SIZE_IDX0    129
-
-
 
 
 // *****************************************************************************
@@ -141,6 +142,16 @@ extern "C" {
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
+/* I2S Driver Instance 0 Configuration Options */
+#define DRV_I2S_INDEX_0                0
+#define DRV_I2S_CLIENTS_NUMBER_IDX0    1
+#define DRV_I2S_QUEUE_DEPTH_COMBINED                 (2*8)
+#define DRV_I2S_QUEUE_SIZE_IDX0        8
+#define DRV_I2S_DATA_LENGTH_IDX0       16
+#define DRV_I2S_INT_SRC_IDX0           I2S_IRQn
+#define DRV_I2S_XMIT_DMA_CH_IDX0       SYS_DMA_CHANNEL_0
+#define DRV_I2S_RCV_DMA_CH_IDX0        SYS_DMA_CHANNEL_1
+
 /* SDMMC Driver Global Configuration Options */
 #define DRV_SDMMC_INSTANCES_NUMBER                       (1U)
 
@@ -155,6 +166,9 @@ extern "C" {
 #define DRV_SDMMC_IDX0_CARD_DETECTION_METHOD             DRV_SDMMC_CD_METHOD_USE_SDCD
 
 
+
+/* I2S Driver Common Configuration Options */
+#define DRV_I2S_INSTANCES_NUMBER              1
 
 
 

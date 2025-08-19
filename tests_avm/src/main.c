@@ -21,6 +21,7 @@
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
+
 #include "cdc.h"
 #include "app_usb.h"
 #include <stddef.h>                     // Defines NULL
@@ -31,11 +32,15 @@
 #include "codec.h"                      // Codec driver
 #include "ble_slave.h"   
 #include "sd_handler.h"                 // SD Card handler
+#include "audio/peripheral/i2s/plib_i2s.h"  // I2S driver
+#include "audio/driver/i2s/drv_i2s.h"   // I2S driver
 
 static bool volatile bToggleLED = false;
 static uint16_t volatile adcValue = 0;
 static bool codecInitDone = false;
 static bool sdInitDone = false;
+static bool i2sInitDone = false;
+static DRV_HANDLE i2sHandle = DRV_HANDLE_INVALID;
 
 // Variables para SPI slave
 static uint8_t spiRxBuffer[256];
@@ -107,6 +112,24 @@ int main ( void )
     // Initialize BLE slave system
     BLE_slave_init();
     
+    // Initialize I2S PLIB first
+    I2S_Initialize();
+    
+    // Wait a bit for I2S to stabilize
+    for(volatile uint32_t i = 0; i < 10000; i++);
+    
+    // Open I2S driver handle
+    i2sHandle = DRV_I2S_Open(0, DRV_IO_INTENT_READ);
+    if(i2sHandle != DRV_HANDLE_INVALID)
+    {
+        i2sInitDone = true;
+        SYS_CONSOLE_PRINT("I2S Driver inicializado correctamente\r\n");
+    }
+    else
+    {
+        SYS_CONSOLE_PRINT("Error al abrir I2S Driver\r\n");
+    }
+    
     // Initialize power pins
     PWR_LDOON_Set();
     PWR_BON_Set();
@@ -135,6 +158,56 @@ int main ( void )
         // Procesar comandos SPI recibidos
        // ProcessSPICommands();
         
+        // Leer datos I2S usando buffer queue (sin callback para simplificar)
+        if (i2sInitDone && i2sHandle != DRV_HANDLE_INVALID)
+        {
+            static uint32_t i2sReadCounter = 0;
+            static uint32_t i2sBuffer[64]; // Buffer para leer datos I2S
+            static DRV_I2S_BUFFER_HANDLE bufferHandle = DRV_I2S_BUFFER_HANDLE_INVALID;
+            static bool readInProgress = false;
+            
+            i2sReadCounter++;
+            
+            // Si no hay lectura en progreso, iniciar una nueva
+            if (!readInProgress && (i2sReadCounter % 100000 == 0))
+            {
+                DRV_I2S_ReadBufferAdd(i2sHandle, i2sBuffer, sizeof(i2sBuffer), &bufferHandle);
+                
+                if (bufferHandle != DRV_I2S_BUFFER_HANDLE_INVALID)
+                {
+                    readInProgress = true;
+                    SYS_CONSOLE_PRINT("I2S Read iniciado [%u]\r\n", i2sReadCounter / 100000);
+                }
+                else
+                {
+                    SYS_CONSOLE_PRINT("Error al iniciar I2S Read\r\n");
+                }
+            }
+            
+            // Verificar si la lectura se completó
+            if (readInProgress && bufferHandle != DRV_I2S_BUFFER_HANDLE_INVALID)
+            {
+                DRV_I2S_BUFFER_EVENT status = DRV_I2S_BufferStatusGet(bufferHandle);
+                
+                if (status == DRV_I2S_BUFFER_EVENT_COMPLETE)
+                {
+                    // Imprimir algunos datos del buffer
+                    SYS_CONSOLE_PRINT("I2S Read OK: 0x%08X 0x%08X 0x%08X 0x%08X\r\n", 
+                        i2sBuffer[0], i2sBuffer[1], i2sBuffer[2], i2sBuffer[3]);
+                    
+                    readInProgress = false;
+                    bufferHandle = DRV_I2S_BUFFER_HANDLE_INVALID;
+                }
+                else if (status == DRV_I2S_BUFFER_EVENT_ERROR)
+                {
+                    SYS_CONSOLE_PRINT("I2S Read Error\r\n");
+                    readInProgress = false;
+                    bufferHandle = DRV_I2S_BUFFER_HANDLE_INVALID;
+                }
+                // Si está en progreso, seguir esperando
+            }
+        }
+        
         // Initialize codec once after system stabilization
         if (!codecInitDone)
         {
@@ -154,7 +227,7 @@ int main ( void )
                 SYS_CONSOLE_PRINT("Codec inicializado\r\n");
             }
         }
-        
+        /*
         // Initialize SD Card system - darle más tiempo después del codec
         if (!sdInitDone && codecInitDone)
         {
@@ -191,6 +264,7 @@ int main ( void )
                 sdInitDone = true;
             }
         }
+         */
 
         // ADC reading logic
         ADC1_ConversionStart();

@@ -4,7 +4,7 @@
 
 
 project: tests_avm
-creation_date: 2025-08-06T18:14:19.252-04:00[America/Santiago]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2025-08-18T22:26:26.911-04:00[America/Santiago]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.5.2
@@ -20,6 +20,7 @@ modules:
     - {name: "CMSIS_5", version: "5.9.0"}
     - {name: "usb", version: "v3.16.0"}
     - {name: "littlefs", version: "v2.11.1"}
+    - {name: "audio", version: "v3.7.0"}
 
 packs:
     - {name: "SAMD51_DFP", version: "3.8.246"}

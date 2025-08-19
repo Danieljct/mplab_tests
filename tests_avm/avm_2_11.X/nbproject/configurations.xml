@@ -6,6 +6,20 @@
                    projectFiles="true">
       <logicalFolder name="config" displayName="config" projectFiles="true">
         <logicalFolder name="default" displayName="default" projectFiles="true">
+          <logicalFolder name="audio" displayName="audio" projectFiles="true">
+            <logicalFolder name="driver" displayName="driver" projectFiles="true">
+              <logicalFolder name="i2s" displayName="i2s" projectFiles="true">
+                <itemPath>../src/config/default/audio/driver/i2s/drv_i2s.h</itemPath>
+                <itemPath>../src/config/default/audio/driver/i2s/drv_i2s_definitions.h</itemPath>
+                <itemPath>../src/config/default/audio/driver/i2s/drv_i2s_local.h</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+            <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
+              <logicalFolder name="i2s" displayName="i2s" projectFiles="true">
+                <itemPath>../src/config/default/audio/peripheral/i2s/plib_i2s.h</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+          </logicalFolder>
           <logicalFolder name="driver" displayName="driver" projectFiles="true">
             <logicalFolder name="sdmmc" displayName="sdmmc" projectFiles="true">
               <itemPath>../src/config/default/driver/sdmmc/drv_sdmmc.h</itemPath>
@@ -98,6 +112,10 @@
             <logicalFolder name="debug" displayName="debug" projectFiles="true">
               <itemPath>../src/config/default/system/debug/sys_debug.h</itemPath>
               <itemPath>../src/config/default/system/debug/src/sys_debug_local.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="dma" displayName="dma" projectFiles="true">
+              <itemPath>../src/config/default/system/dma/sys_dma.h</itemPath>
+              <itemPath>../src/config/default/system/dma/sys_dma_mapping.h</itemPath>
             </logicalFolder>
             <logicalFolder name="fs" displayName="fs" projectFiles="true">
               <logicalFolder name="fat_fs" displayName="fat_fs" projectFiles="true">
@@ -319,6 +337,18 @@
                    projectFiles="true">
       <logicalFolder name="config" displayName="config" projectFiles="true">
         <logicalFolder name="default" displayName="default" projectFiles="true">
+          <logicalFolder name="audio" displayName="audio" projectFiles="true">
+            <logicalFolder name="driver" displayName="driver" projectFiles="true">
+              <logicalFolder name="i2s" displayName="i2s" projectFiles="true">
+                <itemPath>../src/config/default/audio/driver/i2s/src/drv_i2s.c</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+            <logicalFolder name="peripheral" displayName="peripheral" projectFiles="true">
+              <logicalFolder name="i2s" displayName="i2s" projectFiles="true">
+                <itemPath>../src/config/default/audio/peripheral/i2s/plib_i2s.c</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+          </logicalFolder>
           <logicalFolder name="driver" displayName="driver" projectFiles="true">
             <logicalFolder name="sdmmc" displayName="sdmmc" projectFiles="true">
               <itemPath>../src/config/default/driver/sdmmc/src/drv_sdmmc.c</itemPath>
@@ -393,6 +423,9 @@
             </logicalFolder>
             <logicalFolder name="debug" displayName="debug" projectFiles="true">
               <itemPath>../src/config/default/system/debug/src/sys_debug.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="dma" displayName="dma" projectFiles="true">
+              <itemPath>../src/config/default/system/dma/sys_dma.c</itemPath>
             </logicalFolder>
             <logicalFolder name="fs" displayName="fs" projectFiles="true">
               <logicalFolder name="fat_fs" displayName="fat_fs" projectFiles="true">
@@ -502,7 +535,7 @@
         <property key="communication.speed" value="2.000"/>
         <property key="debugoptions.debug-startup" value="Use system settings"/>
         <property key="debugoptions.reset-behaviour" value="Use system settings"/>
-        <property key="debugoptions.useswbreakpoints" value="true"/>
+        <property key="debugoptions.useswbreakpoints" value="false"/>
         <property key="event.recorder.debugger.behavior" value="Running"/>
         <property key="event.recorder.enabled" value="false"/>
         <property key="event.recorder.scvd.files" value=""/>

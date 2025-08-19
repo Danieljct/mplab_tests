@@ -49,6 +49,22 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include "peripheral/nvmctrl/plib_nvmctrl.h"
+#include "usb/usb_chapter_9.h"
+#include "usb/usb_device.h"
+#include "peripheral/tc/plib_tc1.h"
+#include "audio/driver/i2s/drv_i2s.h"
+#include "peripheral/tc/plib_tc0.h"
+#include "peripheral/sdhc/plib_sdhc0.h"
+#include "system/time/sys_time.h"
+#include "usb/usb_device_cdc.h"
+#include "usb/usb_cdc.h"
+#include "driver/usb/usbfsv1/drv_usbfsv1.h"
+#include "peripheral/adc/plib_adc1.h"
+#include "system/int/sys_int.h"
+#include "system/cache/sys_cache.h"
+#include "system/dma/sys_dma.h"
+#include "osal/osal.h"
+#include "system/debug/sys_debug.h"
 #include "peripheral/sercom/spi_slave/plib_sercom2_spi_slave.h"
 #include "peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h"
 #include "peripheral/evsys/plib_evsys.h"
@@ -60,14 +76,6 @@
 #include "peripheral/systick/plib_systick.h"
 #include "peripheral/dmac/plib_dmac.h"
 #include "peripheral/cmcc/plib_cmcc.h"
-#include "usb/usb_chapter_9.h"
-#include "usb/usb_device.h"
-#include "peripheral/tc/plib_tc1.h"
-#include "peripheral/tc/plib_tc0.h"
-#include "peripheral/sdhc/plib_sdhc0.h"
-#include "system/time/sys_time.h"
-#include "usb/usb_device_cdc.h"
-#include "usb/usb_cdc.h"
 #include "system/fs/sys_fs.h"
 #include "system/fs/sys_fs_media_manager.h"
 #include "system/fs/sys_fs_fat_interface.h"
@@ -75,14 +83,9 @@
 #include "system/fs/fat_fs/file_system/ffconf.h"
 #include "system/fs/fat_fs/hardware_access/diskio.h"
 #include "system/fs/mpfs/mpfs.h"
-#include "driver/usb/usbfsv1/drv_usbfsv1.h"
-#include "peripheral/adc/plib_adc1.h"
+#include "audio/peripheral/i2s/plib_i2s.h"
 #include "system/console/sys_console.h"
 #include "system/console/src/sys_console_usb_cdc_definitions.h"
-#include "system/int/sys_int.h"
-#include "system/cache/sys_cache.h"
-#include "osal/osal.h"
-#include "system/debug/sys_debug.h"
 #include "app.h"
 
 
@@ -216,15 +219,18 @@ typedef struct
 {
     SYS_MODULE_OBJ  usbDevObject0;
 
-    SYS_MODULE_OBJ  sysTime;
-    SYS_MODULE_OBJ  sysDebug;
+    /* I2S0 Driver Object */
+    SYS_MODULE_OBJ drvI2S0;
 
+    SYS_MODULE_OBJ  sysTime;
     SYS_MODULE_OBJ  drvUSBFSV1Object;
+
+    SYS_MODULE_OBJ  sysConsole0;
+
+    SYS_MODULE_OBJ  sysDebug;
 
     SYS_MODULE_OBJ  drvSDMMC0;
 
-
-    SYS_MODULE_OBJ  sysConsole0;
 
 
 } SYSTEM_OBJECTS;

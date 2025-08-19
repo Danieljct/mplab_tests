@@ -31,11 +31,11 @@ Pin Number,Pin ID,Custom Name,Function,Mode, Direction,Latch,Pull Up,Pull Down,D
 36,PA17,,SERCOM1_PAD1,Digital,High Impedance,n/a,No,No,NORMAL
 37,PA18,,Available,,,,,,NORMAL
 38,PA19,,Available,,,,,,NORMAL
-39,PB16,,Available,,,,,,NORMAL
-40,PB17,,Available,,,,,,NORMAL
-41,PA20,,Available,,,,,,NORMAL
-42,PA21,,Available,,,,,,NORMAL
-43,PA22,,Available,,,,,,NORMAL
+39,PB16,,I2S_SCK0,Digital,High Impedance,n/a,No,No,NORMAL
+40,PB17,,I2S_MCK0,Digital,High Impedance,n/a,No,No,NORMAL
+41,PA20,,I2S_FS0,Digital,High Impedance,n/a,No,No,NORMAL
+42,PA21,,I2S_SDO,Digital,High Impedance,n/a,No,No,NORMAL
+43,PA22,,I2S_SDI,Digital,High Impedance,n/a,No,No,NORMAL
 44,PA23,COD_RESET,GPIO,Digital,Out,Low,,,NORMAL
 45,PA24,USB_DM,USB_DM,Digital,High Impedance,n/a,No,No,NORMAL
 46,PA25,USB_DP,USB_DP,Digital,High Impedance,n/a,No,No,NORMAL

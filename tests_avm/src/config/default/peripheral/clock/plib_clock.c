@@ -142,6 +142,26 @@ static void GCLK3_Initialize(void)
     }
 }
 
+static void GCLK4_Initialize(void)
+{
+    GCLK_REGS->GCLK_GENCTRL[4] = GCLK_GENCTRL_DIV(1U) | GCLK_GENCTRL_SRC(6U) | GCLK_GENCTRL_GENEN_Msk;
+
+    while((GCLK_REGS->GCLK_SYNCBUSY & GCLK_SYNCBUSY_GENCTRL_GCLK4) == GCLK_SYNCBUSY_GENCTRL_GCLK4)
+    {
+        /* wait for the Generator 4 synchronization */
+    }
+}
+
+static void GCLK5_Initialize(void)
+{
+    GCLK_REGS->GCLK_GENCTRL[5] = GCLK_GENCTRL_DIV(1U) | GCLK_GENCTRL_SRC(4U) | GCLK_GENCTRL_GENEN_Msk;
+
+    while((GCLK_REGS->GCLK_SYNCBUSY & GCLK_SYNCBUSY_GENCTRL_GCLK5) == GCLK_SYNCBUSY_GENCTRL_GCLK5)
+    {
+        /* wait for the Generator 5 synchronization */
+    }
+}
+
 void CLOCK_Initialize (void)
 {
     /* MISRAC 2012 deviation block start */
@@ -153,9 +173,11 @@ void CLOCK_Initialize (void)
     /* Function to Initialize the 32KHz Oscillators */
     OSC32KCTRL_Initialize();
 
+    GCLK5_Initialize();
     DFLL_Initialize();
     GCLK2_Initialize();
     GCLK3_Initialize();
+    GCLK4_Initialize();
     FDPLL0_Initialize();
     GCLK0_Initialize();
     GCLK1_Initialize();
@@ -194,6 +216,13 @@ void CLOCK_Initialize (void)
     GCLK_REGS->GCLK_PCHCTRL[41] = GCLK_PCHCTRL_GEN(0x1U)  | GCLK_PCHCTRL_CHEN_Msk;
 
     while ((GCLK_REGS->GCLK_PCHCTRL[41] & GCLK_PCHCTRL_CHEN_Msk) != GCLK_PCHCTRL_CHEN_Msk)
+    {
+        /* Wait for synchronization */
+    }
+    /* Selection of the Generator and write Lock for I2S_0 */
+    GCLK_REGS->GCLK_PCHCTRL[43] = GCLK_PCHCTRL_GEN(0x4U)  | GCLK_PCHCTRL_CHEN_Msk;
+
+    while ((GCLK_REGS->GCLK_PCHCTRL[43] & GCLK_PCHCTRL_CHEN_Msk) != GCLK_PCHCTRL_CHEN_Msk)
     {
         /* Wait for synchronization */
     }

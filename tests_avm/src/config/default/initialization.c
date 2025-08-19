@@ -82,6 +82,42 @@
 /* MISRA C-2012 Rule 11.1 - Deviation record ID - H3_MISRAC_2012_R_11_1_DR_1 */
 /* MISRA C-2012 Rule 11.3 - Deviation record ID - H3_MISRAC_2012_R_11_3_DR_1 */
 /* MISRA C-2012 Rule 11.8 - Deviation record ID - H3_MISRAC_2012_R_11_8_DR_1 */
+// <editor-fold defaultstate="collapsed" desc="DRV_I2S Instance 0 Initialization Data">
+
+/* I2S PLIB Interface Initialization */
+DRV_I2S_PLIB_INTERFACE drvI2S0PlibAPI =
+{
+    .I2S_LRCLK_Get = (DRV_I2S_LRCLK_GET)I2S_LRCLK_Get,  
+};
+
+/* I2S Driver Initialization Data */
+DRV_I2S_INIT drvI2S0InitData =
+{
+    /* I2S PLIB API */
+    .i2sPlib = &drvI2S0PlibAPI,
+
+    /* I2S IRQ */
+    .interruptI2S = DRV_I2S_INT_SRC_IDX0,
+
+    /* I2S Number of clients */
+    .numClients = DRV_I2S_CLIENTS_NUMBER_IDX0,
+
+    /* I2S Queue Size */
+    .queueSize = DRV_I2S_QUEUE_SIZE_IDX0,  
+
+    .dmaChannelTransmit = DRV_I2S_XMIT_DMA_CH_IDX0,
+    .dmaChannelReceive  = DRV_I2S_RCV_DMA_CH_IDX0,
+    .i2sTransmitAddress = (void *)&(I2S_REGS->I2S_TXDATA),
+    .i2sReceiveAddress = (void *)&(I2S_REGS->I2S_RXDATA),
+
+    /************ code specific to SAM E70 ********************/
+  //  .interruptDMA = DMAC_IRQn,
+    /************ code specific to SAM E70 ********************/
+   // .dmaDataLength = DRV_I2S_DATA_LENGTH_IDX0,
+};
+
+// </editor-fold>
+
 // <editor-fold defaultstate="collapsed" desc="DRV_SDMMC Instance 0 Initialization Data">
 
 /* SDMMC Client Objects Pool */
@@ -146,6 +182,46 @@ SYSTEM_OBJECTS sysObj;
 // Section: Library/Stack Initialization Data
 // *****************************************************************************
 // *****************************************************************************
+/******************************************************
+ * USB Driver Initialization
+ ******************************************************/
+ 
+
+static const DRV_USBFSV1_INIT drvUSBInit =
+{
+    /* Interrupt Source for USB module */
+    .interruptSource = USB_OTHER_IRQn,
+ 
+    /* Interrupt Source for USB module */
+    .interruptSource1 = USB_SOF_HSOF_IRQn,
+ 
+    /* Interrupt Source for USB module */
+    .interruptSource2 = USB_TRCPT0_IRQn,
+ 
+    /* Interrupt Source for USB module */
+    .interruptSource3 = USB_TRCPT1_IRQn,
+
+    /* System module initialization */
+    .moduleInit = {0},
+
+    /* USB Controller to operate as USB Device */
+    .operationMode = DRV_USBFSV1_OPMODE_DEVICE,
+
+    /* USB Full Speed Operation */
+    .operationSpeed = USB_SPEED_FULL,
+    
+    /* Stop in idle */
+    .runInStandby = true,
+
+    /* Suspend in sleep */
+    .suspendInSleep = false,
+
+    /* Identifies peripheral (PLIB-level) ID */
+    .usbID = USB_REGS,
+
+};
+
+
 // <editor-fold defaultstate="collapsed" desc="File System Initialization Data">
 
 
@@ -245,46 +321,6 @@ static const SYS_FS_REGISTRATION_TABLE sysFSInit [ SYS_FS_MAX_FILE_SYSTEM_TYPE ]
 };
 // </editor-fold>
 
-/******************************************************
- * USB Driver Initialization
- ******************************************************/
- 
-
-static const DRV_USBFSV1_INIT drvUSBInit =
-{
-    /* Interrupt Source for USB module */
-    .interruptSource = USB_OTHER_IRQn,
- 
-    /* Interrupt Source for USB module */
-    .interruptSource1 = USB_SOF_HSOF_IRQn,
- 
-    /* Interrupt Source for USB module */
-    .interruptSource2 = USB_TRCPT0_IRQn,
- 
-    /* Interrupt Source for USB module */
-    .interruptSource3 = USB_TRCPT1_IRQn,
-
-    /* System module initialization */
-    .moduleInit = {0},
-
-    /* USB Controller to operate as USB Device */
-    .operationMode = DRV_USBFSV1_OPMODE_DEVICE,
-
-    /* USB Full Speed Operation */
-    .operationSpeed = USB_SPEED_FULL,
-    
-    /* Stop in idle */
-    .runInStandby = true,
-
-    /* Suspend in sleep */
-    .suspendInSleep = false,
-
-    /* Identifies peripheral (PLIB-level) ID */
-    .usbID = USB_REGS,
-
-};
-
-
 
 
 // *****************************************************************************
@@ -311,15 +347,6 @@ static const SYS_TIME_INIT sysTimeInitData =
 };
 
 // </editor-fold>
-
-static const SYS_DEBUG_INIT debugInit =
-{
-    .moduleInit = {0},
-    .errorLevel = SYS_DEBUG_GLOBAL_ERROR_LEVEL,
-    .consoleIndex = 0,
-};
-
-
 // <editor-fold defaultstate="collapsed" desc="SYS_CONSOLE Instance 0 Initialization Data">
 
 
@@ -351,6 +378,15 @@ static const SYS_CONSOLE_INIT sysConsole0Init =
 
 
 // </editor-fold>
+
+
+static const SYS_DEBUG_INIT debugInit =
+{
+    .moduleInit = {0},
+    .errorLevel = SYS_DEBUG_GLOBAL_ERROR_LEVEL,
+    .consoleIndex = 0,
+};
+
 
 
 
@@ -389,6 +425,13 @@ void SYS_Initialize ( void* data )
 
 
 
+    TC1_TimerInitialize();
+
+    TC0_TimerInitialize();
+
+	SDHC0_Initialize();
+
+    ADC1_Initialize();
     SERCOM2_SPI_Initialize();
 
     SERCOM1_I2C_Initialize();
@@ -398,18 +441,15 @@ void SYS_Initialize ( void* data )
 	SYSTICK_TimerInitialize();
     DMAC_Initialize();
 
-    TC1_TimerInitialize();
-
-    TC0_TimerInitialize();
-
-	SDHC0_Initialize();
-
-    ADC1_Initialize();
+    I2S_Initialize();
 
     /* MISRAC 2012 deviation block start */
     /* Following MISRA-C rules deviated in this block  */
     /* MISRA C-2012 Rule 11.3 - Deviation record ID - H3_MISRAC_2012_R_11_3_DR_1 */
     /* MISRA C-2012 Rule 11.8 - Deviation record ID - H3_MISRAC_2012_R_11_8_DR_1 */
+
+    /* Initialize I2S0 Driver Instance */
+    sysObj.drvI2S0 = DRV_I2S_Initialize(DRV_I2S_INDEX_0, (SYS_MODULE_INIT *)&drvI2S0InitData);
 
    sysObj.drvSDMMC0 = DRV_SDMMC_Initialize(DRV_SDMMC_INDEX_0,(SYS_MODULE_INIT *)&drvSDMMC0InitData);
 
@@ -422,25 +462,25 @@ void SYS_Initialize ( void* data )
     /* MISRAC 2012 deviation block end */
     /* MISRA C-2012 Rule 11.3, 11.8 deviated below. Deviation record ID -  
      H3_MISRAC_2012_R_11_3_DR_1 & H3_MISRAC_2012_R_11_8_DR_1*/
+        sysObj.sysConsole0 = SYS_CONSOLE_Initialize(SYS_CONSOLE_INDEX_0, (SYS_MODULE_INIT *)&sysConsole0Init);
+   /* MISRAC 2012 deviation block end */
+    /* MISRA C-2012 Rule 11.3, 11.8 deviated below. Deviation record ID -  
+     H3_MISRAC_2012_R_11_3_DR_1 & H3_MISRAC_2012_R_11_8_DR_1*/
         
     sysObj.sysDebug = SYS_DEBUG_Initialize(SYS_DEBUG_INDEX_0, (SYS_MODULE_INIT*)&debugInit);
 
     /* MISRAC 2012 deviation block end */
-    /* MISRA C-2012 Rule 11.3, 11.8 deviated below. Deviation record ID -  
-     H3_MISRAC_2012_R_11_3_DR_1 & H3_MISRAC_2012_R_11_8_DR_1*/
-        sysObj.sysConsole0 = SYS_CONSOLE_Initialize(SYS_CONSOLE_INDEX_0, (SYS_MODULE_INIT *)&sysConsole0Init);
-   /* MISRAC 2012 deviation block end */
 
 
     /* Initialize the USB device layer */
     sysObj.usbDevObject0 = USB_DEVICE_Initialize (USB_DEVICE_INDEX_0 , ( SYS_MODULE_INIT* ) & usbDevInitData);
 
 
-    /*** File System Service Initialization Code ***/
-    (void) SYS_FS_Initialize( (const void *) sysFSInit );
-
     /* Initialize USB Driver */ 
     sysObj.drvUSBFSV1Object = DRV_USBFSV1_Initialize(DRV_USBFSV1_INDEX_0, (SYS_MODULE_INIT *) &drvUSBInit);
+
+    /*** File System Service Initialization Code ***/
+    (void) SYS_FS_Initialize( (const void *) sysFSInit );
 
 
     /* MISRAC 2012 deviation block end */
