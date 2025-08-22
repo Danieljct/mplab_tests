@@ -54,8 +54,8 @@ void I2S_Initialize ( void )
 
     // configure clock unit 0
     I2S_REGS->I2S_CLKCTRL[0] =
-                                            I2S_CLKCTRL_MCKOUTDIV(15-1) |
-                                            I2S_CLKCTRL_MCKDIV(15-1) |
+                                            I2S_CLKCTRL_MCKOUTDIV(150-1) |
+                                            I2S_CLKCTRL_MCKDIV(150-1) |
                                             I2S_CLKCTRL_MCKEN(1-0) |
                                             I2S_CLKCTRL_MCKSEL(0) |
                                             I2S_CLKCTRL_SCKSEL(0) |
@@ -64,7 +64,7 @@ void I2S_Initialize ( void )
                                             I2S_CLKCTRL_FSSEL(0) |
                                             I2S_CLKCTRL_BITDELAY(1) |
                                             I2S_CLKCTRL_NBSLOTS(1) |        // always 2 slots for I2S
-                                            I2S_CLKCTRL_SLOTSIZE(0x1);
+                                            I2S_CLKCTRL_SLOTSIZE(0x3);
 
     // configure clock unit 1
     I2S_REGS->I2S_CLKCTRL[1] =

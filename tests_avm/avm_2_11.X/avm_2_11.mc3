@@ -9208,7 +9208,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;a_drv_i2s_0&gt;
   &lt;a_drv_i2s_0 dnOrder=&quot;0&quot; id=&quot;DRV_I2S_QUEUE_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;16&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;1&quot;/&gt;
     &lt;/Values&gt;
   &lt;/a_drv_i2s_0&gt;
 &lt;/a_drv_i2s_0&gt;
@@ -9220,7 +9220,7 @@
   &lt;a_drv_i2s_0 dnOrder=&quot;0&quot; id=&quot;DRV_I2S_RX_DMA&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;a_drv_i2s_0&quot; value=&quot;true&quot;/&gt;
-      &lt;User dnOrder=&quot;1&quot; value=&quot;false&quot;/&gt;
+      &lt;User dnOrder=&quot;1&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
   &lt;/a_drv_i2s_0&gt;
 &lt;/a_drv_i2s_0&gt;
@@ -9230,7 +9230,14 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="a_drv_i2s_0" name="DRV_I2S_RX_DMA_CHANNEL"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;a_drv_i2s_0&gt;
   &lt;a_drv_i2s_0 dnOrder=&quot;0&quot; id=&quot;DRV_I2S_RX_DMA_CHANNEL&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Attributes dnOrder=&quot;0&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
+      &lt;/Boolean&gt;
+    &lt;/Attributes&gt;
+    &lt;Values dnOrder=&quot;1&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;0&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/a_drv_i2s_0&gt;
 &lt;/a_drv_i2s_0&gt;
 </value>
@@ -9352,7 +9359,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;a_i2s&gt;
   &lt;a_i2s dnOrder=&quot;0&quot; id=&quot;I2S_CLKCTRL_0_MCKDIV&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;15&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;150&quot;/&gt;
     &lt;/Values&gt;
   &lt;/a_i2s&gt;
 &lt;/a_i2s&gt;
@@ -9363,7 +9370,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;a_i2s&gt;
   &lt;a_i2s dnOrder=&quot;0&quot; id=&quot;I2S_CLKCTRL_0_MCKOUTDIV&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;15&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;150&quot;/&gt;
     &lt;/Values&gt;
   &lt;/a_i2s&gt;
 &lt;/a_i2s&gt;
@@ -9373,7 +9380,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="a_i2s" name="I2S_CLKCTRL_0_SLOTSIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;a_i2s&gt;
   &lt;a_i2s dnOrder=&quot;0&quot; id=&quot;I2S_CLKCTRL_0_SLOTSIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;3&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/a_i2s&gt;
 &lt;/a_i2s&gt;
 </value>
@@ -10395,8 +10404,8 @@
     &lt;ComponentGraph dnOrder=&quot;2&quot; id=&quot;__ROOTVIEW&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;HarmonyCore&quot; x=&quot;487&quot; y=&quot;420&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;a_drv_i2s&quot; x=&quot;513&quot; y=&quot;82&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;a_i2s&quot; x=&quot;368&quot; y=&quot;145&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;a_drv_i2s&quot; x=&quot;523&quot; y=&quot;92&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;a_i2s&quot; x=&quot;363&quot; y=&quot;144&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;adc1&quot; x=&quot;711&quot; y=&quot;37&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;cmsis&quot; x=&quot;430&quot; y=&quot;60&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;core&quot; x=&quot;348&quot; y=&quot;59&quot;/&gt;
@@ -10408,7 +10417,7 @@
         &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;sdhc0&quot; x=&quot;61&quot; y=&quot;411&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;sercom1&quot; x=&quot;60&quot; y=&quot;129&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;sercom2&quot; x=&quot;206&quot; y=&quot;133&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;sys_console&quot; x=&quot;645&quot; y=&quot;221&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;sys_console&quot; x=&quot;667&quot; y=&quot;217&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;sys_debug&quot; x=&quot;821&quot; y=&quot;276&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;sys_fs&quot; x=&quot;351&quot; y=&quot;385&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;sys_time&quot; x=&quot;328&quot; y=&quot;263&quot;/&gt;
@@ -10819,7 +10828,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;DMAC_LL_ENABLE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;false&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -30598,7 +30607,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\audio\peripheral\i2s\plib_i2s.c</file>
-         <hash>e10c6cbb9f32ff9285af727e3ecfdc93becdfd12ccb4a6cdff8f7508dff48337</hash>
+         <hash>668d39f3ddfd8efade8d895ca57c11858b9676bc8abc9c630f7682cc1c54b2ed</hash>
       </entry>
       <entry>
          <file>..\src\config\default\audio\peripheral\i2s\plib_i2s.h</file>
@@ -30606,7 +30615,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\configuration.h</file>
-         <hash>6f81437f8f6389d29de398f877c8984289f808d4a1cbe900a90728bc39f42c11</hash>
+         <hash>495ef071ff28932914e165dbd52d83877b4df5ba0bdbfb775b9a1934781582d2</hash>
       </entry>
       <entry>
          <file>..\src\config\default\definitions.h</file>
@@ -30746,11 +30755,11 @@
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\dmac\plib_dmac.c</file>
-         <hash>e4772813f9759e4c89345c9cb544e1e8a6093bd0b567aa3984c9b9ccadc2d13a</hash>
+         <hash>27aeab4501aadc8e5cd1a9d4de81ebc3612e65e760c429994323835ae68a65ac</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\dmac\plib_dmac.h</file>
-         <hash>5141fb30e6ee14d6fb18d95b38c753e72a674b963d7fb9eba46ca43091bf7129</hash>
+         <hash>8f03b809a8f82cc9aa230bb05dbcc02ef30f182292d82e6928a2e50e03c86e89</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\evsys\plib_evsys.c</file>

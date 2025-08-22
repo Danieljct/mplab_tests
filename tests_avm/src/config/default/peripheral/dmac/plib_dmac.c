@@ -258,6 +258,85 @@ uint16_t DMAC_ChannelGetTransferredCount( DMAC_CHANNEL channel )
     return(transferredCount);
 }
 
+void DMAC_LinkedListDescriptorSetup (dmac_descriptor_registers_t* currentDescriptor,
+                                                    DMAC_CHANNEL_CONFIG setting,
+                                                    const void *srcAddr,
+                                                    const void *destAddr,
+                                                    size_t blockSize,
+                                                    dmac_descriptor_registers_t* nextDescriptor)
+{
+    uint8_t beat_size = 0U;
+    currentDescriptor->DMAC_BTCTRL = (uint16_t)setting;
+    const uint32_t* pu32srcAddrr = (const uint32_t*)srcAddr;
+    const uint32_t* pu32dstAddrr = (const uint32_t*)destAddr;
+
+    /*Set source address */
+    if (( currentDescriptor->DMAC_BTCTRL & DMAC_BTCTRL_SRCINC_Msk) != 0U)
+    {
+        currentDescriptor->DMAC_SRCADDR = ((uintptr_t)pu32srcAddrr + blockSize);
+    }
+    else
+    {
+        currentDescriptor->DMAC_SRCADDR = (uintptr_t)(pu32srcAddrr);
+    }
+
+    /* Set destination address */
+    if (( currentDescriptor->DMAC_BTCTRL & DMAC_BTCTRL_DSTINC_Msk) != 0U)
+    {
+        currentDescriptor->DMAC_DSTADDR = ((uintptr_t)pu32dstAddrr + blockSize);
+    }
+    else
+    {
+        if ((DMAC_REGS->DMAC_CRCCTRL & DMAC_CRCCTRL_CRCMODE_Msk) == DMAC_CRCCTRL_CRCMODE_DEFAULT)
+        {
+            currentDescriptor->DMAC_DSTADDR = (uintptr_t)(pu32dstAddrr);
+        }
+        else
+        {
+            /* Store the Value in the destination address as seed to the CRC engine in Memory modes */
+            currentDescriptor->DMAC_DSTADDR = *(pu32dstAddrr);
+        }
+    }
+
+    /*Calculate the beat size and then set the BTCNT value */
+    beat_size = (uint8_t)((currentDescriptor->DMAC_BTCTRL & DMAC_BTCTRL_BEATSIZE_Msk) >> DMAC_BTCTRL_BEATSIZE_Pos);
+
+    /* Set Block Transfer Count */
+    currentDescriptor->DMAC_BTCNT = (uint16_t)(blockSize / ((uint32_t)1U << beat_size));
+
+    currentDescriptor->DMAC_DESCADDR = (uint32_t) nextDescriptor;
+}
+/*******************************************************************************
+    This function submit a list of DMA transfers.
+********************************************************************************/
+bool DMAC_ChannelLinkedListTransfer (DMAC_CHANNEL channel, dmac_descriptor_registers_t* channelDesc)
+{
+    bool returnStatus = false;
+    bool isBusy = dmacChannelObj[channel].isBusy;
+
+    if (((DMAC_REGS->CHANNEL[channel].DMAC_CHINTFLAG & (DMAC_CHINTENCLR_TCMPL_Msk | DMAC_CHINTENCLR_TERR_Msk)) != 0U) || (!isBusy))
+    {
+        /* Clear the transfer complete flag */
+        DMAC_REGS->CHANNEL[channel].DMAC_CHINTFLAG = DMAC_CHINTENCLR_TCMPL_Msk | DMAC_CHINTENCLR_TERR_Msk;
+
+        dmacChannelObj[channel].isBusy = false;
+
+        (void)memcpy(&descriptor_section[channel], channelDesc, sizeof(dmac_descriptor_registers_t));
+
+        /* Enable the channel */
+        DMAC_REGS->CHANNEL[channel].DMAC_CHCTRLA |= DMAC_CHCTRLA_ENABLE_Msk;
+
+        /* Verify if Trigger source is Software Trigger */
+        if (((DMAC_REGS->CHANNEL[channel].DMAC_CHCTRLA & DMAC_CHCTRLA_TRIGSRC_Msk) >> DMAC_CHCTRLA_TRIGSRC_Pos) == 0x00U)
+        {
+            /* Trigger the DMA transfer */
+            DMAC_REGS->DMAC_SWTRIGCTRL |= ((uint32_t)1U << channel);
+        }
+        returnStatus = true;
+    }
+
+    return returnStatus;
+}
 
 /*******************************************************************************
     This function function allows a DMAC PLIB client to set an event handler.

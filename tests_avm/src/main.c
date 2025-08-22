@@ -178,8 +178,7 @@ int main ( void )
     // Register DMA callback for channel 0
     DMAC_ChannelCallbackRegister(DMAC_CHANNEL_0, I2S_DMA_Callback, 0);
     
-    SYS_CONSOLE_PRINT("=== Sistema AVM Iniciado ===\r\n");
-    
+
     while ( true )
     {
         // Maintain state machines of all polled MPLAB Harmony modules.
