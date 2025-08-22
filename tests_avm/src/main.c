@@ -24,31 +24,21 @@
 
 #include "cdc.h"
 #include "app_usb.h"
-#include <stddef.h>                     // Defines NULL
-#include <stdbool.h>                    // Defines true
-#include <stdlib.h>                     // Defines EXIT_FAILURE
-#include "definitions.h"                // SYS function prototypes
+#include <stddef.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include "definitions.h"
 #include <stdio.h>
-#include "codec.h"                      // Codec driver
+#include "codec.h"
 #include "ble_slave.h"   
-#include "sd_handler.h"                 // SD Card handler
-#include "audio/peripheral/i2s/plib_i2s.h"  // I2S driver
-#include "audio/driver/i2s/drv_i2s.h"   // I2S driver
+#include "sd_handler.h"
+#include "i2s_dma_manager.h"  // Nuevo manager I2S/DMA
 
 static bool volatile bToggleLED = false;
 static uint16_t volatile adcValue = 0;
 static bool codecInitDone = false;
 static bool sdInitDone = false;
 static bool i2sInitDone = false;
-static DRV_HANDLE i2sHandle = DRV_HANDLE_INVALID;
-static bool volatile bReadI2S = false;  // Flag para lectura I2S controlada por timer
-
-// Buffer para DMA I2S - 10000 datos de 32 bits
-static uint32_t i2sDmaBuffer[10000] __attribute__((aligned(4)));
-static volatile bool dmaTransferInProgress = false;
-static volatile uint32_t dmaTransferCount = 0;
-static volatile uint32_t lastTransferTime = 0;
-static volatile uint32_t transferStartTime = 0;
 
 // Variables para SPI slave
 static uint8_t spiRxBuffer[256];
@@ -66,7 +56,6 @@ void TC0_CH0_TimerInterruptHandler(uint32_t status, uintptr_t context)
 // Callback para TC1 - controla lectura I2S a 1kHz
 void TC1_CH0_TimerInterruptHandler(uint32_t status, uintptr_t context)
 {
-    bReadI2S = true;
     LED_B_Toggle();
 }
 
@@ -109,23 +98,64 @@ void ProcessSPICommands(void)
     }
 }
 
-// Callback para DMA I2S
-void I2S_DMA_Callback(DMAC_TRANSFER_EVENT event, uintptr_t context)
+// Callback para cuando se completa un buffer I2S DMA
+void I2S_BufferCompleteCallback(I2S_DMA_EVENT event, I2S_DMA_BUFFER_ID bufferID, 
+                                uint32_t* buffer, uintptr_t context)
 {
-    switch(event)
+    static uint32_t transferCount = 0;
+    
+    if (event == I2S_DMA_EVENT_BUFFER_COMPLETE)
     {
-        case DMAC_TRANSFER_EVENT_COMPLETE:
-            SYS_CONSOLE_PRINT("DMA I2S Transfer Complete - 10000 samples received!\r\n");
-            dmaTransferInProgress = false;
-            break;
+        transferCount++;
+        
+        SYS_CONSOLE_PRINT("=== BUFFER %d COMPLETO (Transfer #%u) ===\r\n", 
+                          bufferID, transferCount);
+        
+        // Mostrar algunas muestras
+        if (buffer != NULL)
+        {
+            SYS_CONSOLE_PRINT("Primeras 4 muestras: 0x%08X 0x%08X 0x%08X 0x%08X\r\n",
+                              buffer[0], buffer[1], buffer[2], buffer[3]);
+            SYS_CONSOLE_PRINT("Últimas 4 muestras: 0x%08X 0x%08X 0x%08X 0x%08X\r\n",
+                              buffer[9996], buffer[9997], buffer[9998], buffer[9999]);
             
-        case DMAC_TRANSFER_EVENT_ERROR:
-            SYS_CONSOLE_PRINT("DMA I2S Transfer Error!\r\n");
-            dmaTransferInProgress = false;
-            break;
+            // Verificar si contiene datos reales del I2S
+            bool hasI2SData = false;
+            if (bufferID == I2S_DMA_BUFFER_0)
+            {
+                hasI2SData = (buffer[0] != 0xBEEF0000) || (buffer[1] != 0xBEEF0001);
+            }
+            else
+            {
+                hasI2SData = (buffer[0] != 0xCAFE0000) || (buffer[1] != 0xCAFE0001);
+            }
             
-        default:
-            break;
+            if (hasI2SData)
+            {
+                SYS_CONSOLE_PRINT("✓ Buffer contiene datos reales del I2S!\r\n");
+            }
+            else
+            {
+                SYS_CONSOLE_PRINT("• Buffer contiene datos constantes del I2S\r\n");
+            }
+            
+            // Guardar en SD cada 10 buffers
+            if (SD_IsReady() && (transferCount % 10 == 0))
+            {
+                char fileName[64];
+                snprintf(fileName, sizeof(fileName), "audio_buf%d_%u.raw", 
+                         bufferID, transferCount);
+                
+                if (SD_WriteFile(fileName, (char*)buffer, I2S_DMA_BUFFER_SIZE * 4))
+                {
+                    SYS_CONSOLE_PRINT("Buffer guardado en SD: %s\r\n", fileName);
+                }
+            }
+        }
+    }
+    else if (event == I2S_DMA_EVENT_ERROR)
+    {
+        SYS_CONSOLE_PRINT("ERROR en I2S DMA!\r\n");
     }
 }
 
@@ -147,9 +177,6 @@ int main ( void )
     
     // Initialize BLE slave system
     BLE_slave_init();
-    
-    // Initialize I2S PLIB first (but don't open driver yet)
-    I2S_Initialize();
     
     // Initialize power pins
     PWR_LDOON_Set();
@@ -175,10 +202,8 @@ int main ( void )
     // Start TC1 timer for I2S sampling
     TC1_TimerStart();
     
-    // Register DMA callback for channel 0
-    DMAC_ChannelCallbackRegister(DMAC_CHANNEL_0, I2S_DMA_Callback, 0);
+    SYS_CONSOLE_PRINT("=== Sistema AVM Iniciado ===\r\n");
     
-
     while ( true )
     {
         // Maintain state machines of all polled MPLAB Harmony modules.
@@ -204,7 +229,7 @@ int main ( void )
             }
         }
         
-        // Initialize I2S driver after codec is ready
+        // Initialize I2S DMA system after codec is ready
         if (!i2sInitDone && codecInitDone)
         {
             static uint32_t i2sInitCounter = 0;
@@ -212,41 +237,29 @@ int main ( void )
             
             if (i2sInitCounter > 1000)
             {
-                i2sHandle = DRV_I2S_Open(0, DRV_IO_INTENT_READ);
-                if(i2sHandle != DRV_HANDLE_INVALID)
+                // Inicializar I2S DMA Manager
+                if (I2S_DMA_Initialize())
                 {
-                    i2sInitDone = true;
-                    SYS_CONSOLE_PRINT("I2S Driver inicializado correctamente\r\n");
+                    // Registrar callback para buffers completos
+                    I2S_DMA_CallbackRegister(I2S_BufferCompleteCallback, 0);
+                    
+                    // Iniciar ping-pong transfers
+                    if (I2S_DMA_Start())
+                    {
+                        i2sInitDone = true;
+                        SYS_CONSOLE_PRINT("I2S DMA Ping-Pong iniciado correctamente!\r\n");
+                        SYS_CONSOLE_PRINT("Transfers automáticos activos - Buffer size: %d samples\r\n", 
+                                          I2S_DMA_BUFFER_SIZE);
+                    }
+                    else
+                    {
+                        SYS_CONSOLE_PRINT("Error al iniciar I2S DMA transfers\r\n");
+                    }
                 }
                 else
                 {
-                    SYS_CONSOLE_PRINT("Error al abrir I2S Driver\r\n");
+                    SYS_CONSOLE_PRINT("Error al inicializar I2S DMA Manager\r\n");
                 }
-            }
-        }
-        
-        // DMA I2S Transfer cuando esté listo
-        if (i2sInitDone && !dmaTransferInProgress && bReadI2S)
-        {
-            bReadI2S = false;
-            
-            // Limpiar buffer antes de transferencia
-            for(int i = 0; i < 10000; i++) i2sDmaBuffer[i] = 0xDEADBEEF;
-            
-            // Iniciar transferencia DMA
-            bool dmaResult = DMAC_ChannelTransfer(DMAC_CHANNEL_0, 
-                                                (const void*)&I2S_REGS->I2S_RXDATA, 
-                                                (const void*)i2sDmaBuffer, 
-                                                40000); // 10000 * 4 bytes
-            
-            if (dmaResult)
-            {
-                dmaTransferInProgress = true;
-                SYS_CONSOLE_PRINT("DMA I2S Transfer iniciado - esperando 10000 samples...\r\n");
-            }
-            else
-            {
-                SYS_CONSOLE_PRINT("Error al iniciar DMA I2S Transfer\r\n");
             }
         }
         
@@ -266,15 +279,15 @@ int main ( void )
             
             // Escribir datos periódicos a SD si está lista
             static uint32_t dataCounter = 0;
-            if(SD_IsReady() && (dataCounter % 10000 == 0)) // Cada ~10 segundos aprox
+            if(SD_IsReady() && (dataCounter % 10000 == 0))
             {
                 char dataFile[64];
                 char sensorData[256];
                 
                 snprintf(dataFile, sizeof(dataFile), "sensor_%u.txt", dataCounter / 10000);
                 snprintf(sensorData, sizeof(sensorData), 
-                    "Timestamp: %u\r\nADC Value: %d\r\nCounter: %u\r\n", 
-                    SYSTICK_GetTickCounter(), adcValue, dataCounter);
+                    "Timestamp: %u\r\nADC Value: %d\r\nCounter: %u\r\nI2S Transfers: %u\r\n", 
+                    SYSTICK_GetTickCounter(), adcValue, dataCounter, I2S_DMA_GetTransferCount());
                 
                 SD_WriteFile(dataFile, sensorData, strlen(sensorData));
                 SYS_CONSOLE_PRINT("Datos de sensor escritos: %s\r\n", dataFile);
@@ -283,6 +296,5 @@ int main ( void )
         }
     }
 
-    // Execution should not come here during normal operation
     return EXIT_FAILURE;
 }
