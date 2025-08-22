@@ -43,12 +43,20 @@ static bool i2sInitDone = false;
 static DRV_HANDLE i2sHandle = DRV_HANDLE_INVALID;
 static bool volatile bReadI2S = false;  // Flag para lectura I2S controlada por timer
 
+// Buffer para DMA I2S - 10000 datos de 32 bits
+static uint32_t i2sDmaBuffer[10000] __attribute__((aligned(4)));
+static volatile bool dmaTransferInProgress = false;
+static volatile uint32_t dmaTransferCount = 0;
+static volatile uint32_t lastTransferTime = 0;
+static volatile uint32_t transferStartTime = 0;
+
 // Variables para SPI slave
 static uint8_t spiRxBuffer[256];
 static volatile bool spiCommandReceived = false;
 static volatile uint8_t lastCommand = 0;
 static volatile size_t lastBytesReceived = 0;
 
+int* real_i2s;
 // This function is called after period expires
 void TC0_CH0_TimerInterruptHandler(uint32_t status, uintptr_t context)
 {
@@ -101,6 +109,26 @@ void ProcessSPICommands(void)
     }
 }
 
+// Callback para DMA I2S
+void I2S_DMA_Callback(DMAC_TRANSFER_EVENT event, uintptr_t context)
+{
+    switch(event)
+    {
+        case DMAC_TRANSFER_EVENT_COMPLETE:
+            SYS_CONSOLE_PRINT("DMA I2S Transfer Complete - 10000 samples received!\r\n");
+            dmaTransferInProgress = false;
+            break;
+            
+        case DMAC_TRANSFER_EVENT_ERROR:
+            SYS_CONSOLE_PRINT("DMA I2S Transfer Error!\r\n");
+            dmaTransferInProgress = false;
+            break;
+            
+        default:
+            break;
+    }
+}
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Main Entry Point
@@ -112,7 +140,7 @@ int main ( void )
     // Initialize all modules
     SYS_Initialize(NULL);
     SYSTICK_TimerStart();
-    
+
     // Initialize SPI Slave
     SERCOM2_SPI_Initialize();
     SERCOM2_SPI_CallbackRegister(SPI_SlaveCallback, 0);
@@ -147,6 +175,9 @@ int main ( void )
     // Start TC1 timer for I2S sampling
     TC1_TimerStart();
     
+    // Register DMA callback for channel 0
+    DMAC_ChannelCallbackRegister(DMAC_CHANNEL_0, I2S_DMA_Callback, 0);
+    
     SYS_CONSOLE_PRINT("=== Sistema AVM Iniciado ===\r\n");
     
     while ( true )
@@ -154,21 +185,18 @@ int main ( void )
         // Maintain state machines of all polled MPLAB Harmony modules.
         SYS_Tasks();
         
-        // Procesar comandos SPI recibidos
-       // ProcessSPICommands();
-        
         // Initialize codec once after system stabilization
         if (!codecInitDone)
         {
             static uint32_t initCounter = 0;
             initCounter++;
             
-            if (initCounter > 5000) // Reducir tiempo de espera para codec
+            if (initCounter > 5000)
             {
                 CodecGain_t codecGain;
-                codecGain.leftGain = 0x50;   // Default gain value
-                codecGain.rightGain = 0x50;  // Default gain value  
-                codecGain.micGain = 0x40;    // Default mic gain
+                codecGain.leftGain = 0x50;
+                codecGain.rightGain = 0x50;
+                codecGain.micGain = 0x40;
                 
                 CODEC_init(codecGain);
                 codecInitDone = true;
@@ -183,9 +211,8 @@ int main ( void )
             static uint32_t i2sInitCounter = 0;
             i2sInitCounter++;
             
-            if (i2sInitCounter > 1000) // Esperar un poco después del codec
+            if (i2sInitCounter > 1000)
             {
-                // Open I2S driver handle
                 i2sHandle = DRV_I2S_Open(0, DRV_IO_INTENT_READ);
                 if(i2sHandle != DRV_HANDLE_INVALID)
                 {
@@ -199,69 +226,28 @@ int main ( void )
             }
         }
         
-        // Leer datos I2S controlado por timer TC1 a 1kHz - UNA SOLA VEZ
-        if (i2sInitDone && i2sHandle != DRV_HANDLE_INVALID && bReadI2S)
+        // DMA I2S Transfer cuando esté listo
+        if (i2sInitDone && !dmaTransferInProgress && bReadI2S)
         {
-            static uint32_t i2sBuffer[1]; // Buffer pequeño para una sola muestra
-            static DRV_I2S_BUFFER_HANDLE bufferHandle = DRV_I2S_BUFFER_HANDLE_INVALID;
-            static bool readInProgress = false;
-            static uint32_t sampleCounter = 0;
+            bReadI2S = false;
             
-            bReadI2S = false; // Resetear flag inmediatamente
+            // Limpiar buffer antes de transferencia
+            for(int i = 0; i < 10000; i++) i2sDmaBuffer[i] = 0xDEADBEEF;
             
-            // Purgar cola cada cierto número de muestras para liberar buffers
-            if (sampleCounter % 5 == 0 && sampleCounter > 0)
+            // Iniciar transferencia DMA
+            bool dmaResult = DMAC_ChannelTransfer(DMAC_CHANNEL_0, 
+                                                (const void*)&I2S_REGS->I2S_RXDATA, 
+                                                (const void*)i2sDmaBuffer, 
+                                                40000); // 10000 * 4 bytes
+            
+            if (dmaResult)
             {
-                DRV_I2S_ReadQueuePurge(i2sHandle);
-                readInProgress = false;
-                bufferHandle = DRV_I2S_BUFFER_HANDLE_INVALID;
+                dmaTransferInProgress = true;
+                SYS_CONSOLE_PRINT("DMA I2S Transfer iniciado - esperando 10000 samples...\r\n");
             }
-            
-            // Solo iniciar nueva lectura si no hay una en progreso
-            if (!readInProgress)
+            else
             {
-                DRV_I2S_ReadBufferAdd(i2sHandle, i2sBuffer, sizeof(i2sBuffer), &bufferHandle);
-                
-                if (bufferHandle != DRV_I2S_BUFFER_HANDLE_INVALID)
-                {
-                    readInProgress = true;
-                }
-                else
-                {
-                    // Solo imprimir error ocasionalmente
-                    if (sampleCounter % 100 == 0)
-                    {
-                        SYS_CONSOLE_PRINT("I2S Buffer Add Failed - purging queue\r\n");
-                        DRV_I2S_ReadQueuePurge(i2sHandle);
-                        readInProgress = false;
-                    }
-                }
-            }
-            
-            // Verificar si la lectura se completó
-            if (readInProgress && bufferHandle != DRV_I2S_BUFFER_HANDLE_INVALID)
-            {
-                DRV_I2S_BUFFER_EVENT status = DRV_I2S_BufferStatusGet(bufferHandle);
-                
-                if (status == DRV_I2S_BUFFER_EVENT_COMPLETE)
-                {
-                    // Imprimir cada 100 muestras para no saturar consola
-                    if (sampleCounter % 100 == 0)
-                    {
-                        SYS_CONSOLE_PRINT("I2S[%u]: 0x%08X (%d)\r\n", 
-                            sampleCounter, i2sBuffer[0], (int16_t)(i2sBuffer[0] & 0xFFFF));
-                    }
-                    sampleCounter++;
-                    readInProgress = false;
-                    bufferHandle = DRV_I2S_BUFFER_HANDLE_INVALID;
-                }
-                else if (status == DRV_I2S_BUFFER_EVENT_ERROR)
-                {
-                    SYS_CONSOLE_PRINT("I2S Error[%u]\r\n", sampleCounter);
-                    readInProgress = false;
-                    bufferHandle = DRV_I2S_BUFFER_HANDLE_INVALID;
-                }
-                // Si está en progreso, seguir esperando
+                SYS_CONSOLE_PRINT("Error al iniciar DMA I2S Transfer\r\n");
             }
         }
         
