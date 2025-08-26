@@ -76,6 +76,9 @@
             <logicalFolder name="port" displayName="port" projectFiles="true">
               <itemPath>../src/config/default/peripheral/port/plib_port.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="rtc" displayName="rtc" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/rtc/plib_rtc.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="sdhc" displayName="sdhc" projectFiles="true">
               <itemPath>../src/config/default/peripheral/sdhc/plib_sdhc_common.h</itemPath>
               <itemPath>../src/config/default/peripheral/sdhc/plib_sdhc0.h</itemPath>
@@ -128,10 +131,6 @@
                                projectFiles="true">
                   <itemPath>../src/config/default/system/fs/fat_fs/hardware_access/diskio.h</itemPath>
                 </logicalFolder>
-              </logicalFolder>
-              <logicalFolder name="mpfs" displayName="mpfs" projectFiles="true">
-                <itemPath>../src/config/default/system/fs/mpfs/mpfs.h</itemPath>
-                <itemPath>../src/config/default/system/fs/mpfs/mpfs_local.h</itemPath>
               </logicalFolder>
               <itemPath>../src/config/default/system/fs/src/sys_fs_local.h</itemPath>
               <itemPath>../src/config/default/system/fs/sys_fs.h</itemPath>
@@ -317,6 +316,7 @@
       <itemPath>../src/codec.h</itemPath>
       <itemPath>../src/sd_handler.h</itemPath>
       <itemPath>../src/i2s_dma_manager.h</itemPath>
+      <itemPath>../src/app_sdcard.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -392,6 +392,9 @@
             <logicalFolder name="port" displayName="port" projectFiles="true">
               <itemPath>../src/config/default/peripheral/port/plib_port.c</itemPath>
             </logicalFolder>
+            <logicalFolder name="rtc" displayName="rtc" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/rtc/plib_rtc_clock.c</itemPath>
+            </logicalFolder>
             <logicalFolder name="sdhc" displayName="sdhc" projectFiles="true">
               <itemPath>../src/config/default/peripheral/sdhc/plib_sdhc0.c</itemPath>
             </logicalFolder>
@@ -440,9 +443,6 @@
                   <itemPath>../src/config/default/system/fs/fat_fs/hardware_access/diskio.c</itemPath>
                 </logicalFolder>
               </logicalFolder>
-              <logicalFolder name="mpfs" displayName="mpfs" projectFiles="true">
-                <itemPath>../src/config/default/system/fs/mpfs/mpfs.c</itemPath>
-              </logicalFolder>
               <itemPath>../src/config/default/system/fs/src/sys_fs_fat_interface.c</itemPath>
               <itemPath>../src/config/default/system/fs/src/sys_fs.c</itemPath>
               <itemPath>../src/config/default/system/fs/src/sys_fs_media_manager.c</itemPath>
@@ -479,6 +479,7 @@
       <itemPath>../src/codec.c</itemPath>
       <itemPath>../src/sd_handler.c</itemPath>
       <itemPath>../src/i2s_dma_manager.c</itemPath>
+      <itemPath>../src/app_sdcard.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>

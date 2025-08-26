@@ -172,6 +172,16 @@ static void GCLK6_Initialize(void)
     }
 }
 
+static void GCLK7_Initialize(void)
+{
+    GCLK_REGS->GCLK_GENCTRL[7] = GCLK_GENCTRL_DIV(4U) | GCLK_GENCTRL_SRC(6U) | GCLK_GENCTRL_GENEN_Msk;
+
+    while((GCLK_REGS->GCLK_SYNCBUSY & GCLK_SYNCBUSY_GENCTRL_GCLK7) == GCLK_SYNCBUSY_GENCTRL_GCLK7)
+    {
+        /* wait for the Generator 7 synchronization */
+    }
+}
+
 void CLOCK_Initialize (void)
 {
     /* MISRAC 2012 deviation block start */
@@ -189,12 +199,20 @@ void CLOCK_Initialize (void)
     GCLK3_Initialize();
     GCLK4_Initialize();
     GCLK6_Initialize();
+    GCLK7_Initialize();
     FDPLL0_Initialize();
     GCLK0_Initialize();
     GCLK1_Initialize();
 
     /* MISRAC 2012 deviation block end */
 
+    /* Selection of the Generator and write Lock for OSCCTRL_FDPLL032K OSCCTRL_FDPLL132K SDHC0_SLOW SERCOM0_SLOW SERCOM1_SLOW SERCOM2_SLOW SERCOM3_SLOW SERCOM4_SLOW SERCOM5_SLOW */
+    GCLK_REGS->GCLK_PCHCTRL[3] = GCLK_PCHCTRL_GEN(0x7U)  | GCLK_PCHCTRL_CHEN_Msk;
+
+    while ((GCLK_REGS->GCLK_PCHCTRL[3] & GCLK_PCHCTRL_CHEN_Msk) != GCLK_PCHCTRL_CHEN_Msk)
+    {
+        /* Wait for synchronization */
+    }
     /* Selection of the Generator and write Lock for SERCOM1_CORE */
     GCLK_REGS->GCLK_PCHCTRL[8] = GCLK_PCHCTRL_GEN(0x2U)  | GCLK_PCHCTRL_CHEN_Msk;
 
@@ -238,7 +256,7 @@ void CLOCK_Initialize (void)
         /* Wait for synchronization */
     }
     /* Selection of the Generator and write Lock for SDHC0 */
-    GCLK_REGS->GCLK_PCHCTRL[45] = GCLK_PCHCTRL_GEN(0x1U)  | GCLK_PCHCTRL_CHEN_Msk;
+    GCLK_REGS->GCLK_PCHCTRL[45] = GCLK_PCHCTRL_GEN(0x0U)  | GCLK_PCHCTRL_CHEN_Msk;
 
     while ((GCLK_REGS->GCLK_PCHCTRL[45] & GCLK_PCHCTRL_CHEN_Msk) != GCLK_PCHCTRL_CHEN_Msk)
     {

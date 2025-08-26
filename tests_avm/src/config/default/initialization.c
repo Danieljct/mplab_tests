@@ -111,7 +111,7 @@ DRV_I2S_INIT drvI2S0InitData =
     .i2sReceiveAddress = (void *)&(I2S_REGS->I2S_RXDATA),
 
     /************ code specific to SAM E70 ********************/
-  //  .interruptDMA = DMAC_IRQn,
+   // .interruptDMA = DMAC_IRQn,
     /************ code specific to SAM E70 ********************/
    // .dmaDataLength = DRV_I2S_DATA_LENGTH_IDX0,
 };
@@ -224,11 +224,16 @@ static const DRV_USBFSV1_INIT drvUSBInit =
 
 // <editor-fold defaultstate="collapsed" desc="File System Initialization Data">
 
-
 const SYS_FS_MEDIA_MOUNT_DATA sysfsMountTable[SYS_FS_VOLUME_NUMBER] =
 {
-    {NULL}
+    {
+        .mountName = SYS_FS_MEDIA_IDX0_MOUNT_NAME_VOLUME_IDX0,
+        .devName   = SYS_FS_MEDIA_IDX0_DEVICE_NAME_VOLUME_IDX0,
+        .mediaType = SYS_FS_MEDIA_TYPE_IDX0,
+        .fsType   = SYS_FS_TYPE_IDX0
+    },
 };
+
 
 static const SYS_FS_FUNCTIONS FatFsFunctions =
 {
@@ -268,43 +273,6 @@ static const SYS_FS_FUNCTIONS FatFsFunctions =
     .getCluster        = FATFS_getclusters
 };
 
-static const SYS_FS_FUNCTIONS MPFSFunctions =
-{
-    .mount             = MPFS_Mount,
-    .unmount           = MPFS_Unmount,
-    .open              = MPFS_Open,
-    .read_t            = MPFS_Read,
-    .close             = MPFS_Close,
-    .seek              = MPFS_Seek,
-    .fstat             = MPFS_Stat,
-    .tell              = MPFS_GetPosition,
-    .eof               = MPFS_EOF,
-    .size              = MPFS_GetSize,
-    .openDir           = MPFS_DirOpen,
-    .readDir           = MPFS_DirRead,
-    .closeDir          = MPFS_DirClose,
-    .getlabel          = NULL,
-    .currWD            = NULL,
-    .getstrn           = NULL,
-    .write_t           = NULL,
-    .mkdir             = NULL,
-    .chdir             = NULL,
-    .remove_t          = NULL,
-    .setlabel          = NULL,
-    .truncate          = NULL,
-    .chdrive           = NULL,
-    .chmode            = NULL,
-    .chtime            = NULL,
-    .rename_t           = NULL,
-    .sync              = NULL,
-    .putchr            = NULL,
-    .putstrn           = NULL,
-    .formattedprint    = NULL,
-    .testerror         = NULL,
-    .formatDisk        = NULL,
-    .partitionDisk     = NULL,
-    .getCluster        = NULL
-};
 
 
 
@@ -313,10 +281,6 @@ static const SYS_FS_REGISTRATION_TABLE sysFSInit [ SYS_FS_MAX_FILE_SYSTEM_TYPE ]
     {
         .nativeFileSystemType = FAT,
         .nativeFileSystemFunctions = &FatFsFunctions
-    },
-    {
-        .nativeFileSystemType = MPFS2,
-        .nativeFileSystemFunctions = &MPFSFunctions
     }
 };
 // </editor-fold>

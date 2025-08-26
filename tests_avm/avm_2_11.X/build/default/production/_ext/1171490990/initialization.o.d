@@ -130,6 +130,7 @@ build/default/production/_ext/1171490990/initialization.o: \
  ../src/config/default/peripheral/dmac/plib_dmac.h \
  ../src/config/default/driver/driver.h \
  ../src/config/default/peripheral/tc/plib_tc0.h \
+ ../src/config/default/peripheral/rtc/plib_rtc.h \
  ../src/config/default/peripheral/sdhc/plib_sdhc0.h \
  ../src/config/default/peripheral/sdhc/plib_sdhc_common.h \
  ../src/config/default/system/time/sys_time.h \
@@ -180,11 +181,10 @@ build/default/production/_ext/1171490990/initialization.o: \
  ../src/config/default/system/fs/fat_fs/file_system/ffconf.h \
  ../src/config/default/system/fs/fat_fs/hardware_access/diskio.h \
  ../src/config/default/system/fs/fat_fs/file_system/ff.h \
- ../src/config/default/system/fs/mpfs/mpfs.h \
  ../src/config/default/audio/peripheral/i2s/plib_i2s.h \
  ../src/config/default/system/console/sys_console.h \
  ../src/config/default/system/console/src/sys_console_usb_cdc_definitions.h \
- ../src/app.h
+ ../src/app.h ../src/app_sdcard.h
 
 ../src/config/default/configuration.h:
 
@@ -450,6 +450,8 @@ build/default/production/_ext/1171490990/initialization.o: \
 
 ../src/config/default/peripheral/tc/plib_tc0.h:
 
+../src/config/default/peripheral/rtc/plib_rtc.h:
+
 ../src/config/default/peripheral/sdhc/plib_sdhc0.h:
 
 ../src/config/default/peripheral/sdhc/plib_sdhc_common.h:
@@ -552,8 +554,6 @@ build/default/production/_ext/1171490990/initialization.o: \
 
 ../src/config/default/system/fs/fat_fs/file_system/ff.h:
 
-../src/config/default/system/fs/mpfs/mpfs.h:
-
 ../src/config/default/audio/peripheral/i2s/plib_i2s.h:
 
 ../src/config/default/system/console/sys_console.h:
@@ -561,3 +561,5 @@ build/default/production/_ext/1171490990/initialization.o: \
 ../src/config/default/system/console/src/sys_console_usb_cdc_definitions.h:
 
 ../src/app.h:
+
+../src/app_sdcard.h:

@@ -100,6 +100,9 @@ DRV_SDMMC_Tasks(sysObj.drvSDMMC0);
         /* Call Application task APP. */
     APP_Tasks();
 
+    /* Call Application task APP_SDCARD. */
+    APP_SDCARD_Tasks();
+
 
 
 

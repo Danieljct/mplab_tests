@@ -119,8 +119,7 @@ build/default/production/_ext/1269487135/sys_fs_media_manager.o: \
  ../src/config/default/system/fs/src/sys_fs_local.h \
  ../src/config/default/osal/osal.h \
  ../src/config/default/osal/osal_definitions.h \
- ../src/config/default/osal/osal_impl_basic.h \
- ../src/config/default/system/fs/mpfs/mpfs.h
+ ../src/config/default/osal/osal_impl_basic.h
 
 ../src/config/default/system/fs/src/sys_fs_media_manager_local.h:
 
@@ -363,5 +362,3 @@ build/default/production/_ext/1269487135/sys_fs_media_manager.o: \
 ../src/config/default/osal/osal_definitions.h:
 
 ../src/config/default/osal/osal_impl_basic.h:
-
-../src/config/default/system/fs/mpfs/mpfs.h:

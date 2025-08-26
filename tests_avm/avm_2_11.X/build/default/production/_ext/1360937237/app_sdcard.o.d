@@ -1,6 +1,7 @@
-build/default/production/_ext/1171490990/tasks.o: \
- ../src/config/default/tasks.c ../src/config/default/configuration.h \
- ../src/config/default/user.h ../src/config/default/device.h \
+build/default/production/_ext/1360937237/app_sdcard.o: \
+ ../src/app_sdcard.c ../src/app_sdcard.h \
+ ../src/config/default/configuration.h ../src/config/default/user.h \
+ ../src/config/default/device.h \
  ../src/packs/ATSAMD51J20A_DFP/samd51j20a.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/core_cm4.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_version.h \
@@ -101,11 +102,11 @@ build/default/production/_ext/1171490990/tasks.o: \
  ../src/config/default/device_cache.h \
  ../src/config/default/toolchain_specifics.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h \
+ ../src/config/default/system/fs/sys_fs.h ../src/i2s_dma_manager.h \
  ../src/config/default/definitions.h \
  ../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h \
  ../src/config/default/device.h ../src/config/default/usb/usb_chapter_9.h \
  ../src/config/default/usb/usb_device.h \
- ../src/config/default/configuration.h \
  ../src/config/default/system/system.h \
  ../src/config/default/system/system_common.h \
  ../src/config/default/system/system_module.h \
@@ -172,7 +173,6 @@ build/default/production/_ext/1171490990/tasks.o: \
  ../src/config/default/peripheral/cmcc/plib_cmcc.h \
  ../src/config/default/system/fs/sys_fs.h \
  ../src/config/default/system/fs/sys_fs_media_manager.h \
- ../src/config/default/system/fs/sys_fs.h \
  ../src/config/default/system/fs/fat_fs/file_system/ff.h \
  ../src/config/default/system/fs/fat_fs/file_system/ffconf.h \
  ../src/config/default/system/fs/sys_fs_fat_interface.h \
@@ -183,7 +183,12 @@ build/default/production/_ext/1171490990/tasks.o: \
  ../src/config/default/audio/peripheral/i2s/plib_i2s.h \
  ../src/config/default/system/console/sys_console.h \
  ../src/config/default/system/console/src/sys_console_usb_cdc_definitions.h \
- ../src/app.h ../src/app_sdcard.h ../src/config/default/sys_tasks.h
+ ../src/app.h ../src/app_sdcard.h \
+ ../src/config/default/audio/peripheral/i2s/plib_i2s.h \
+ ../src/config/default/audio/driver/i2s/drv_i2s.h \
+ ../src/config/default/peripheral/rtc/plib_rtc.h
+
+../src/app_sdcard.h:
 
 ../src/config/default/configuration.h:
 
@@ -391,6 +396,10 @@ build/default/production/_ext/1171490990/tasks.o: \
 
 ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h:
 
+../src/config/default/system/fs/sys_fs.h:
+
+../src/i2s_dma_manager.h:
+
 ../src/config/default/definitions.h:
 
 ../src/config/default/peripheral/nvmctrl/plib_nvmctrl.h:
@@ -400,8 +409,6 @@ build/default/production/_ext/1171490990/tasks.o: \
 ../src/config/default/usb/usb_chapter_9.h:
 
 ../src/config/default/usb/usb_device.h:
-
-../src/config/default/configuration.h:
 
 ../src/config/default/system/system.h:
 
@@ -537,8 +544,6 @@ build/default/production/_ext/1171490990/tasks.o: \
 
 ../src/config/default/system/fs/sys_fs_media_manager.h:
 
-../src/config/default/system/fs/sys_fs.h:
-
 ../src/config/default/system/fs/fat_fs/file_system/ff.h:
 
 ../src/config/default/system/fs/fat_fs/file_system/ffconf.h:
@@ -563,4 +568,8 @@ build/default/production/_ext/1171490990/tasks.o: \
 
 ../src/app_sdcard.h:
 
-../src/config/default/sys_tasks.h:
+../src/config/default/audio/peripheral/i2s/plib_i2s.h:
+
+../src/config/default/audio/driver/i2s/drv_i2s.h:
+
+../src/config/default/peripheral/rtc/plib_rtc.h:

@@ -24,6 +24,7 @@
 
 #include "cdc.h"
 #include "app_usb.h"
+#include "app_sdcard.h"
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -116,8 +117,6 @@ void I2S_BufferCompleteCallback(I2S_DMA_EVENT event, I2S_DMA_BUFFER_ID bufferID,
         {
             SYS_CONSOLE_PRINT("Primeras 4 muestras: 0x%08X 0x%08X 0x%08X 0x%08X\r\n",
                               buffer[0], buffer[1], buffer[2], buffer[3]);
-           // SYS_CONSOLE_PRINT("Últimas 4 muestras: 0x%08X 0x%08X 0x%08X 0x%08X\r\n",
-             //                 buffer[996], buffer[997], buffer[998], buffer[999]);
             
             // Verificar si contiene datos reales del I2S
             bool hasI2SData = false;
@@ -130,19 +129,8 @@ void I2S_BufferCompleteCallback(I2S_DMA_EVENT event, I2S_DMA_BUFFER_ID bufferID,
                 hasI2SData = (buffer[0] != 0xCAFE0000) || (buffer[1] != 0xCAFE0001);
             }
             
-            
-            // Guardar en SD cada 10 buffers
-            if (SD_IsReady() && (transferCount % 10 == 0))
-            {
-                char fileName[64];
-                snprintf(fileName, sizeof(fileName), "audio_buf%d_%u.raw", 
-                         bufferID, transferCount);
-                
-                if (SD_WriteFile(fileName, (char*)buffer, I2S_DMA_BUFFER_SIZE * 4))
-                {
-                    SYS_CONSOLE_PRINT("Buffer guardado en SD: %s\r\n", fileName);
-                }
-            }
+            // Notificar al sistema SD Card que hay un buffer DMA listo
+            APP_SDCARD_DMABufferReady((uint8_t)bufferID, buffer, I2S_DMA_BUFFER_SIZE * 4);
         }
     }
     else if (event == I2S_DMA_EVENT_ERROR)
@@ -162,6 +150,9 @@ int main ( void )
     // Initialize all modules
     SYS_Initialize(NULL);
     SYSTICK_TimerStart();
+
+    // Initialize SD Card application
+    APP_SDCARD_Initialize();
 
     // Initialize SPI Slave
     SERCOM2_SPI_Initialize();
@@ -200,6 +191,9 @@ int main ( void )
     {
         // Maintain state machines of all polled MPLAB Harmony modules.
         SYS_Tasks();
+        
+        // Handle SD Card tasks
+        APP_SDCARD_Tasks();
         
         // Initialize codec once after system stabilization
         if (!codecInitDone)
