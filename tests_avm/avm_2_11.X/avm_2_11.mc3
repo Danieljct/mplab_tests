@@ -326,7 +326,8 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;HarmonyCore&gt;
   &lt;HarmonyCore dnOrder=&quot;0&quot; id=&quot;ENABLE_SYS_DMA&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;audio_codec_generic&quot; value=&quot;true&quot;/&gt;
+      &lt;User dnOrder=&quot;1&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
   &lt;/HarmonyCore&gt;
 &lt;/HarmonyCore&gt;
@@ -9313,7 +9314,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="a_i2s" name="I2S_CLKCTRL_0_BITDELAY"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;a_i2s&gt;
   &lt;a_i2s dnOrder=&quot;0&quot; id=&quot;I2S_CLKCTRL_0_BITDELAY&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;0&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/a_i2s&gt;
 &lt;/a_i2s&gt;
 </value>
@@ -9322,7 +9325,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="a_i2s" name="I2S_CLKCTRL_0_CLKMODE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;a_i2s&gt;
   &lt;a_i2s dnOrder=&quot;0&quot; id=&quot;I2S_CLKCTRL_0_CLKMODE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;0&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/a_i2s&gt;
 &lt;/a_i2s&gt;
 </value>
@@ -9359,7 +9364,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;a_i2s&gt;
   &lt;a_i2s dnOrder=&quot;0&quot; id=&quot;I2S_CLKCTRL_0_MCKDIV&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;150&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;0&quot;/&gt;
     &lt;/Values&gt;
   &lt;/a_i2s&gt;
 &lt;/a_i2s&gt;
@@ -9370,7 +9375,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;a_i2s&gt;
   &lt;a_i2s dnOrder=&quot;0&quot; id=&quot;I2S_CLKCTRL_0_MCKOUTDIV&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;150&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;0&quot;/&gt;
     &lt;/Values&gt;
   &lt;/a_i2s&gt;
 &lt;/a_i2s&gt;
@@ -9409,7 +9414,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="a_i2s" name="I2S_CLKCTRL_1_ENABLE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;a_i2s&gt;
   &lt;a_i2s dnOrder=&quot;0&quot; id=&quot;I2S_CLKCTRL_1_ENABLE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;false&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/a_i2s&gt;
 &lt;/a_i2s&gt;
 </value>
@@ -9436,7 +9443,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="a_i2s" name="I2S_CLKCTRL_1_MCKDIV"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;a_i2s&gt;
   &lt;a_i2s dnOrder=&quot;0&quot; id=&quot;I2S_CLKCTRL_1_MCKDIV&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;50&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/a_i2s&gt;
 &lt;/a_i2s&gt;
 </value>
@@ -9445,7 +9454,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="a_i2s" name="I2S_CLKCTRL_1_MCKOUTDIV"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;a_i2s&gt;
   &lt;a_i2s dnOrder=&quot;0&quot; id=&quot;I2S_CLKCTRL_1_MCKOUTDIV&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;0&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/a_i2s&gt;
 &lt;/a_i2s&gt;
 </value>
@@ -9454,7 +9465,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="a_i2s" name="I2S_CLKCTRL_1_SLOTSIZE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;a_i2s&gt;
   &lt;a_i2s dnOrder=&quot;0&quot; id=&quot;I2S_CLKCTRL_1_SLOTSIZE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;3&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/a_i2s&gt;
 &lt;/a_i2s&gt;
 </value>
@@ -9519,7 +9532,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="a_i2s" name="I2S_RXCTRL_CLKSEL"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;a_i2s&gt;
   &lt;a_i2s dnOrder=&quot;0&quot; id=&quot;I2S_RXCTRL_CLKSEL&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;0&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/a_i2s&gt;
 &lt;/a_i2s&gt;
 </value>
@@ -9622,7 +9637,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="a_i2s" name="I2S_TX_SERIALIZER_ENABLE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;a_i2s&gt;
   &lt;a_i2s dnOrder=&quot;0&quot; id=&quot;I2S_TX_SERIALIZER_ENABLE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/a_i2s&gt;
 &lt;/a_i2s&gt;
 </value>
@@ -10404,7 +10421,7 @@
     &lt;ComponentGraph dnOrder=&quot;2&quot; id=&quot;__ROOTVIEW&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;HarmonyCore&quot; x=&quot;487&quot; y=&quot;420&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;a_drv_i2s&quot; x=&quot;523&quot; y=&quot;92&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;a_drv_i2s&quot; x=&quot;504&quot; y=&quot;90&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;a_i2s&quot; x=&quot;363&quot; y=&quot;144&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;adc1&quot; x=&quot;711&quot; y=&quot;37&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;cmsis&quot; x=&quot;430&quot; y=&quot;60&quot;/&gt;
@@ -10416,12 +10433,12 @@
         &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;nvmctrl&quot; x=&quot;20&quot; y=&quot;19&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;11&quot; id=&quot;sdhc0&quot; x=&quot;61&quot; y=&quot;411&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;sercom1&quot; x=&quot;60&quot; y=&quot;129&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;sercom2&quot; x=&quot;206&quot; y=&quot;133&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;sercom2&quot; x=&quot;206&quot; y=&quot;132&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;sys_console&quot; x=&quot;667&quot; y=&quot;217&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;sys_debug&quot; x=&quot;821&quot; y=&quot;276&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;sys_fs&quot; x=&quot;351&quot; y=&quot;385&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;sys_time&quot; x=&quot;328&quot; y=&quot;263&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;18&quot; id=&quot;tc0&quot; x=&quot;683&quot; y=&quot;116&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;18&quot; id=&quot;tc0&quot; x=&quot;685&quot; y=&quot;116&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;19&quot; id=&quot;tc1&quot; x=&quot;528&quot; y=&quot;12&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;20&quot; id=&quot;usb_device&quot; x=&quot;657&quot; y=&quot;472&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;21&quot; id=&quot;usb_device_cdc&quot; x=&quot;463&quot; y=&quot;260&quot;/&gt;
@@ -11029,6 +11046,18 @@
 </value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="GCLK_2_SRC"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;GCLK_2_SRC&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;6&quot;/&gt;
+      &lt;User dnOrder=&quot;1&quot; value=&quot;6&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="GCLK_3_FREQ"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;GCLK_3_FREQ&quot;&gt;
@@ -11100,6 +11129,50 @@
   &lt;core dnOrder=&quot;0&quot; id=&quot;GCLK_5_SRC&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;User dnOrder=&quot;0&quot; value=&quot;4&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="GCLK_6_DIV"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;GCLK_6_DIV&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;125&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="GCLK_6_DIVIDER_VALUE"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;GCLK_6_DIVIDER_VALUE&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;125&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="GCLK_6_FREQ"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;GCLK_6_FREQ&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;384000&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="GCLK_6_SRC"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;GCLK_6_SRC&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;6&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -11287,7 +11360,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;GCLK_ID_43_FREQ&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;48000000&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;core&quot; value=&quot;384000&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -11298,7 +11371,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;GCLK_ID_43_GENSEL&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;4&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;6&quot;/&gt;
     &lt;/Values&gt;
   &lt;/core&gt;
 &lt;/core&gt;
@@ -11462,6 +11535,17 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="GCLK_INST_NUM5"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
   &lt;core dnOrder=&quot;0&quot; id=&quot;GCLK_INST_NUM5&quot;&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
+    &lt;/Values&gt;
+  &lt;/core&gt;
+&lt;/core&gt;
+</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="core" name="GCLK_INST_NUM6"/>
+         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;core&gt;
+  &lt;core dnOrder=&quot;0&quot; id=&quot;GCLK_INST_NUM6&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
       &lt;User dnOrder=&quot;0&quot; value=&quot;true&quot;/&gt;
     &lt;/Values&gt;
@@ -30607,7 +30691,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\audio\peripheral\i2s\plib_i2s.c</file>
-         <hash>668d39f3ddfd8efade8d895ca57c11858b9676bc8abc9c630f7682cc1c54b2ed</hash>
+         <hash>90d9e94c2d594686375c7c3b87144f4c04ceb0cab94d236afac32b4fb6de0bce</hash>
       </entry>
       <entry>
          <file>..\src\config\default\audio\peripheral\i2s\plib_i2s.h</file>
@@ -30739,7 +30823,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\clock\plib_clock.c</file>
-         <hash>b986363fd61d8af901157bbd01bbae2a5ca8ec022256218efc779a2c0852d2bf</hash>
+         <hash>2edb8442d0f3965afe79ca2ea5fe30a0bbe127efb845b2b53caa464608d8326d</hash>
       </entry>
       <entry>
          <file>..\src\config\default\peripheral\clock\plib_clock.h</file>

@@ -116,8 +116,8 @@ void I2S_BufferCompleteCallback(I2S_DMA_EVENT event, I2S_DMA_BUFFER_ID bufferID,
         {
             SYS_CONSOLE_PRINT("Primeras 4 muestras: 0x%08X 0x%08X 0x%08X 0x%08X\r\n",
                               buffer[0], buffer[1], buffer[2], buffer[3]);
-            SYS_CONSOLE_PRINT("Últimas 4 muestras: 0x%08X 0x%08X 0x%08X 0x%08X\r\n",
-                              buffer[9996], buffer[9997], buffer[9998], buffer[9999]);
+           // SYS_CONSOLE_PRINT("Últimas 4 muestras: 0x%08X 0x%08X 0x%08X 0x%08X\r\n",
+             //                 buffer[996], buffer[997], buffer[998], buffer[999]);
             
             // Verificar si contiene datos reales del I2S
             bool hasI2SData = false;
@@ -130,14 +130,6 @@ void I2S_BufferCompleteCallback(I2S_DMA_EVENT event, I2S_DMA_BUFFER_ID bufferID,
                 hasI2SData = (buffer[0] != 0xCAFE0000) || (buffer[1] != 0xCAFE0001);
             }
             
-            if (hasI2SData)
-            {
-                SYS_CONSOLE_PRINT("✓ Buffer contiene datos reales del I2S!\r\n");
-            }
-            else
-            {
-                SYS_CONSOLE_PRINT("• Buffer contiene datos constantes del I2S\r\n");
-            }
             
             // Guardar en SD cada 10 buffers
             if (SD_IsReady() && (transferCount % 10 == 0))
@@ -224,6 +216,7 @@ int main ( void )
                 
                 CODEC_init(codecGain);
                 codecInitDone = true;
+                CODEC_printAllRegisters();
                 
                 SYS_CONSOLE_PRINT("Codec inicializado\r\n");
             }
@@ -279,12 +272,12 @@ int main ( void )
             
             // Escribir datos periódicos a SD si está lista
             static uint32_t dataCounter = 0;
-            if(SD_IsReady() && (dataCounter % 10000 == 0))
+            if(SD_IsReady() && (dataCounter % 1000 == 0))
             {
                 char dataFile[64];
                 char sensorData[256];
                 
-                snprintf(dataFile, sizeof(dataFile), "sensor_%u.txt", dataCounter / 10000);
+                snprintf(dataFile, sizeof(dataFile), "sensor_%u.txt", dataCounter / 1000);
                 snprintf(sensorData, sizeof(sensorData), 
                     "Timestamp: %u\r\nADC Value: %d\r\nCounter: %u\r\nI2S Transfers: %u\r\n", 
                     SYSTICK_GetTickCounter(), adcValue, dataCounter, I2S_DMA_GetTransferCount());

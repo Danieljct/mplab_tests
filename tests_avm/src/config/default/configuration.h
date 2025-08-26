@@ -145,12 +145,12 @@ extern "C" {
 /* I2S Driver Instance 0 Configuration Options */
 #define DRV_I2S_INDEX_0                0
 #define DRV_I2S_CLIENTS_NUMBER_IDX0    1
-#define DRV_I2S_QUEUE_DEPTH_COMBINED                 (2*8)
-#define DRV_I2S_QUEUE_SIZE_IDX0        8
+#define DRV_I2S_QUEUE_DEPTH_COMBINED                 (2*1)
+#define DRV_I2S_QUEUE_SIZE_IDX0        1
 #define DRV_I2S_DATA_LENGTH_IDX0       32
 #define DRV_I2S_INT_SRC_IDX0           I2S_IRQn
 #define DRV_I2S_XMIT_DMA_CH_IDX0       SYS_DMA_CHANNEL_0
-#define DRV_I2S_RCV_DMA_CH_IDX0        SYS_DMA_CHANNEL_1
+#define DRV_I2S_RCV_DMA_CH_IDX0        SYS_DMA_CHANNEL_0
 
 /* SDMMC Driver Global Configuration Options */
 #define DRV_SDMMC_INSTANCES_NUMBER                       (1U)

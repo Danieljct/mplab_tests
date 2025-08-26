@@ -162,6 +162,16 @@ static void GCLK5_Initialize(void)
     }
 }
 
+static void GCLK6_Initialize(void)
+{
+    GCLK_REGS->GCLK_GENCTRL[6] = GCLK_GENCTRL_DIV(125U) | GCLK_GENCTRL_SRC(6U) | GCLK_GENCTRL_GENEN_Msk;
+
+    while((GCLK_REGS->GCLK_SYNCBUSY & GCLK_SYNCBUSY_GENCTRL_GCLK6) == GCLK_SYNCBUSY_GENCTRL_GCLK6)
+    {
+        /* wait for the Generator 6 synchronization */
+    }
+}
+
 void CLOCK_Initialize (void)
 {
     /* MISRAC 2012 deviation block start */
@@ -178,6 +188,7 @@ void CLOCK_Initialize (void)
     GCLK2_Initialize();
     GCLK3_Initialize();
     GCLK4_Initialize();
+    GCLK6_Initialize();
     FDPLL0_Initialize();
     GCLK0_Initialize();
     GCLK1_Initialize();
@@ -220,7 +231,7 @@ void CLOCK_Initialize (void)
         /* Wait for synchronization */
     }
     /* Selection of the Generator and write Lock for I2S_0 */
-    GCLK_REGS->GCLK_PCHCTRL[43] = GCLK_PCHCTRL_GEN(0x4U)  | GCLK_PCHCTRL_CHEN_Msk;
+    GCLK_REGS->GCLK_PCHCTRL[43] = GCLK_PCHCTRL_GEN(0x6U)  | GCLK_PCHCTRL_CHEN_Msk;
 
     while ((GCLK_REGS->GCLK_PCHCTRL[43] & GCLK_PCHCTRL_CHEN_Msk) != GCLK_PCHCTRL_CHEN_Msk)
     {

@@ -36,7 +36,7 @@
 // *****************************************************************************
 // *****************************************************************************
 
-#define I2S_DMA_BUFFER_SIZE     10000   // 10000 samples per buffer
+#define I2S_DMA_BUFFER_SIZE     12000   // 12000 samples per buffer
 
 // I2S DMA Events
 typedef enum
