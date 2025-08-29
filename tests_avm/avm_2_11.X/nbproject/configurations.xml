@@ -159,6 +159,7 @@
               <itemPath>../src/config/default/usb/src/usb_device_cdc_local.h</itemPath>
               <itemPath>../src/config/default/usb/src/usb_device_mapping.h</itemPath>
               <itemPath>../src/config/default/usb/src/usb_device_function_driver.h</itemPath>
+              <itemPath>../src/config/default/usb/src/usb_device_msd_local.h</itemPath>
             </logicalFolder>
             <itemPath>../src/config/default/usb/usb_host_client_driver.h</itemPath>
             <itemPath>../src/config/default/usb/usb_device.h</itemPath>
@@ -169,6 +170,7 @@
             <itemPath>../src/config/default/usb/usb_host_hub_interface.h</itemPath>
             <itemPath>../src/config/default/usb/usb_chapter_9.h</itemPath>
             <itemPath>../src/config/default/usb/usb_hub.h</itemPath>
+            <itemPath>../src/config/default/usb/usb_device_msd.h</itemPath>
           </logicalFolder>
           <itemPath>../src/config/default/device.h</itemPath>
           <itemPath>../src/config/default/device_cache.h</itemPath>
