@@ -134,6 +134,9 @@ typedef struct
 
     /* Flag to indicate whether DMA buffer is ready to be written */
     volatile bool isDmaBufferReady;
+
+    /* Total bytes written to WAV file (sin incluir el encabezado) */
+    uint32_t totalBytesWritten;
 } APP_SDCARD_DATA;
 
 

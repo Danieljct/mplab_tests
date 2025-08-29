@@ -74,6 +74,14 @@
 #define LOG_BUFFER_LEN      64
 #define LOG_LEN             (LOG_TIME_LEN + LOG_BUFFER_LEN)
 
+// WAV header parameters
+#define WAV_NUM_CHANNELS    2
+#define WAV_SAMPLE_RATE     12000
+#define WAV_BITS_PER_SAMPLE 16
+#define WAV_BLOCK_ALIGN     (WAV_NUM_CHANNELS * WAV_BITS_PER_SAMPLE / 8)
+#define WAV_BYTE_RATE       (WAV_SAMPLE_RATE * WAV_BLOCK_ALIGN)
+#define WAV_HEADER_SIZE     44
+
 // *****************************************************************************
 /* Application Data
 
@@ -146,6 +154,51 @@ static void APP_SysFSEventHandler(SYS_FS_EVENT event,void* eventData,uintptr_t c
     }
 }
 
+static void WriteWavHeader(SYS_FS_HANDLE fileHandle, uint32_t dataSize)
+{
+    uint8_t header[WAV_HEADER_SIZE] = {
+        // RIFF chunk descriptor
+        'R','I','F','F',
+        0,0,0,0, // ChunkSize (to be filled)
+        'W','A','V','E',
+        // fmt subchunk
+        'f','m','t',' ',
+        16,0,0,0, // Subchunk1Size (16 for PCM)
+        1,0, // AudioFormat (1 = PCM)
+        WAV_NUM_CHANNELS,0, // NumChannels
+        WAV_SAMPLE_RATE & 0xFF, (WAV_SAMPLE_RATE >> 8) & 0xFF, (WAV_SAMPLE_RATE >> 16) & 0xFF, (WAV_SAMPLE_RATE >> 24) & 0xFF, // SampleRate
+        WAV_BYTE_RATE & 0xFF, (WAV_BYTE_RATE >> 8) & 0xFF, (WAV_BYTE_RATE >> 16) & 0xFF, (WAV_BYTE_RATE >> 24) & 0xFF, // ByteRate
+        WAV_BLOCK_ALIGN,0, // BlockAlign
+        WAV_BITS_PER_SAMPLE,0, // BitsPerSample
+        // data subchunk
+        'd','a','t','a',
+        0,0,0,0 // Subchunk2Size (to be filled)
+    };
+
+    uint32_t chunkSize = dataSize + 36;
+    uint32_t subchunk2Size = dataSize;
+
+    // Set ChunkSize
+    header[4] = (chunkSize) & 0xFF;
+    header[5] = (chunkSize >> 8) & 0xFF;
+    header[6] = (chunkSize >> 16) & 0xFF;
+    header[7] = (chunkSize >> 24) & 0xFF;
+
+    // Set Subchunk2Size
+    header[40] = (subchunk2Size) & 0xFF;
+    header[41] = (subchunk2Size >> 8) & 0xFF;
+    header[42] = (subchunk2Size >> 16) & 0xFF;
+    header[43] = (subchunk2Size >> 24) & 0xFF;
+
+    SYS_FS_FileSeek(fileHandle, 0, SYS_FS_SEEK_SET);
+    SYS_FS_FileWrite(fileHandle, header, WAV_HEADER_SIZE);
+}
+
+static void UpdateWavHeader(SYS_FS_HANDLE fileHandle, uint32_t dataSize)
+{
+    WriteWavHeader(fileHandle, dataSize);
+}
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Initialization and State Machine Functions
@@ -214,7 +267,7 @@ void APP_SDCARD_Tasks ( void )
             struct tm sys_time;
             RTC_RTCCTimeGet(&sys_time);
             
-            snprintf(fileName, sizeof(fileName), SDCARD_MOUNT_NAME"/"SDCARD_FILE_PREFIX"_%02d%02d%02d.raw",
+            snprintf(fileName, sizeof(fileName), SDCARD_MOUNT_NAME"/"SDCARD_FILE_PREFIX"_%02d%02d%02d.wav",
                     sys_time.tm_hour, sys_time.tm_min, sys_time.tm_sec);
 
             appSDCARDData.fileHandle = SYS_FS_FileOpen(fileName, (SYS_FS_FILE_OPEN_WRITE));
@@ -225,6 +278,10 @@ void APP_SDCARD_Tasks ( void )
                 appSDCARDData.state = APP_SDCARD_STATE_ERROR;
                 break;
             }
+
+            // Escribe el encabezado WAV inicial (sin datos)
+            WriteWavHeader(appSDCARDData.fileHandle, 0);
+            appSDCARDData.totalBytesWritten = 0;
 
             SYS_CONSOLE_PRINT("Audio file opened: %s\r\n", fileName);
             appSDCARDData.state = APP_SDCARD_STATE_WRITE;
@@ -246,8 +303,9 @@ void APP_SDCARD_Tasks ( void )
 
                 /* Get System Time from RTC. */
                 RTC_RTCCTimeGet(&sys_time);
-                
-                /* Write DMA buffer data directly to file */
+
+                // Escribe los datos después del encabezado WAV
+                SYS_FS_FileSeek(appSDCARDData.fileHandle, WAV_HEADER_SIZE + appSDCARDData.totalBytesWritten, SYS_FS_SEEK_SET);
                 size_t bytesWritten = SYS_FS_FileWrite(appSDCARDData.fileHandle, 
                                                       appSDCARDData.dmaBuffer, 
                                                       appSDCARDData.dmaBufferSize);
@@ -262,6 +320,7 @@ void APP_SDCARD_Tasks ( void )
                 {
                     /* The write was successful */
                     bufferCount++;
+                    appSDCARDData.totalBytesWritten += bytesWritten;
                     SYS_CONSOLE_PRINT("Done! Buffer #%u written (%u bytes) at [%02d:%02d:%02d]\r\n", 
                                      bufferCount, bytesWritten, 
                                      sys_time.tm_hour, sys_time.tm_min, sys_time.tm_sec);
@@ -280,6 +339,9 @@ void APP_SDCARD_Tasks ( void )
 
         case APP_SDCARD_STATE_CLOSE_FILE:
         {
+            // Actualiza el encabezado WAV con el tamaño final de los datos
+            UpdateWavHeader(appSDCARDData.fileHandle, appSDCARDData.totalBytesWritten);
+
             SYS_FS_FileClose(appSDCARDData.fileHandle);
 
             SYS_CONSOLE_PRINT("Audio logging to SDCARD Stopped \r\n");
