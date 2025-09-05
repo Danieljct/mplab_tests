@@ -4,7 +4,7 @@
 
 
 project: msd_test
-creation_date: 2025-08-29T18:24:31.415-04:00[America/Santiago]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2025-08-30T00:09:36.297-04:00[America/Santiago]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.5.2

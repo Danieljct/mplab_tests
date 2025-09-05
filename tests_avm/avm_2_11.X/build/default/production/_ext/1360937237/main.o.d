@@ -132,8 +132,8 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
  ../src/config/default/system/dma/sys_dma_mapping.h \
  ../src/config/default/peripheral/dmac/plib_dmac.h \
  ../src/config/default/driver/driver.h \
- ../src/config/default/peripheral/tc/plib_tc0.h \
  ../src/config/default/peripheral/rtc/plib_rtc.h \
+ ../src/config/default/peripheral/tc/plib_tc0.h \
  ../src/config/default/peripheral/sdhc/plib_sdhc0.h \
  ../src/config/default/peripheral/sdhc/plib_sdhc_common.h \
  ../src/config/default/system/time/sys_time.h \
@@ -188,7 +188,7 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
  ../src/app.h ../src/app_sdcard.h ../src/app_sdcard.h ../src/codec.h \
  ../src/ble_slave.h ../src/sd_handler.h ../src/i2s_dma_manager.h \
  ../src/config/default/audio/peripheral/i2s/plib_i2s.h \
- ../src/config/default/audio/driver/i2s/drv_i2s.h
+ ../src/config/default/audio/driver/i2s/drv_i2s.h ../src/button.h
 
 ../src/cdc.h:
 
@@ -462,9 +462,9 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
 
 ../src/config/default/driver/driver.h:
 
-../src/config/default/peripheral/tc/plib_tc0.h:
-
 ../src/config/default/peripheral/rtc/plib_rtc.h:
+
+../src/config/default/peripheral/tc/plib_tc0.h:
 
 ../src/config/default/peripheral/sdhc/plib_sdhc0.h:
 
@@ -585,3 +585,5 @@ build/default/production/_ext/1360937237/main.o: ../src/main.c \
 ../src/config/default/audio/peripheral/i2s/plib_i2s.h:
 
 ../src/config/default/audio/driver/i2s/drv_i2s.h:
+
+../src/button.h:

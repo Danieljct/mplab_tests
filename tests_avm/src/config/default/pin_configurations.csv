@@ -10,8 +10,8 @@ Pin Number,Pin ID,Custom Name,Function,Mode, Direction,Latch,Pull Up,Pull Down,D
 11,PB08,LED_R,GPIO,Digital,Out,Low,,,NORMAL
 12,PB09,LED_G,GPIO,Digital,Out,Low,,,NORMAL
 13,PA04,LED_B,GPIO,Digital,Out,Low,,,NORMAL
-14,PA05,,Available,,,,,,NORMAL
-15,PA06,,Available,,,,,,NORMAL
+14,PA05,BTN_1,EIC_EXTINT5,Digital,High Impedance,n/a,Yes,No,NORMAL
+15,PA06,BTN_2,EIC_EXTINT6,Digital,In,n/a,Yes,No,NORMAL
 16,PA07,PWR_SD_LDO_EN,GPIO,Digital,Out,Low,,,NORMAL
 17,PA08,,SDHC0_SDCMD,Digital,High Impedance,n/a,No,No,NORMAL
 18,PA09,,SDHC0_SDDAT0,Digital,High Impedance,n/a,No,No,NORMAL

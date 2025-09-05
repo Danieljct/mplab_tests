@@ -34,6 +34,7 @@
 #include "ble_slave.h"   
 #include "sd_handler.h"
 #include "i2s_dma_manager.h"  // Nuevo manager I2S/DMA
+#include "button.h"
 
 static bool volatile bToggleLED = false;
 static uint16_t volatile adcValue = 0;
@@ -117,7 +118,7 @@ void I2S_BufferCompleteCallback(I2S_DMA_EVENT event, I2S_DMA_BUFFER_ID bufferID,
         {
             SYS_CONSOLE_PRINT("Primeras 4 muestras: 0x%08X 0x%08X 0x%08X 0x%08X\r\n",
                               buffer[0], buffer[1], buffer[2], buffer[3]);
-            
+            SYS_CONSOLE_PRINT("BTN 1: %d", BTN_1_Get());
             // Verificar si contiene datos reales del I2S
             bool hasI2SData = false;
             if (bufferID == I2S_DMA_BUFFER_0)
@@ -145,6 +146,9 @@ void I2S_BufferCompleteCallback(I2S_DMA_EVENT event, I2S_DMA_BUFFER_ID bufferID,
 // *****************************************************************************
 // *****
 
+
+
+
 int main ( void )
 {
     // Initialize all modules
@@ -169,7 +173,8 @@ int main ( void )
     PWR_STBY_Clear();
     PWR_SD_LDO_EN_Set();
     COD_RESET_Set();
-    
+    BTN_InterruptInit();
+
     // Enable ADC1
     ADC1_Enable();
 

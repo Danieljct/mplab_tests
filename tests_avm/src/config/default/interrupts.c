@@ -79,7 +79,7 @@ void __attribute__((optimize("-O1"), long_call, noreturn, used))Dummy_Handler(vo
 }
 
 /* MISRAC 2012 deviation block start */
-/* MISRA C-2012 Rule 8.6 deviated 106 times.  Deviation record ID -  H3_MISRAC_2012_R_8_6_DR_1 */
+/* MISRA C-2012 Rule 8.6 deviated 104 times.  Deviation record ID -  H3_MISRAC_2012_R_8_6_DR_1 */
 /* Device vectors list dummy definition*/
 extern void SVCall_Handler             ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
 extern void PendSV_Handler             ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
@@ -100,8 +100,6 @@ extern void EIC_EXTINT_1_Handler       ( void ) __attribute__((weak, alias("Dumm
 extern void EIC_EXTINT_2_Handler       ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
 extern void EIC_EXTINT_3_Handler       ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
 extern void EIC_EXTINT_4_Handler       ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
-extern void EIC_EXTINT_5_Handler       ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
-extern void EIC_EXTINT_6_Handler       ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
 extern void EIC_EXTINT_7_Handler       ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
 extern void EIC_EXTINT_8_Handler       ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
 extern void EIC_EXTINT_9_Handler       ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));

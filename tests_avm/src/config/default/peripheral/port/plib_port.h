@@ -101,6 +101,14 @@
 #define LED_B_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 4U)) & 0x01U)
 #define LED_B_PIN                  PORT_PIN_PA04
 
+/*** Macros for BTN_1 pin ***/
+#define BTN_1_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 5U)) & 0x01U)
+#define BTN_1_PIN                  PORT_PIN_PA05
+
+/*** Macros for BTN_2 pin ***/
+#define BTN_2_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 6U)) & 0x01U)
+#define BTN_2_PIN                  PORT_PIN_PA06
+
 /*** Macros for PWR_SD_LDO_EN pin ***/
 #define PWR_SD_LDO_EN_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = ((uint32_t)1U << 7U))
 #define PWR_SD_LDO_EN_Clear()             (PORT_REGS->GROUP[0].PORT_OUTCLR = ((uint32_t)1U << 7U))

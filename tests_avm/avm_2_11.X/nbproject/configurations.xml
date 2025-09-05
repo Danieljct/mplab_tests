@@ -319,6 +319,7 @@
       <itemPath>../src/sd_handler.h</itemPath>
       <itemPath>../src/i2s_dma_manager.h</itemPath>
       <itemPath>../src/app_sdcard.h</itemPath>
+      <itemPath>../src/button.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -482,6 +483,7 @@
       <itemPath>../src/sd_handler.c</itemPath>
       <itemPath>../src/i2s_dma_manager.c</itemPath>
       <itemPath>../src/app_sdcard.c</itemPath>
+      <itemPath>../src/button.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
