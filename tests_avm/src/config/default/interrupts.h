@@ -75,6 +75,7 @@ void DRV_USBFSV1_TRCPT0_Handler (void);
 void DRV_USBFSV1_TRCPT1_Handler (void);
 void TC0_TimerInterruptHandler (void);
 void TC1_TimerInterruptHandler (void);
+void TC2_TimerInterruptHandler (void);
 void SDHC0_InterruptHandler (void);
 
 

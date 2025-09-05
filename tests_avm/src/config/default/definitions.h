@@ -55,6 +55,7 @@
 #include "audio/driver/i2s/drv_i2s.h"
 #include "peripheral/rtc/plib_rtc.h"
 #include "peripheral/tc/plib_tc0.h"
+#include "peripheral/tc/plib_tc2.h"
 #include "peripheral/sdhc/plib_sdhc0.h"
 #include "system/time/sys_time.h"
 #include "usb/usb_device_cdc.h"

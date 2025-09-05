@@ -131,6 +131,7 @@ build/default/production/_ext/1171490990/interrupts.o: \
  ../src/config/default/driver/driver.h \
  ../src/config/default/peripheral/rtc/plib_rtc.h \
  ../src/config/default/peripheral/tc/plib_tc0.h \
+ ../src/config/default/peripheral/tc/plib_tc2.h \
  ../src/config/default/peripheral/sdhc/plib_sdhc0.h \
  ../src/config/default/peripheral/sdhc/plib_sdhc_common.h \
  ../src/config/default/system/time/sys_time.h \
@@ -455,6 +456,8 @@ build/default/production/_ext/1171490990/interrupts.o: \
 ../src/config/default/peripheral/rtc/plib_rtc.h:
 
 ../src/config/default/peripheral/tc/plib_tc0.h:
+
+../src/config/default/peripheral/tc/plib_tc2.h:
 
 ../src/config/default/peripheral/sdhc/plib_sdhc0.h:
 

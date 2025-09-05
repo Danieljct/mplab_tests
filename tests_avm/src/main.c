@@ -52,6 +52,7 @@ int* real_i2s;
 // This function is called after period expires
 void TC0_CH0_TimerInterruptHandler(uint32_t status, uintptr_t context)
 {
+    BTN_TimerTick_50ms();
     bToggleLED = true;
 }
 
@@ -59,6 +60,13 @@ void TC0_CH0_TimerInterruptHandler(uint32_t status, uintptr_t context)
 void TC1_CH0_TimerInterruptHandler(uint32_t status, uintptr_t context)
 {
     LED_B_Toggle();
+}
+
+// Handler del timer TC2 - configurado para 50ms
+void TC2_CH0_TimerInterruptHandler(uint32_t status, uintptr_t context)
+{
+    //SYS_CONSOLE_PRINT("TICK");
+    //BTN_TimerTick_50ms();
 }
 
 // Callback para cuando se completa una transacción SPI
@@ -100,6 +108,7 @@ void ProcessSPICommands(void)
     }
 }
 
+
 // Callback para cuando se completa un buffer I2S DMA
 void I2S_BufferCompleteCallback(I2S_DMA_EVENT event, I2S_DMA_BUFFER_ID bufferID, 
                                 uint32_t* buffer, uintptr_t context)
@@ -110,17 +119,20 @@ void I2S_BufferCompleteCallback(I2S_DMA_EVENT event, I2S_DMA_BUFFER_ID bufferID,
     {
         transferCount++;
         
-        SYS_CONSOLE_PRINT("=== BUFFER %d COMPLETO (Transfer #%u) ===\r\n", 
-                          bufferID, transferCount);
+        //SYS_CONSOLE_PRINT("=== BUFFER %d COMPLETO (Transfer #%u) ===\r\n", 
+       //                   bufferID, transferCount);
         
         // Mostrar algunas muestras
         if (buffer != NULL)
         {
-            SYS_CONSOLE_PRINT("Primeras 4 muestras: 0x%08X 0x%08X 0x%08X 0x%08X\r\n",
-                              buffer[0], buffer[1], buffer[2], buffer[3]);
-            SYS_CONSOLE_PRINT("BTN 1: %d", BTN_1_Get());
+          //  SYS_CONSOLE_PRINT("Primeras 4 muestras: 0x%08X 0x%08X 0x%08X 0x%08X\r\n",
+           //                   buffer[0], buffer[1], buffer[2], buffer[3]);
             // Verificar si contiene datos reales del I2S
-            bool hasI2SData = false;
+
+             SYS_CONSOLE_PRINT("Modo timer: %u, Activo: %u, Btn1: %u, Btn2: %u\n",
+                                BTN_GetTimerMode(), BTN_GetTimerActive(), 
+                                BTN_GetBtn1Count(), BTN_GetBtn2Count());
+             bool hasI2SData = false;
             if (bufferID == I2S_DMA_BUFFER_0)
             {
                 hasI2SData = (buffer[0] != 0xBEEF0000) || (buffer[1] != 0xBEEF0001);
@@ -147,8 +159,6 @@ void I2S_BufferCompleteCallback(I2S_DMA_EVENT event, I2S_DMA_BUFFER_ID bufferID,
 // *****
 
 
-
-
 int main ( void )
 {
     // Initialize all modules
@@ -173,7 +183,9 @@ int main ( void )
     PWR_STBY_Clear();
     PWR_SD_LDO_EN_Set();
     COD_RESET_Set();
+    
     BTN_InterruptInit();
+
 
     // Enable ADC1
     ADC1_Enable();
@@ -189,7 +201,8 @@ int main ( void )
     
     // Start TC1 timer for I2S sampling
     TC1_TimerStart();
-    
+        TC2_TimerCallbackRegister(TC2_CH0_TimerInterruptHandler, (uintptr_t)NULL);
+    TC2_TimerStart();
     SYS_CONSOLE_PRINT("=== Sistema AVM Iniciado ===\r\n");
     
     while ( true )
@@ -285,6 +298,39 @@ int main ( void )
                 SYS_CONSOLE_PRINT("Datos de sensor escritos: %s\r\n", dataFile);
             }
             dataCounter++;
+        }
+
+        // Imprimir gesto detectado por los botones
+        if (BTN_getFlagStatus())
+        {
+            button_gesture_t gesto = BTN_getGesture();
+            switch (gesto)
+            {
+                case SIMPLE1:
+                    SYS_CONSOLE_PRINT("Gesto: SIMPLE1\r\n");
+                    break;
+                case SIMPLE2:
+                    SYS_CONSOLE_PRINT("Gesto: SIMPLE2\r\n");
+                    break;
+                case DOBLE1:
+                    SYS_CONSOLE_PRINT("Gesto: DOBLE1\r\n");
+                    break;
+                case DOBLE2:
+                    SYS_CONSOLE_PRINT("Gesto: DOBLE2\r\n");
+                    break;
+                case DOSBTN:
+                    SYS_CONSOLE_PRINT("Gesto: DOSBTN\r\n");
+                    break;
+                case LONG1:
+                    SYS_CONSOLE_PRINT("Gesto: LONG1\r\n");
+                    break;
+                case LONG2:
+                    SYS_CONSOLE_PRINT("Gesto: LONG2\r\n");
+                    break;
+                default:
+                    // No imprime para NO_PRESS o gestos no implementados
+                    break;
+            }
         }
     }
 

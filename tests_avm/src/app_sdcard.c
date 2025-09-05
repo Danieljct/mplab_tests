@@ -297,7 +297,7 @@ void APP_SDCARD_Tasks ( void )
                 struct tm sys_time;
                 static uint32_t bufferCount = 0;
                 
-                SYS_CONSOLE_PRINT("Writing DMA buffer %d to SDCARD...", appSDCARDData.dmaBufferID);
+                //SYS_CONSOLE_PRINT("Writing DMA buffer %d to SDCARD...", appSDCARDData.dmaBufferID);
 
                 appSDCARDData.isDmaBufferReady = false;
 
@@ -321,9 +321,9 @@ void APP_SDCARD_Tasks ( void )
                     /* The write was successful */
                     bufferCount++;
                     appSDCARDData.totalBytesWritten += bytesWritten;
-                    SYS_CONSOLE_PRINT("Done! Buffer #%u written (%u bytes) at [%02d:%02d:%02d]\r\n", 
-                                     bufferCount, bytesWritten, 
-                                     sys_time.tm_hour, sys_time.tm_min, sys_time.tm_sec);
+                 //   SYS_CONSOLE_PRINT("Done! Buffer #%u written (%u bytes) at [%02d:%02d:%02d]\r\n", 
+                   //                  bufferCount, bytesWritten, 
+                   //                  sys_time.tm_hour, sys_time.tm_min, sys_time.tm_sec);
 
                     LED_G_Toggle();
 
