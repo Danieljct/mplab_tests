@@ -267,7 +267,6 @@ void BTN_InterruptInit(void)
     EIC_REGS->EIC_CTRLA |= EIC_CTRLA_CKSEL_Msk;  // Usa el reloj CLK_ULP32K para el EIC
     EIC_REGS->EIC_CTRLA |= EIC_CTRLA_ENABLE_Msk; // Habilita el EIC
 
-    // Configurar TC2 para interrumpir cada 50ms
 
 }
 
