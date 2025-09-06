@@ -1,4 +1,3 @@
-
 # 🛠️ Tutorial: Cómo usar MPLAB
 
 ## Recursos oficiales
@@ -24,6 +23,46 @@ Recomiendo seguir este tutorial como primer paso:
 ---
 
 ## ⚙️ Configuración de periféricos AVM
+
+### Systick
+Para generar delays, es buena idea tener el systick habilitado, para esto en device resources se busca:
+```
+Libraries → Harmony → System Services → TIME
+```
+<div align="center">
+	<img src="assets/images/TIME.png" alt="TIME configurator" width="250"/>
+</div>
+
+En TMR, dando clic derecho se puede agregar el satisfacer RTC en caso de no tenerlo agregado, luego, haciendo clic en el bloque TIME, se puede agregar systick y su ratio:
+
+<div align="center">
+	<img src="assets/images/systick.png" alt="systick configurator" width="400"/>
+</div>
+
+---
+
+Una vez activado y configurado, al generar código puedes utilizar funciones como:
+
+```c
+void SYSTICK_TimerInitialize(void);
+void SYSTICK_TimerRestart(void);
+void SYSTICK_TimerStart(void);
+void SYSTICK_TimerStop(void);
+void SYSTICK_TimerPeriodSet(uint32_t period);
+uint32_t SYSTICK_TimerPeriodGet(void);
+uint32_t SYSTICK_TimerCounterGet(void);
+uint32_t SYSTICK_TimerFrequencyGet(void);
+void SYSTICK_DelayMs(uint32_t delay_ms);
+void SYSTICK_DelayUs(uint32_t delay_us);
+```
+
+Estas funciones están disponibles en:
+
+```
+src/config/default/peripheral/port/systick/plib_systick.h
+```
+
+
 
 ### ⏰ Configuración de relojes
 
@@ -65,3 +104,4 @@ Se recomienda, en primera instancia, cambiar el paquete:
 
 - [Configuración de GPIO](./assets/GPIO.md)
 - [Configuración de Timers](./assets/Timers.md)
+- [Configuración de I2C](./assets/I2C.md)
