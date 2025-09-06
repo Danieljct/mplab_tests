@@ -36,7 +36,18 @@ En el plugin **Pin Configurator**, busca los pines físicos y asígnales el SERC
 
 ---
 
-## 4. (Opcional) Agregar Driver
+## 4. Configurar reloj
+
+En el plugin **Clock configurator**, busca la sección de Peripheral Clock Configurator, baja hasta llegar al SERCOM correspondiente y asegúrate que tenga reloj asignado.
+
+<div align="center">
+	<img src="images/sercom_reloj.png" alt="SERCOM CLK" width="600"/>
+</div>
+
+
+
+
+## 4.5 (Opcional) Agregar Driver
 
 > ⚠️ **Advertencia:**  
 > Se puede agregar el driver desde el *Project Graph*. En algunos casos funciona correctamente, pero en otros puede presentar problemas.

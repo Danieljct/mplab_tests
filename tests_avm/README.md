@@ -105,3 +105,4 @@ Se recomienda, en primera instancia, cambiar el paquete:
 - [Configuración de GPIO](./assets/GPIO.md)
 - [Configuración de Timers](./assets/Timers.md)
 - [Configuración de I2C](./assets/I2C.md)
+- [Configuración de SPI](./assets/SPI.md)
