@@ -56,7 +56,7 @@ void TC0_CH0_TimerInterruptHandler(uint32_t status, uintptr_t context)
     bToggleLED = true;
 }
 
-// Callback para TC1 - controla lectura I2S a 1kHz
+
 void TC1_CH0_TimerInterruptHandler(uint32_t status, uintptr_t context)
 {
     LED_B_Toggle();

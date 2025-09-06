@@ -10483,9 +10483,9 @@
         &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;sys_debug&quot; x=&quot;821&quot; y=&quot;276&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;sys_fs&quot; x=&quot;293&quot; y=&quot;398&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;18&quot; id=&quot;sys_time&quot; x=&quot;328&quot; y=&quot;263&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;19&quot; id=&quot;tc0&quot; x=&quot;527&quot; y=&quot;15&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;19&quot; id=&quot;tc0&quot; x=&quot;803&quot; y=&quot;91&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;20&quot; id=&quot;tc1&quot; x=&quot;797&quot; y=&quot;13&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;21&quot; id=&quot;tc2&quot; x=&quot;663&quot; y=&quot;14&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;21&quot; id=&quot;tc2&quot; x=&quot;663&quot; y=&quot;13&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;22&quot; id=&quot;usb_device&quot; x=&quot;657&quot; y=&quot;472&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;23&quot; id=&quot;usb_device_cdc&quot; x=&quot;463&quot; y=&quot;260&quot;/&gt;
       &lt;/ElementPositions&gt;
