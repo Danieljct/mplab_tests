@@ -2,6 +2,7 @@
 # 🛠️ Tutorial: Cómo usar MPLAB
 
 ## Recursos oficiales
+🔗 [Datasheet SAM D5x/E5x Family](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU32/ProductDocuments/DataSheets/SAM-D5x-E5x-Family-Data-Sheet-DS60001507.pdf)
 
 🔗 [Tutoriales oficiales de Microchip Technology](https://mu.microchip.com/page/embedded-system-design)
 
