@@ -62,4 +62,4 @@ Se recomienda, en primera instancia, cambiar el paquete:
 
 ## 📚 Periféricos utilizados en el AVM
 
-- [Configuración de GPIO](./assets/gpio.md)
+- [Configuración de GPIO](./assets/GPIO.md)
