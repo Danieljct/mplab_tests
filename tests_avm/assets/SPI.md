@@ -1,18 +1,20 @@
 # Configuración de SPI (Modo Esclavo)
 
+## 1. Introducción
+
 El AVM utiliza **SPI en modo esclavo** para comunicarse con el NRF52830.  
 Esta guía describe cómo configurar el SPI slave.
 
 ---
 
-## 1. Agregar el SERCOMx
+## 2. Agregar el SERCOMx
 
 Para agregar el periférico SERCOMx, consulta la guía:  
 [Configuración de I2C (SERCOM)](./I2C.md)
 
 ---
 
-## 2. Configuración del SERCOMx como SPI Slave
+## 3. Configuración del SERCOMx como SPI Slave
 
 En las opciones de configuración del SERCOMx, selecciona el modo **SPI Slave**:
 
@@ -24,7 +26,7 @@ En las opciones de configuración del SERCOMx, selecciona el modo **SPI Slave**:
 
 ---
 
-## 3. Configuración de Pines
+## 4. Configuración de Pines
 
 Configura los pines correspondientes en el *Pin Configurator*:
 
@@ -36,7 +38,7 @@ Configura los pines correspondientes en el *Pin Configurator*:
 
 ---
 
-## 4. Funciones Disponibles
+## 5. Funciones Disponibles
 
 Al generar el código, estarán disponibles funciones en:
 
@@ -44,11 +46,17 @@ Al generar el código, estarán disponibles funciones en:
 src/config/default/peripheral/sercom/spi_slave/plib_sercom2_spi_slave.h
 ```
 
+| Función                                 | Descripción                                 |
+|------------------------------------------|---------------------------------------------|
+| `SERCOM2_SPI_Initialize()`               | Inicializa el SPI slave                     |
+| `SERCOM2_SPI_CallbackRegister(...)`      | Registra el callback de SPI                 |
+| `SERCOM2_SPI_Read(...)`                  | Lee datos recibidos                         |
+| `SERCOM2_SPI_ReadCountGet()`             | Obtiene la cantidad de bytes recibidos      |
+| `SERCOM2_SPI_ErrorGet()`                 | Obtiene el estado de error                  |
+
 ---
 
-## 5. Ejemplo de Uso en main.c
-
-En el archivo [main](../src/main.c) de ejemplo se encuentra la inicialización y el callback:
+## 6. Ejemplo de Uso en main.c
 
 ```c
 // Callback para cuando se completa una transacción SPI
@@ -94,7 +102,7 @@ void main(){
 
 ---
 
-## 6. Procesamiento de Comandos SPI
+## 7. Procesamiento de Comandos SPI
 
 Además, se incluyen los archivos [ble_slave.c](../src/ble_slave.c) y [AVM_ble_cmd.c](../src/AVM_ble_cmd.c) para procesar los comandos como en el AVM.
 

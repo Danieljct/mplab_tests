@@ -1,11 +1,13 @@
 # Configuración de ADC
 
+## 1. Introducción
+
 > ℹ️ **Nota:**  
 > El AVM mide batería por PMIC, pero dejo esta guía por si acaso.
 
 ---
 
-## 1. Agregar instancia de ADC
+## 2. Agregar instancia de ADC
 
 En el **Project Graph**, agrega una instancia de ADC desde:
 
@@ -15,7 +17,7 @@ Libraries → Harmony → Peripherals → ADC → ADCx
 
 ---
 
-## 2. Configuración del bloque ADC
+## 3. Configuración del bloque ADC
 
 - Elige el **pin** a utilizar.
 - Configura los requerimientos de conversión necesarios.
@@ -26,7 +28,7 @@ Libraries → Harmony → Peripherals → ADC → ADCx
 
 ---
 
-## 3. Configuración del Pin
+## 4. Configuración del Pin
 
 Configura el pin como **ADC** en *Pin Settings*:
 
@@ -36,7 +38,7 @@ Configura el pin como **ADC** en *Pin Settings*:
 
 ---
 
-## 4. Asignación de Reloj
+## 5. Asignación de Reloj
 
 Asegúrate de asignar un reloj en **Peripheral Clock Configuration**:
 
@@ -46,15 +48,23 @@ Asegúrate de asignar un reloj en **Peripheral Clock Configuration**:
 
 ---
 
-## 5. Uso en el Código
+## 6. Uso en el Código
 
 Al generar código, se crean los archivos en:
 
 ```
-src\config\default\peripheral\adc/
+src/config/default/peripheral/adc/
 ```
 
-En ellos encontrarás las funciones necesarias para leer del ADC.  
+En ellos encontrarás las funciones necesarias para leer del ADC.
+
+| Función                       | Descripción                        |
+|-------------------------------|------------------------------------|
+| `ADC1_Enable()`               | Habilita el ADC                    |
+| `ADC1_ConversionStart()`      | Inicia la conversión               |
+| `ADC1_ConversionStatusGet()`  | Consulta si la conversión terminó  |
+| `ADC1_ConversionResultGet()`  | Obtiene el resultado               |
+
 **Ejemplo de uso:**
 
 ```c
@@ -72,7 +82,7 @@ ADC1_ConversionResultGet();
 
 ---
 
-## 6. Configuración avanzada
+## 7. Configuración avanzada
 
 Para configuraciones más sofisticadas, existe un plugin de **ADC Configuration**:
 

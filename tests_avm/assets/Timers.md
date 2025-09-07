@@ -44,6 +44,11 @@ Para editar el reloj, accede al plugin mencionado y en la opción **Peripheral C
 
 ## 4. Uso en el Código
 
+| Función                                 | Descripción                                 |
+|------------------------------------------|---------------------------------------------|
+| `TC1_TimerCallbackRegister(...)`         | Registra el callback para la interrupción   |
+| `TC1_TimerStart()`                       | Inicia el timer                             |
+
 > ⚡ **Ejemplo:** Iniciar el timer y registrar el callback de interrupción.
 
 ```c

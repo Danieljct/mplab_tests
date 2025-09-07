@@ -1,4 +1,4 @@
-# Configuración de Pines GPIO
+# Configuración de GPIO
 
 ## 1. Selección de Pines
 
@@ -20,13 +20,12 @@ Al generar el código, las macros correspondientes aparecerán en el archivo:
 src/config/default/peripheral/port/plib_port.h
 ```
 
-Estas macros permiten leer o escribir en el GPIO según el nombre asignado.  
-**Ejemplo:**
+Estas macros permiten leer o escribir en el GPIO según el nombre asignado.
 
-| Pin      | Macro para Escribir | Macro para Leer | Macro para Configurar |
-|----------|--------------------|-----------------|----------------------|
-| LED_R    | `LED_R_Set()`<br>`LED_R_Clear()`<br>`LED_R_Toggle()` | `LED_R_Get()` | `LED_R_OutputEnable()`<br>`LED_R_InputEnable()` |
-| BTN_1    | -                  | `BTN_1_Get()`   | -                    |
+| Pin   | Macros para Escribir                        | Macro para Leer   | Macros para Configurar           |
+|-------|---------------------------------------------|-------------------|----------------------------------|
+| LED_R | `LED_R_Set()`<br>`LED_R_Clear()`<br>`LED_R_Toggle()` | `LED_R_Get()`     | `LED_R_OutputEnable()`<br>`LED_R_InputEnable()` |
+| BTN_1 | -                                           | `BTN_1_Get()`     | -                                |
 
 ```c
 // --- Macros para el pin LED_R ---

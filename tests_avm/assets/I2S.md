@@ -1,7 +1,5 @@
 # Configuración de I2S con DMA
 
----
-
 ## 1. Agregar bloques necesarios
 
 Agrega los siguientes bloques desde:
