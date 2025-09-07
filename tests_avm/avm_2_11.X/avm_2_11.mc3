@@ -10465,13 +10465,13 @@
     &lt;ComponentGraph dnOrder=&quot;2&quot; id=&quot;__ROOTVIEW&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
         &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;HarmonyCore&quot; x=&quot;293&quot; y=&quot;218&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;a_drv_i2s&quot; x=&quot;504&quot; y=&quot;90&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;a_drv_i2s&quot; x=&quot;525&quot; y=&quot;57&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;a_i2s&quot; x=&quot;366&quot; y=&quot;140&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;adc1&quot; x=&quot;673&quot; y=&quot;102&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;cmsis&quot; x=&quot;430&quot; y=&quot;60&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;core&quot; x=&quot;349&quot; y=&quot;58&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;dfp&quot; x=&quot;341&quot; y=&quot;20&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;7&quot; id=&quot;drv_sdmmc&quot; x=&quot;157&quot; y=&quot;331&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;7&quot; id=&quot;drv_sdmmc&quot; x=&quot;148&quot; y=&quot;289&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;8&quot; id=&quot;drv_usbfs_v1&quot; x=&quot;747&quot; y=&quot;441&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;9&quot; id=&quot;evsys&quot; x=&quot;182&quot; y=&quot;20&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;10&quot; id=&quot;nvmctrl&quot; x=&quot;20&quot; y=&quot;19&quot;/&gt;
@@ -10479,15 +10479,15 @@
         &lt;ElementPosition dnOrder=&quot;12&quot; id=&quot;sdhc0&quot; x=&quot;1&quot; y=&quot;375&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;13&quot; id=&quot;sercom1&quot; x=&quot;0&quot; y=&quot;211&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;14&quot; id=&quot;sercom2&quot; x=&quot;141&quot; y=&quot;136&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;sys_console&quot; x=&quot;650&quot; y=&quot;221&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;sys_debug&quot; x=&quot;821&quot; y=&quot;276&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;sys_fs&quot; x=&quot;309&quot; y=&quot;360&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;15&quot; id=&quot;sys_console&quot; x=&quot;624&quot; y=&quot;250&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;16&quot; id=&quot;sys_debug&quot; x=&quot;788&quot; y=&quot;316&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;17&quot; id=&quot;sys_fs&quot; x=&quot;310&quot; y=&quot;349&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;18&quot; id=&quot;sys_time&quot; x=&quot;257&quot; y=&quot;528&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;19&quot; id=&quot;tc0&quot; x=&quot;803&quot; y=&quot;91&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;20&quot; id=&quot;tc1&quot; x=&quot;797&quot; y=&quot;13&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;21&quot; id=&quot;tc2&quot; x=&quot;663&quot; y=&quot;13&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;22&quot; id=&quot;usb_device&quot; x=&quot;585&quot; y=&quot;425&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;23&quot; id=&quot;usb_device_cdc&quot; x=&quot;463&quot; y=&quot;260&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;22&quot; id=&quot;usb_device&quot; x=&quot;551&quot; y=&quot;437&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;23&quot; id=&quot;usb_device_cdc&quot; x=&quot;451&quot; y=&quot;293&quot;/&gt;
       &lt;/ElementPositions&gt;
     &lt;/ComponentGraph&gt;
   &lt;/UserData&gt;
@@ -29625,7 +29625,9 @@
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="sys_console_0" name="SYS_CONSOLE_DEVICE"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_console_0&gt;
   &lt;sys_console_0 dnOrder=&quot;0&quot; id=&quot;SYS_CONSOLE_DEVICE&quot;&gt;
-    &lt;Values dnOrder=&quot;0&quot;/&gt;
+    &lt;Values dnOrder=&quot;0&quot;&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;sys_console_0&quot; value=&quot;USB_DEVICE_CDC_0&quot;/&gt;
+    &lt;/Values&gt;
   &lt;/sys_console_0&gt;
 &lt;/sys_console_0&gt;
 </value>
@@ -29646,7 +29648,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;sys_console_0&gt;
   &lt;sys_console_0 dnOrder=&quot;0&quot; id=&quot;SYS_CONSOLE_DEVICE_SET&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;sys_console_0&quot; value=&quot;&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;sys_console_0&quot; value=&quot;USB_CDC&quot;/&gt;
     &lt;/Values&gt;
   &lt;/sys_console_0&gt;
 &lt;/sys_console_0&gt;
@@ -29836,7 +29838,7 @@
   &lt;sys_console_0 dnOrder=&quot;0&quot; id=&quot;SYS_CONSOLE_USB_CDC_SOURCE&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
   &lt;/sys_console_0&gt;
@@ -29849,7 +29851,7 @@
   &lt;sys_console_0 dnOrder=&quot;0&quot; id=&quot;SYS_CONSOLE_USB_DEFINITIONS_HEADER&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
   &lt;/sys_console_0&gt;
@@ -29873,7 +29875,7 @@
   &lt;sys_console_0 dnOrder=&quot;0&quot; id=&quot;SYS_CONSOLE_USB_HEADER&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
       &lt;Boolean dnOrder=&quot;0&quot; id=&quot;enabled&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;false&lt;/Value&gt;
+        &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
   &lt;/sys_console_0&gt;

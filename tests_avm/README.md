@@ -106,3 +106,4 @@ Se recomienda, en primera instancia, cambiar el paquete:
 - [Configuración de Timers](./assets/Timers.md)
 - [Configuración de I2C](./assets/I2C.md)
 - [Configuración de SPI](./assets/SPI.md)
+- [Configuración de USB CDC](./assets/usb_cdc.md)
