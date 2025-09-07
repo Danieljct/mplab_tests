@@ -55,6 +55,17 @@ La **USB device layer** debe tener las siguientes configuraciones:
 
 ---
 
+## 5.1. Configuración de Pines USB
+
+Los pines del USB deben ser configurados como se muestra a continuación:
+
+<div align="center">
+    <img src="images/pines_USB.png" alt="Usb pines" width="800"/>
+</div>
+
+---
+
+
 ## 6. Prueba de funcionamiento
 
 Con estas configuraciones, al generar código y cargar el firmware, el PC debería detectar el **puerto COM** automáticamente.

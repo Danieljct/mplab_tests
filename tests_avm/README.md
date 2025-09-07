@@ -107,4 +107,5 @@ Se recomienda, en primera instancia, cambiar el paquete:
 - [Configuración de I2C](./assets/I2C.md)
 - [Configuración de SPI](./assets/SPI.md)
 - [Configuración de USB CDC](./assets/usb_cdc.md)
+- [Configuración de I2S + DMA](./assets/I2S.md)
 - [Configuración de SD](./assets/SD.md)

@@ -55,6 +55,8 @@ Configura los pines según el siguiente esquema:
 	<img src="images/SD_pines.png" alt="SD pin configuration" width="850"/>
 </div>
 
+> ⚠️ **Nota:**  
+> Recuerda poner el pin de voltaje de la SD en **alto** antes de inicializarla.
 ---
 
 ## 5. Crear la aplicación en el core
