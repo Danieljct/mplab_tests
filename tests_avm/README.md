@@ -102,10 +102,22 @@ Se recomienda, en primera instancia, cambiar el paquete:
 
 ## 📚 Periféricos utilizados en el AVM
 
-- [Configuración de GPIO](./assets/GPIO.md)
-- [Configuración de Timers](./assets/Timers.md)
-- [Configuración de I2C](./assets/I2C.md)
-- [Configuración de SPI](./assets/SPI.md)
-- [Configuración de USB CDC](./assets/usb_cdc.md)
-- [Configuración de I2S + DMA](./assets/I2S.md)
-- [Configuración de SD](./assets/SD.md)
+> 📋 **Recomendación:**  
+> Los siguientes periféricos están ordenados por dificultad.  
+> Si eres nuevo en MPLAB, sigue este orden para facilitar el aprendizaje:
+
+| Orden | Periférico                        | Enlace                                      |
+|-------|-----------------------------------|---------------------------------------------|
+| 1     | GPIO                              | [Configuración de GPIO](./assets/GPIO.md)   |
+| 2     | Timers                            | [Configuración de Timers](./assets/Timers.md)     |
+| 3     | ADC                               | [Configuración de ADC](./assets/ADC.md)|
+| 4     | I2C                               | [Configuración de I2C](./assets/I2C.md)     |
+| 5     | SPI                               | [Configuración de SPI](./assets/SPI.md)     |
+| 6     | USB CDC                           | [Configuración de USB CDC](./assets/usb_cdc.md) |
+| 7     | I2S + DMA                         | [Configuración de I2S + DMA](./assets/I2S.md)   |
+| 8     | SD                                | [Configuración de SD](./assets/SD.md)       |
+
+---
+
+> 🥀 **Nota:**  
+> Nunca pude hacer funcionar el almacenamiento masivo por USB con la SD 🥀

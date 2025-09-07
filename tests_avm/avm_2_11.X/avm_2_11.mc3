@@ -10464,10 +10464,10 @@
     &lt;/PowerProfiles&gt;
     &lt;ComponentGraph dnOrder=&quot;2&quot; id=&quot;__ROOTVIEW&quot;&gt;
       &lt;ElementPositions dnOrder=&quot;0&quot;&gt;
-        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;HarmonyCore&quot; x=&quot;697&quot; y=&quot;186&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;0&quot; id=&quot;HarmonyCore&quot; x=&quot;201&quot; y=&quot;111&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;1&quot; id=&quot;a_drv_i2s&quot; x=&quot;452&quot; y=&quot;224&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;2&quot; id=&quot;a_i2s&quot; x=&quot;302&quot; y=&quot;285&quot;/&gt;
-        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;adc1&quot; x=&quot;575&quot; y=&quot;120&quot;/&gt;
+        &lt;ElementPosition dnOrder=&quot;3&quot; id=&quot;adc1&quot; x=&quot;687&quot; y=&quot;169&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;4&quot; id=&quot;cmsis&quot; x=&quot;430&quot; y=&quot;60&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;5&quot; id=&quot;core&quot; x=&quot;349&quot; y=&quot;58&quot;/&gt;
         &lt;ElementPosition dnOrder=&quot;6&quot; id=&quot;dfp&quot; x=&quot;341&quot; y=&quot;20&quot;/&gt;
